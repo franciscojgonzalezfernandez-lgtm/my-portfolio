@@ -1,0 +1,3 @@
+module.exports=[93847,a=>{a.n(a.i(89208))},77876,a=>{a.n(a.i(40371))},86516,a=>{a.n(a.i(66680))},27517,a=>{a.n(a.i(84899))},54762,a=>{a.n(a.i(97389))},68710,a=>{"use strict";var b=a.i(1512),c=a.i(50327),d=a.i(28426);function e(){return(0,b.jsxs)("div",{className:"min-h-screen",children:[(0,b.jsx)(c.Header,{}),(0,b.jsx)("main",{className:"pt-20",children:(0,b.jsx)(d.Portfolio,{})})]})}a.s(["default",()=>e])}];
+
+//# sourceMappingURL=Desktop_React_portfolio-website_8aaa761e._.js.map
