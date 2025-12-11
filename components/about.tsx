@@ -1,11 +1,20 @@
 "use client";
 
+import { AboutMe } from "@/interfaces/aboutMe.interface";
+
 interface AboutProps {
   mode: "professional" | "personal";
   onModeChange: (mode: "professional" | "personal") => void;
+  professional: AboutMe;
+  personal: AboutMe;
 }
 
-export const About = ({ mode, onModeChange }: AboutProps) => {
+export const About = ({
+  mode,
+  onModeChange,
+  personal,
+  professional,
+}: AboutProps) => {
   return (
     <section
       id="about"
