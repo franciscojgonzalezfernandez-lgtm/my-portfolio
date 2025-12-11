@@ -15,6 +15,7 @@ export const About = ({
   personal,
   professional,
 }: AboutProps) => {
+  const actualTopic = mode === "personal" ? personal : professional;
   return (
     <section
       id="about"
@@ -79,236 +80,59 @@ export const About = ({
               mode === "personal" ? "text-background" : "text-foreground"
             }`}
           >
-            {mode === "professional"
-              ? "About Me - Professional"
-              : "About Me - Personal"}
+            {actualTopic.title}
           </h2>
 
-          {mode === "professional" ? (
-            <div className="prose prose-lg mx-auto">
-              <p
-                className={`text-lg leading-relaxed mb-6 ${
-                  mode === "personal"
-                    ? "text-background/80"
-                    : "text-muted-foreground"
-                }`}
-              >
-                I'm a passionate web developer and technical manager focused on
-                creating exceptional digital experiences that combine elegant
-                design with clean and efficient code. With years of experience
-                leading development teams, I bridge the gap between technical
-                excellence and business objectives.
-              </p>
-
-              <p
-                className={`text-lg leading-relaxed mb-6 ${
-                  mode === "personal"
-                    ? "text-background/80"
-                    : "text-muted-foreground"
-                }`}
-              >
-                My expertise spans modern front-end development, cloud
-                architecture, and team leadership. I specialize in React,
-                Next.js, and cutting-edge web technologies, while also managing
-                cross-functional teams to deliver scalable solutions that drive
-                business growth.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-6 mt-12">
-                <div
-                  className={`p-6 rounded-lg ${
+          <div className="prose prose-lg mx-auto">
+            {actualTopic.paragraphs.map((paragraph, index) => {
+              return (
+                <p
+                  key={paragraph.charAt(0) + index}
+                  className={`text-lg leading-relaxed mb-6 ${
                     mode === "personal"
-                      ? "bg-background/20 border border-background/30"
-                      : "bg-card border border-border"
+                      ? "text-background/80"
+                      : "text-muted-foreground"
                   }`}
                 >
-                  <h3
-                    className={`font-semibold mb-2 ${
-                      mode === "personal"
-                        ? "text-background"
-                        : "text-foreground"
-                    }`}
-                  >
-                    Development
-                  </h3>
-                  <p
-                    className={`text-sm ${
-                      mode === "personal"
-                        ? "text-background/70"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    React, Next.js, TypeScript, Node.js, PostgreSQL, MongoDB
-                  </p>
-                </div>
+                  {paragraph}
+                </p>
+              );
+            })}
 
-                <div
-                  className={`p-6 rounded-lg ${
-                    mode === "personal"
-                      ? "bg-background/20 border border-background/30"
-                      : "bg-card border border-border"
-                  }`}
-                >
-                  <h3
-                    className={`font-semibold mb-2 ${
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              {actualTopic.skills.map((skill) => {
+                return (
+                  <div
+                    key={skill.title}
+                    className={`p-6 rounded-lg ${
                       mode === "personal"
-                        ? "text-background"
-                        : "text-foreground"
+                        ? "bg-background/20 border border-background/30"
+                        : "bg-card border border-border"
                     }`}
                   >
-                    Management
-                  </h3>
-                  <p
-                    className={`text-sm ${
-                      mode === "personal"
-                        ? "text-background/70"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    Team Leadership, Agile, Project Planning, Technical Strategy
-                  </p>
-                </div>
-
-                <div
-                  className={`p-6 rounded-lg ${
-                    mode === "personal"
-                      ? "bg-background/20 border border-background/30"
-                      : "bg-card border border-border"
-                  }`}
-                >
-                  <h3
-                    className={`font-semibold mb-2 ${
-                      mode === "personal"
-                        ? "text-background"
-                        : "text-foreground"
-                    }`}
-                  >
-                    Cloud & DevOps
-                  </h3>
-                  <p
-                    className={`text-sm ${
-                      mode === "personal"
-                        ? "text-background/70"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    Google Cloud, AWS, Docker, CI/CD, Microservices
-                  </p>
-                </div>
-              </div>
+                    <h3
+                      className={`font-semibold mb-2 ${
+                        mode === "personal"
+                          ? "text-background"
+                          : "text-foreground"
+                      }`}
+                    >
+                      {skill.title}
+                    </h3>
+                    <p
+                      className={`text-sm ${
+                        mode === "personal"
+                          ? "text-background/70"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {skill.description}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
-          ) : (
-            <div className="prose prose-lg mx-auto">
-              <p
-                className={`text-lg leading-relaxed mb-6 ${
-                  mode === "personal"
-                    ? "text-background/80"
-                    : "text-muted-foreground"
-                }`}
-              >
-                When I'm not coding or leading teams, I'm an avid learner and
-                tech enthusiast. I love exploring new technologies, contributing
-                to open-source projects, and sharing my knowledge through blog
-                posts and YouTube videos.
-              </p>
-
-              <p
-                className={`text-lg leading-relaxed mb-6 ${
-                  mode === "personal"
-                    ? "text-background/80"
-                    : "text-muted-foreground"
-                }`}
-              >
-                Outside of tech, I enjoy photography, hiking, and spending
-                quality time with family and friends. I believe in work-life
-                balance and continuous personal growth, always seeking new
-                challenges that push me out of my comfort zone.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-6 mt-12">
-                <div
-                  className={`p-6 rounded-lg ${
-                    mode === "personal"
-                      ? "bg-background/20 border border-background/30"
-                      : "bg-card border border-border"
-                  }`}
-                >
-                  <h3
-                    className={`font-semibold mb-2 ${
-                      mode === "personal"
-                        ? "text-background"
-                        : "text-foreground"
-                    }`}
-                  >
-                    Hobbies
-                  </h3>
-                  <p
-                    className={`text-sm ${
-                      mode === "personal"
-                        ? "text-background/70"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    Photography, Hiking, Reading, Gaming
-                  </p>
-                </div>
-
-                <div
-                  className={`p-6 rounded-lg ${
-                    mode === "personal"
-                      ? "bg-background/20 border border-background/30"
-                      : "bg-card border border-border"
-                  }`}
-                >
-                  <h3
-                    className={`font-semibold mb-2 ${
-                      mode === "personal"
-                        ? "text-background"
-                        : "text-foreground"
-                    }`}
-                  >
-                    Interests
-                  </h3>
-                  <p
-                    className={`text-sm ${
-                      mode === "personal"
-                        ? "text-background/70"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    AI/ML, Space Exploration, Sustainable Tech, Music
-                  </p>
-                </div>
-
-                <div
-                  className={`p-6 rounded-lg ${
-                    mode === "personal"
-                      ? "bg-background/20 border border-background/30"
-                      : "bg-card border border-border"
-                  }`}
-                >
-                  <h3
-                    className={`font-semibold mb-2 ${
-                      mode === "personal"
-                        ? "text-background"
-                        : "text-foreground"
-                    }`}
-                  >
-                    Values
-                  </h3>
-                  <p
-                    className={`text-sm ${
-                      mode === "personal"
-                        ? "text-background/70"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    Creativity, Empathy, Continuous Learning, Collaboration
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,6 @@
 export interface AboutMe {
   title: string;
-  paragraph1: string;
-  paragraph2: string;
+  paragraphs: string[];
   skills: Skill[];
   videoUrl: string;
   videoPoster: string;
