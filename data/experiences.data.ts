@@ -12,6 +12,7 @@ export const experiences: Experience[] = [
       "Reduced page load times by 40% through optimization",
       "Led migration from legacy system to modern tech stack",
     ],
+    companyLink: "www.google.com",
   },
   {
     role: "Project Manager",
