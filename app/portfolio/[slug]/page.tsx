@@ -1,24 +1,27 @@
-import { notFound } from "next/navigation"
-import { Header } from "@/components/header"
-import { projects } from "@/components/portfolio"
-import { Card } from "@/components/ui/card"
+import { notFound } from "next/navigation";
+import { Header } from "@/components/header";
+import { projects } from "@/data/projects.data";
+import { Card } from "@/components/ui/card";
 
 export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
-  }))
+  }));
 }
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug)
+export default function ProjectDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -46,11 +49,13 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
             <div className="prose prose-lg max-w-none">
               <h2 className="text-3xl font-bold mb-4">About This Project</h2>
-              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">{project.fullDescription}</div>
+              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                {project.fullDescription}
+              </div>
             </div>
           </div>
         </div>
       </main>
     </div>
-  )
+  );
 }
