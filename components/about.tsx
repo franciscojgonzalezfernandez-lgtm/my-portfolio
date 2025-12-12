@@ -69,7 +69,7 @@ export const About = ({
                 controls
                 poster="/professional-video-introduction.jpg"
               >
-                <source src="/intro-video.mp4" type="video/mp4" />
+                <source src={actualTopic.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

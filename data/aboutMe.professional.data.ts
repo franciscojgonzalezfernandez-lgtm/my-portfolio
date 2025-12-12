@@ -19,6 +19,6 @@ export const professional = {
       description: "Google Cloud, AWS, Docker, CI/CD, Microservices",
     },
   ],
-  videoUrl: "",
+  videoUrl: "/CMS-next.mp4",
   videoPoster: "/professional-video-introduction.jpg",
 };

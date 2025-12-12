@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Linkedin, Github, Youtube } from "lucide-react";
+import { Linkedin, Github, Youtube, ArrowLeftIcon } from "lucide-react";
 import { CustomLogo } from "./custom-logo";
+import { CustomBackLink } from "./CustomBackLink";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -31,7 +32,10 @@ export const Header = () => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <CustomLogo />
+          <div className="flex justify-between items-center w-40">
+            <CustomBackLink />
+            <CustomLogo />
+          </div>
 
           <div className="flex items-center gap-8">
             <Link
