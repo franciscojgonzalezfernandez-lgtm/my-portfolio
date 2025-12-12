@@ -8,16 +8,16 @@ export const projects: Project[] = [
     description:
       "Full-featured e-commerce platform with shopping cart and payment gateway integration.",
     images: [
-      "ecommerce-1.png",
-      "ecommerce-admin-1.png",
-      "ecommerce-admin-2.png",
-      "modern-ecommerce-website.png",
+      "/ecommerce-1.png",
+      "/ecommerce-admin-1.png",
+      "/ecommerce-admin-2.png",
+      "/modern-ecommerce-website.png",
     ],
     tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "PostgreSQL"],
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
     
     The backend utilizes PostgreSQL for data management, ensuring fast and reliable performance. The admin panel allows for easy product management, order tracking, and customer analytics.`,
-    videoUrl: "videos/CMS-next.mp4",
+    videoUrl: "/CMS-next.mp4",
     externalUrl:
       "https://franciscojgonzalezfernandez-lgtm.github.io/minimalist-e-commerce/",
     gitHubUrl:
