@@ -8,10 +8,10 @@ export const projects: Project[] = [
     description:
       "Full-featured e-commerce platform with shopping cart and payment gateway integration.",
     images: [
-      "/ecommerce-1.png",
-      "/ecommerce-admin-1.png",
-      "/ecommerce-admin-2.png",
-      "/modern-ecommerce-website.png",
+      "ecommerce-1.png",
+      "ecommerce-admin-1.png",
+      "ecommerce-admin-2.png",
+      "modern-ecommerce-website.png",
     ],
     tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "PostgreSQL"],
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
