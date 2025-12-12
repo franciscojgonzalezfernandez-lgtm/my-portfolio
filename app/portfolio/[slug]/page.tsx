@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { Header } from "@/components/header";
 import { projects } from "@/data/projects.data";
 import { Card } from "@/components/ui/card";
 
@@ -23,7 +22,6 @@ export default async function ProjectDetailPage({
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
