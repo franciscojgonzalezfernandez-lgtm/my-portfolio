@@ -17,7 +17,7 @@ export const projects: Project[] = [
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
     
     The backend utilizes PostgreSQL for data management, ensuring fast and reliable performance. The admin panel allows for easy product management, order tracking, and customer analytics.`,
-    videoUrl: "/CMS-next.mp4",
+    videoUrl: "videos/CMS-next.mp4",
     externalUrl:
       "https://franciscojgonzalezfernandez-lgtm.github.io/minimalist-e-commerce/",
     gitHubUrl:

@@ -51,7 +51,7 @@ export const Hero = () => {
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-accent shadow-2xl">
                   <img
-                    src="/developer-coding-at-computer--professional-headsho.jpg"
+                    src="developer-coding-at-computer--professional-headsho.jpg"
                     alt="Developer"
                     className="w-full h-full object-cover"
                   />
@@ -76,7 +76,7 @@ export const Hero = () => {
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
                   <img
-                    src="/professional-manager-in-business-setting.jpg"
+                    src="professional-manager-in-business-setting.jpg"
                     alt="Manager"
                     className="w-full h-full object-cover"
                   />

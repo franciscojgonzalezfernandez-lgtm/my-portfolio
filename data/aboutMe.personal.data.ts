@@ -19,6 +19,6 @@ export const personal = {
       description: "Creativity, Empathy, Continuous Learning, Personal Growth",
     },
   ],
-  videoUrl: "/CMS-next.mp4",
+  videoUrl: "videos/CMS-next.mp4",
   videoPoster: "/professional-video-introduction.jpg",
 };
