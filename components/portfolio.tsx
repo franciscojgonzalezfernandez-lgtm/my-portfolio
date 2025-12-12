@@ -37,8 +37,8 @@ export function Portfolio({ projects }: PortfolioProps) {
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIndex) => (
                       <span
-                        key={tagIndex}
-                        className="px-3 py-1 bg-background border border-foreground text-foreground text-xs rounded-full font-semibold"
+                        key={tag}
+                        className="px-4 py-2 bg-foreground text-background text-sm rounded-full font-semibold"
                       >
                         {tag}
                       </span>

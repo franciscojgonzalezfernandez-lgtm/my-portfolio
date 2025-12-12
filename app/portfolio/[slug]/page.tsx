@@ -26,21 +26,22 @@ export default async function ProjectDetailPage({
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl font-bold mb-8">{project.title}</h1>
-
-            <Card className="overflow-hidden mb-8">
-              <div className="relative w-full aspect-video bg-muted">
-                <video
-                  src={project.videoUrl || "/placeholder.svg"}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </Card>
+            {project.videoUrl && (
+              <Card className="overflow-hidden mb-8">
+                <div className="relative w-full aspect-video bg-muted">
+                  <video
+                    src={project.videoUrl || "/placeholder.svg"}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </Card>
+            )}
 
             <div className="prose prose-lg max-w-none mb-8">
               <h2 className="text-3xl font-bold mb-4">About This Project</h2>

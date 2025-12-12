@@ -9,7 +9,7 @@ export const projects = [
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
     
     The backend utilizes PostgreSQL for data management, ensuring fast and reliable performance. The admin panel allows for easy product management, order tracking, and customer analytics.`,
-    videoUrl: "/ecommerce-platform-demo-video.jpg",
+    videoUrl: "/CMS-next.mp4",
   },
   {
     slug: "analytics-dashboard",
