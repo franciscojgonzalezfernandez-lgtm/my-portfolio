@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects.data";
 import { Card } from "@/components/ui/card";
 import { CustomPhotoGallery } from "@/components/CustomPhotoGallery";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ExternalLink, Github } from "lucide-react";
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -26,10 +29,10 @@ export default async function ProjectDetailPage({
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6">
           <div className="mx-auto">
-            <h1 className="text-5xl font-bold mb-8">{project.title}</h1>
+            <h1 className="text-5xl font-bold mb-8 mx-auto">{project.title}</h1>
             {project.videoUrl && (
-              <Card className="overflow-hidden mb-8">
-                <div className="relative w-full aspect-video bg-muted">
+              <Card className="overflow-hidden mb-8 w-[80%] mx-auto">
+                <div className="relative aspect-video bg-muted">
                   <video
                     src={project.videoUrl || "/placeholder.svg"}
                     autoPlay
@@ -45,7 +48,7 @@ export default async function ProjectDetailPage({
               </Card>
             )}
 
-            <div className="tags pb-4 gap-2 flex">
+            <div className="tags my-8 gap-2 flex">
               {project.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -63,12 +66,34 @@ export default async function ProjectDetailPage({
                   images={project.images}
                   itemName="Project"
                 />
-                <div>
+                <div className="flex flex-col gap-4">
                   <div className="flex flex-wrap gap-2 mb-4">
                     <div className="text-muted-foreground leading-relaxed whitespace-pre-line mb-4">
                       {project.fullDescription}
                     </div>
                   </div>
+                  {project.externalUrl && (
+                    <Link href={project.externalUrl} target="blank_">
+                      <Button
+                        variant="default"
+                        className="w-full text-sm py-2 cursor-pointer"
+                      >
+                        {" "}
+                        Try it yourself!
+                        <ExternalLink />
+                      </Button>
+                    </Link>
+                  )}
+                  {project.gitHubUrl && (
+                    <Link
+                      href={project.gitHubUrl}
+                      target="blank_"
+                      className="flex gap-2 justify-end"
+                    >
+                      {" "}
+                      Check out in GitHub <Github />{" "}
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

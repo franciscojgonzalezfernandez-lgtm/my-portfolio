@@ -4,6 +4,7 @@ export const projects: Project[] = [
   {
     slug: "ecommerce-platform",
     title: "E-commerce Platform",
+    projectType: "Side Project",
     description:
       "Full-featured e-commerce platform with shopping cart and payment gateway integration.",
     images: [
@@ -17,10 +18,15 @@ export const projects: Project[] = [
     
     The backend utilizes PostgreSQL for data management, ensuring fast and reliable performance. The admin panel allows for easy product management, order tracking, and customer analytics.`,
     videoUrl: "/CMS-next.mp4",
+    externalUrl:
+      "https://franciscojgonzalezfernandez-lgtm.github.io/minimalist-e-commerce/",
+    gitHubUrl:
+      "https://github.com/franciscojgonzalezfernandez-lgtm/minimalist-e-commerce",
   },
   {
     slug: "analytics-dashboard",
     title: "Analytics Dashboard",
+    projectType: "Professional",
     description:
       "Interactive dashboard for data visualization and real-time analytics.",
     images: ["/analytics-dashboard.png"],
@@ -33,6 +39,7 @@ export const projects: Project[] = [
   {
     slug: "creative-portfolio",
     title: "Creative Portfolio",
+    projectType: "Professional",
     description:
       "Portfolio website with smooth animations and minimalist design.",
     images: ["/minimalist-portfolio.png"],
@@ -45,6 +52,7 @@ export const projects: Project[] = [
   {
     slug: "mobile-app",
     title: "Mobile App",
+    projectType: "Side Project",
     description:
       "Responsive mobile application for task management and productivity.",
     images: ["/mobile-task-management-app.png"],

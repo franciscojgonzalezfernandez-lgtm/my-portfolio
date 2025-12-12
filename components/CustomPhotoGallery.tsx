@@ -9,9 +9,9 @@ interface Props {
 export const CustomPhotoGallery = ({ images, itemName }: Props) => {
   const [selectedImage, setSelectedImage] = useState(0);
   return (
-    <div>
+    <div className="gap-4 grid">
       {/* Main image */}
-      <div className="aspect-2x1 bg-gray-50 rounded-lg overflow-hidden">
+      <div className="aspect-2x1 bg-gray-50 rounded-lg overflow-hidden border-2">
         <img
           src={images[selectedImage] || "/placeholder.svg"}
           alt={itemName}
