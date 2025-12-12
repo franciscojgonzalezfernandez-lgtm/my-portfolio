@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects.data";
 import { Card } from "@/components/ui/card";
+import { CustomPhotoGallery } from "@/components/CustomPhotoGallery";
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -24,7 +25,7 @@ export default async function ProjectDetailPage({
     <div className="min-h-screen bg-background">
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto">
             <h1 className="text-5xl font-bold mb-8">{project.title}</h1>
             {project.videoUrl && (
               <Card className="overflow-hidden mb-8">
@@ -36,7 +37,7 @@ export default async function ProjectDetailPage({
                     muted
                     playsInline
                     controls
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fill"
                   >
                     Your browser does not support the video tag.
                   </video>
@@ -44,14 +45,7 @@ export default async function ProjectDetailPage({
               </Card>
             )}
 
-            <div className="prose prose-lg max-w-none mb-8">
-              <h2 className="text-3xl font-bold mb-4">About This Project</h2>
-              <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
-                {project.fullDescription}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
+            <div className="tags pb-4 gap-2 flex">
               {project.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -60,6 +54,23 @@ export default async function ProjectDetailPage({
                   {tag}
                 </span>
               ))}
+            </div>
+
+            <div className="prose prose-lg max-w-none mb-8">
+              <h2 className="text-3xl font-bold mb-4">About This Project</h2>
+              <div className="grid grid-cols-2 gap-4">
+                <CustomPhotoGallery
+                  images={project.images}
+                  itemName="Project"
+                />
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="text-muted-foreground leading-relaxed whitespace-pre-line mb-4">
+                      {project.fullDescription}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

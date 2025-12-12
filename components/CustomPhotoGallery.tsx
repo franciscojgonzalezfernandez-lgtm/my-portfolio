@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 interface Props {
@@ -8,9 +9,9 @@ interface Props {
 export const CustomPhotoGallery = ({ images, itemName }: Props) => {
   const [selectedImage, setSelectedImage] = useState(0);
   return (
-    <>
+    <div>
       {/* Main image */}
-      <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden">
+      <div className="aspect-2x1 bg-gray-50 rounded-lg overflow-hidden">
         <img
           src={images[selectedImage] || "/placeholder.svg"}
           alt={itemName}
@@ -37,6 +38,6 @@ export const CustomPhotoGallery = ({ images, itemName }: Props) => {
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 };
