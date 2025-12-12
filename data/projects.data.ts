@@ -1,10 +1,17 @@
-export const projects = [
+import { Project } from "@/interfaces/project.interface";
+
+export const projects: Project[] = [
   {
     slug: "ecommerce-platform",
     title: "E-commerce Platform",
     description:
       "Full-featured e-commerce platform with shopping cart and payment gateway integration.",
-    image: "/modern-ecommerce-website.png",
+    images: [
+      "ecommerce-1.png",
+      "ecommerce-admin-1.png",
+      "ecommerce-admin-2.png",
+      "/modern-ecommerce-website.png",
+    ],
     tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "PostgreSQL"],
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
     
@@ -16,7 +23,7 @@ export const projects = [
     title: "Analytics Dashboard",
     description:
       "Interactive dashboard for data visualization and real-time analytics.",
-    image: "/analytics-dashboard.png",
+    images: ["/analytics-dashboard.png"],
     tags: ["React", "Chart.js", "D3.js", "Node.js", "MongoDB"],
     fullDescription: `A powerful analytics dashboard that provides real-time insights into business metrics. Built with React and powered by Chart.js and D3.js for stunning data visualizations.
     
@@ -28,7 +35,7 @@ export const projects = [
     title: "Creative Portfolio",
     description:
       "Portfolio website with smooth animations and minimalist design.",
-    image: "/minimalist-portfolio.png",
+    images: ["/minimalist-portfolio.png"],
     tags: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
     fullDescription: `A stunning portfolio website showcasing creative work with smooth, buttery animations powered by Framer Motion. The minimalist design puts the focus on the content while maintaining visual interest.
     
@@ -40,7 +47,7 @@ export const projects = [
     title: "Mobile App",
     description:
       "Responsive mobile application for task management and productivity.",
-    image: "/mobile-task-management-app.png",
+    images: ["/mobile-task-management-app.png"],
     tags: ["React Native", "Firebase", "Redux", "UI/UX"],
     fullDescription: `A cross-platform mobile application designed for task management and productivity enhancement. Built with React Native for both iOS and Android platforms.
     

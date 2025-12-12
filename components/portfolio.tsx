@@ -22,7 +22,7 @@ export function Portfolio({ projects }: PortfolioProps) {
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group cursor-pointer h-full">
                 <div className="relative h-64 overflow-hidden">
                   <img
-                    src={project.image || "/placeholder.svg"}
+                    src={project.images[0] || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />

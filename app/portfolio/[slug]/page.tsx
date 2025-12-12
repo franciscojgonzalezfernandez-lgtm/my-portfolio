@@ -35,6 +35,7 @@ export default async function ProjectDetailPage({
                     loop
                     muted
                     playsInline
+                    controls
                     className="w-full h-full object-cover"
                   >
                     Your browser does not support the video tag.

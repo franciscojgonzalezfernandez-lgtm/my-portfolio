@@ -2,7 +2,7 @@ export interface Project {
   slug: string;
   title: string;
   description: string;
-  image: string;
+  images: string[];
   tags: string[];
   fullDescription: string;
   videoUrl: string;
