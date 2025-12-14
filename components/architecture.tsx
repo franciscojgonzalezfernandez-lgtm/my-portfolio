@@ -3,6 +3,7 @@
 import type { Architecture } from "@/interfaces/architecture.interface";
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/card";
+import { CustomImage } from "./high-order-components/CustomImage";
 
 interface ArchitecturesProps {
   architectures: Architecture[];
@@ -28,7 +29,7 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
       <div className="relative">
         <Card className="overflow-hidden">
           <div className="relative h-96 bg-muted">
-            <img
+            <CustomImage
               src={
                 architectures[currentArchitecture].image || "/placeholder.svg"
               }

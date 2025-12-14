@@ -3,6 +3,7 @@
 import type React from "react";
 
 import { useState } from "react";
+import { CustomImage } from "./high-order-components/CustomImage";
 
 export const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
@@ -50,7 +51,7 @@ export const Hero = () => {
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-accent shadow-2xl">
-                  <img
+                  <CustomImage
                     src="developer-coding-at-computer--professional-headsho.jpg"
                     alt="Developer"
                     className="w-full h-full object-cover"
@@ -75,7 +76,7 @@ export const Hero = () => {
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
-                  <img
+                  <CustomImage
                     src="professional-manager-in-business-setting.jpg"
                     alt="Manager"
                     className="w-full h-full object-cover"

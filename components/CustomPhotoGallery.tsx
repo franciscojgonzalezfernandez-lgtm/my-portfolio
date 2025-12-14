@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { CustomImage } from "./high-order-components/CustomImage";
 
 interface Props {
   images: string[];
@@ -12,7 +13,7 @@ export const CustomPhotoGallery = ({ images, itemName }: Props) => {
     <div className="gap-4 grid">
       {/* Main image */}
       <div className="aspect-2x1 bg-gray-50 rounded-lg overflow-hidden border-2">
-        <img
+        <CustomImage
           src={images[selectedImage] || "/placeholder.svg"}
           alt={itemName}
           className="w-full h-full object-cover"
@@ -30,7 +31,7 @@ export const CustomPhotoGallery = ({ images, itemName }: Props) => {
                 : "border-transparent hover:border-gray-300"
             }`}
           >
-            <img
+            <CustomImage
               src={image}
               alt={`${itemName} view ${index + 1}`}
               className="w-full h-full object-cover"

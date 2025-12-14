@@ -5,6 +5,7 @@ import { CustomPhotoGallery } from "@/components/CustomPhotoGallery";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ExternalLink, Github } from "lucide-react";
+import { CustomVideo } from "@/components/high-order-components/CustomVideo";
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -33,7 +34,7 @@ export default async function ProjectDetailPage({
             {project.videoUrl && (
               <Card className="overflow-hidden mb-8 w-[80%] mx-auto">
                 <div className="relative aspect-video bg-muted">
-                  <video
+                  <CustomVideo
                     src={project.videoUrl || "/placeholder.svg"}
                     autoPlay
                     loop
@@ -43,7 +44,7 @@ export default async function ProjectDetailPage({
                     className="w-full h-full object-fill"
                   >
                     Your browser does not support the video tag.
-                  </video>
+                  </CustomVideo>
                 </div>
               </Card>
             )}

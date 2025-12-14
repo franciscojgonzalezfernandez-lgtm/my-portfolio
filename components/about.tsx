@@ -1,6 +1,7 @@
 "use client";
 
 import { AboutMe } from "@/interfaces/aboutMe.interface";
+import { CustomVideo } from "./high-order-components/CustomVideo";
 
 interface AboutProps {
   mode: "professional" | "personal";
@@ -64,14 +65,15 @@ export const About = ({
 
           <div className="mb-12 rounded-lg overflow-hidden">
             <div className="relative aspect-video bg-muted/50">
-              <video
+              <CustomVideo
                 className="w-full h-full object-cover"
                 controls
-                poster="/professional-video-introduction.jpg"
+                poster={actualTopic.videoPoster}
+                src={actualTopic.videoUrl}
               >
                 <source src={actualTopic.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
-              </video>
+              </CustomVideo>
             </div>
           </div>
 

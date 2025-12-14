@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Project } from "@/interfaces/project.interface";
+import { CustomImage } from "./high-order-components/CustomImage";
 
 interface PortfolioProps {
   projects: Project[];
@@ -21,7 +22,7 @@ export function Portfolio({ projects }: PortfolioProps) {
             <Link key={index} href={`/portfolio/${project.slug}`}>
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group cursor-pointer h-full">
                 <div className="relative h-64 overflow-hidden">
-                  <img
+                  <CustomImage
                     src={project.images[0] || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
