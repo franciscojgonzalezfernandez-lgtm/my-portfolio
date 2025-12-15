@@ -10,13 +10,13 @@ interface Props {
 export const CustomPhotoGallery = ({ images, itemName }: Props) => {
   const [selectedImage, setSelectedImage] = useState(0);
   return (
-    <div className="gap-4 grid">
+    <div className="gap-4 flex flex-col">
       {/* Main image */}
       <div className="aspect-2x1 bg-gray-50 rounded-lg overflow-hidden border-2">
         <CustomImage
           src={images[selectedImage] || "/placeholder.svg"}
           alt={itemName}
-          className="w-full h-full object-cover"
+          className="w-full object-cover"
         />
       </div>
       {/* Thumbnail images */}

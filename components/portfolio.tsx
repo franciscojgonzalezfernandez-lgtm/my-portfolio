@@ -39,7 +39,7 @@ export function Portfolio({ projects }: PortfolioProps) {
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tag}
-                        className="px-4 py-2 bg-foreground text-background text-sm rounded-full font-semibold"
+                        className="px-4 py-2 bg-gray-500 text-background text-sm rounded-full font-semibold"
                       >
                         {tag}
                       </span>

@@ -118,7 +118,7 @@ export const Footer = () => {
       {/* Scroll to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 bg-accent text-accent-foreground rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl ${
+        className={`cursor-pointer fixed bottom-8 right-8 bg-accent text-accent-foreground rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl ${
           showScrollTop
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-16 pointer-events-none"

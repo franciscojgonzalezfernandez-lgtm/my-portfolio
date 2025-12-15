@@ -49,11 +49,11 @@ export default async function ProjectDetailPage({
               </Card>
             )}
 
-            <div className="tags my-8 gap-2 flex">
+            <div className="tags my-8 gap-2 flex flex-wrap">
               {project.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-foreground text-background text-sm rounded-full font-semibold"
+                  className="px-4 py-2 bg-foreground text-background text-sm rounded-full font-semibold whitespace-nowrap"
                 >
                   {tag}
                 </span>
