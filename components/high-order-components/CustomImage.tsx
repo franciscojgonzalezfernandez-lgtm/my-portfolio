@@ -5,10 +5,30 @@ interface CustomImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
 }
 
+const generateMobileRoute = (route: string) => {
+  try {
+    const result = route.split(".");
+    result[0] = result[0].concat("-mobile");
+    return result.join(".");
+  } catch (err) {
+    console.error(err);
+    return route;
+  }
+};
+
 export function CustomImage({ src, ...props }: CustomImageProps) {
   const finalSrc = src.startsWith("http")
     ? src
     : `${BASE_PATH}${src.startsWith("/") ? src : `/${src}`}`;
 
-  return <img src={finalSrc} {...props} />;
+  return (
+    <picture>
+      <source
+        srcSet={generateMobileRoute(finalSrc)}
+        media="(max-width: 640px)"
+      />
+      <source srcSet={finalSrc} media="(max-width: 1024px)" />
+      <img src={finalSrc} {...props} />
+    </picture>
+  );
 }
