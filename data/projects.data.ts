@@ -49,7 +49,7 @@ By using an access key to the catalog APIs shown in the architecture diagram, we
   },
   {
     slug: "call-tracking-system",
-    title: "Call tracking system",
+    title: "Call Tracking System",
     projectType: "Professional",
     description:
       "Full‑stack development of a lead generation system based on call routing and call traceability.",

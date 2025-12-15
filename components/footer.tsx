@@ -45,7 +45,7 @@ export const Footer = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              about me
+              About me
             </Link>
             <Link
               href="/experience"
@@ -55,7 +55,7 @@ export const Footer = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              experience
+              Experience
             </Link>
             <Link
               href="/portfolio"
@@ -65,7 +65,7 @@ export const Footer = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              portfolio
+              Portfolio
             </Link>
             <Link
               href="/contact"
@@ -75,7 +75,7 @@ export const Footer = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              contact
+              Contact
             </Link>
           </nav>
 

@@ -46,7 +46,7 @@ export const Header = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              about me
+              About me
             </Link>
             <Link
               href="/experience"
@@ -56,7 +56,7 @@ export const Header = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              experience
+              Experience
             </Link>
             <Link
               href="/portfolio"
@@ -66,7 +66,7 @@ export const Header = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              portfolio
+              Portfolio
             </Link>
             <Link
               href="/contact"
@@ -76,7 +76,7 @@ export const Header = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              contact
+              Contact
             </Link>
 
             <div className="flex items-center gap-4 ml-4 border-l border-border pl-4">
