@@ -24,24 +24,48 @@ export const projects: Project[] = [
       "https://github.com/franciscojgonzalezfernandez-lgtm/minimalist-e-commerce",
   },
   {
-    slug: "analytics-dashboard",
-    title: "Analytics Dashboard",
+    slug: "whole-cms-next",
+    title: "CMS based in Next",
     projectType: "Professional",
     description:
-      "Interactive dashboard for data visualization and real-time analytics.",
+      "Next.js applications with built-in database editing capabilities in controlled environments (staging).",
     images: ["/analytics-dashboard.png"],
-    tags: ["React", "Chart.js", "D3.js", "Node.js", "MongoDB"],
+    tags: [
+      "React",
+      "Next14",
+      "GCP",
+      "Node.js",
+      "Terraform",
+      "CI/CD",
+      "Artifact Registry",
+      "NPM",
+      "Webpack",
+    ],
     fullDescription: `A powerful analytics dashboard that provides real-time insights into business metrics. Built with React and powered by Chart.js and D3.js for stunning data visualizations.
     
-    The dashboard connects to MongoDB for fast data retrieval and includes customizable widgets, exportable reports, and role-based access control.`,
-    videoUrl: "/analytics-dashboard-demo-video.jpg",
+    The dashboard connects to MongoDB for fast data retrieval and includes customizable widgets, exportable reports, and role-based access control.
+    Built with Next.js for optimal performance and deployed on Vercel for instant global delivery. Features include dynamic routing, optimized images, and SEO-friendly structure.`,
+    videoUrl: "/CMS-next.mp4",
   },
   {
-    slug: "creative-portfolio",
-    title: "Creative Portfolio",
+    slug: "my-web-portfolio",
+    title: "My web portfolio",
+    projectType: "Side Project",
+    description:
+      "The full integration of Adobe’s CMS across the entire Telefónica environment.",
+    images: ["/minimalist-portfolio.png"],
+    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
+    fullDescription: `A stunning portfolio website showcasing creative work with smooth, buttery animations powered by Framer Motion. The minimalist design puts the focus on the content while maintaining visual interest.
+    
+    Built with Next.js for optimal performance and deployed on Vercel for instant global delivery. Features include dynamic routing, optimized images, and SEO-friendly structure.`,
+    videoUrl: "/portfolio-website-demo-video.jpg",
+  },
+  {
+    slug: "adobe-experience-manager-integration",
+    title: "Adobe Experience Manager Integration",
     projectType: "Professional",
     description:
-      "Portfolio website with smooth animations and minimalist design.",
+      "The full integration of Adobe’s CMS across the entire Telefónica environment.",
     images: ["/minimalist-portfolio.png"],
     tags: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
     fullDescription: `A stunning portfolio website showcasing creative work with smooth, buttery animations powered by Framer Motion. The minimalist design puts the focus on the content while maintaining visual interest.
