@@ -11,4 +11,5 @@ export interface Project {
   externalUrl?: string;
   gitHubUrl?: string;
   projectType: ProjectType;
+  releaseDate: string;
 }

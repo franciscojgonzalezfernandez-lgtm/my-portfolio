@@ -133,6 +133,8 @@ export const About = ({
                   </div>
                 );
               })}
+
+              {mode === "professional" && <h1>CERTIFICATIONS & OTHERS</h1>}
             </div>
           </div>
         </div>
