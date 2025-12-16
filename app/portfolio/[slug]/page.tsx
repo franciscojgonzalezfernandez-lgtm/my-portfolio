@@ -36,9 +36,7 @@ export default async function ProjectDetailPage({
                 <div className="relative aspect-video bg-muted">
                   <CustomVideo
                     src={project.videoUrl || "/placeholder.svg"}
-                    autoPlay
                     loop
-                    muted
                     playsInline
                     controls
                     className="w-full h-full object-fill"
