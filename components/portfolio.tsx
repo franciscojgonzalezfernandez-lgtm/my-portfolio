@@ -7,6 +7,25 @@ interface PortfolioProps {
   projects: Project[];
 }
 
+function formatDate(date: string) {
+  const partes = date.match(/(\d{1,2})-(\d{1,2})-(\d{4})/);
+  if (!partes) return "Formato inválido (esperado: DD-MM-YYYY)";
+
+  const [, dia, mes, año] = partes;
+  const fecha = new Date(
+    `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`
+  );
+
+  if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || isNaN(fecha.getTime())) {
+    return "Fecha inválida";
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  }).format(fecha);
+}
+
 export function Portfolio({ projects }: PortfolioProps) {
   return (
     <section id="portfolio" className="py-24 bg-background">
@@ -22,11 +41,23 @@ export function Portfolio({ projects }: PortfolioProps) {
             <Link key={index} href={`/portfolio/${project.slug}`}>
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group cursor-pointer h-full">
                 <div className="relative h-64 overflow-hidden">
+                  <span
+                    className={`absolute top-0 left-0 z-10 px-3 py-1 text-xs font-semibold rounded ${
+                      project.projectType === "Professional"
+                        ? "bg-gray-600 text-white"
+                        : "bg-white text-black"
+                    }`}
+                  >
+                    {project.projectType}
+                  </span>
                   <CustomImage
                     src={project.images[0] || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  <span className="absolute bottom-3 right-3 px-2 py-1 bg-background/90 backdrop-blur-sm text-foreground text-xs font-medium rounded">
+                    {formatDate(project.releaseDate)}
+                  </span>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2">

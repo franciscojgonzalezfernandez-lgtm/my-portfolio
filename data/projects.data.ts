@@ -11,7 +11,6 @@ export const projects: Project[] = [
       "/ecommerce-1.png",
       "/ecommerce-admin-1.png",
       "/ecommerce-admin-2.png",
-      "/modern-ecommerce-website.png",
     ],
     tags: [
       "React",
@@ -23,6 +22,9 @@ export const projects: Project[] = [
       "CI/CD",
       "GitHub Actions",
       "Zustand",
+      "AI UI Generators",
+      "V0",
+      "Lovable",
     ],
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
     
@@ -125,6 +127,27 @@ It is still running in production.`,
     Built with Next.js for optimal performance and deployed on Vercel for instant global delivery. Features include dynamic routing, optimized images, and SEO-friendly structure.`,
     videoUrl: "/portfolio-website-demo-video.jpg",
     releaseDate: "06-05-2022",
+  },
+  {
+    slug: "this-portfolio",
+    title: "Optimized Portfolio Website",
+    projectType: "Side Project",
+    description: "This portfolio itself. The one you're watching right now",
+    images: ["/portfolio-cover.webp"],
+    tags: [
+      "NextJS",
+      "AI UI Generators",
+      "V0",
+      "CI/CD",
+      "Github Actions",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+    fullDescription: `A stunning portfolio website showcasing creative work with smooth, buttery animations powered by Framer Motion. The minimalist design puts the focus on the content while maintaining visual interest.
+    
+    Built with Next.js for optimal performance and deployed on Vercel for instant global delivery. Features include dynamic routing, optimized images, and SEO-friendly structure.`,
+    videoUrl: "/portfolio-website-demo-video.jpg",
+    releaseDate: "15-08-2019",
   },
   {
     slug: "automatic-trading-algorighm",
