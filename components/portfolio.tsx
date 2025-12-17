@@ -47,13 +47,7 @@ export function Portfolio({ projects }: PortfolioProps) {
             <Link key={index} href={`/portfolio/${project.slug}`}>
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group cursor-pointer h-full">
                 <div className="relative h-64 overflow-hidden">
-                  <span
-                    className={`absolute top-0 left-0 z-10 px-3 py-1 text-xs font-semibold rounded ${
-                      project.projectType === "Professional"
-                        ? "bg-gray-600 text-white"
-                        : "bg-white text-black"
-                    }`}
-                  >
+                  <span className="absolute top-0 left-0 z-10 px-3 py-1 text-xs font-semibold rounded bg-gray-600 text-white">
                     {project.projectType}
                   </span>
                   <CustomImage

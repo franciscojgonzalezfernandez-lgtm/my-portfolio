@@ -199,7 +199,7 @@ export function Metrics() {
         </section>
 
         {/* Lighthouse Screenshot */}
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <div className="max-w-4xl mx-auto">
             <div className="bg-card border border-border rounded-xl overflow-hidden shadow-xl">
               <div className="bg-muted px-4 py-3 border-b border-border flex items-center gap-2">
@@ -249,7 +249,7 @@ export function Metrics() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Commitment Section */}
         <section className="max-w-3xl mx-auto text-center">
