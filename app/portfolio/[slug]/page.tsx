@@ -32,7 +32,7 @@ export default async function ProjectDetailPage({
           <div className="mx-auto">
             <h1 className="text-5xl font-bold mb-8 mx-auto">{project.title}</h1>
             {project.videoUrl && (
-              <Card className="overflow-hidden mb-8 w-[80%] mx-auto">
+              <Card className="overflow-hidden mb-8 w-full mx-auto">
                 <div className="relative aspect-video bg-muted">
                   <CustomVideo
                     src={project.videoUrl || "/placeholder.svg"}
