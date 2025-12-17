@@ -16,7 +16,13 @@ function formatDate(date: string) {
     `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`
   );
 
-  if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || isNaN(fecha.getTime())) {
+  if (
+    Number(dia) < 1 ||
+    Number(dia) > 31 ||
+    Number(mes) < 1 ||
+    Number(mes) > 12 ||
+    isNaN(fecha.getTime())
+  ) {
     return "Fecha inválida";
   }
 
