@@ -23,10 +23,10 @@ export function CustomImage({ src, ...props }: CustomImageProps) {
 
   return (
     <picture>
-      <source
+      {/* TO DO <source
         srcSet={generateMobileRoute(finalSrc)}
         media="(max-width: 640px)"
-      />
+      /> */}
       <source srcSet={finalSrc} media="(max-width: 1024px)" />
       <img src={finalSrc} {...props} />
     </picture>

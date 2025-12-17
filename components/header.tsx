@@ -1,19 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Linkedin, Github, Youtube, ArrowLeftIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
+import { Linkedin, Github, Youtube } from "lucide-react";
 import { CustomLogo } from "./custom-logo";
 import { CustomBackLink } from "./CustomBackLink";
+
+const TABS = [
+  { href: "/about", label: "About me" },
+  { href: "/experience", label: "Experience" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/contact", label: "Contact" },
+] as const;
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  const tabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 25);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -21,6 +30,18 @@ export const Header = () => {
   }, []);
 
   const isActive = (path: string) => pathname === path;
+
+  // Auto-scroll al tab activo (especialmente útil en mobile)
+  useEffect(() => {
+    const activeTab = tabRefs.current[pathname ?? ""];
+    if (!activeTab) return;
+
+    activeTab.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [pathname]);
 
   return (
     <header
@@ -31,55 +52,34 @@ export const Header = () => {
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between overflow-x-hidden">
           <div className="flex justify-between items-center w-40">
             <CustomBackLink />
             <CustomLogo />
           </div>
 
-          <div className="flex items-center gap-8">
-            <Link
-              href="/about"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/about")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              About me
-            </Link>
-            <Link
-              href="/experience"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/experience")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Experience
-            </Link>
-            <Link
-              href="/portfolio"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/portfolio")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/contact"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/contact")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Contact
-            </Link>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-8 overflow-x-auto scrollbar-none sm:overflow-visible">
+              {TABS.map((tab) => (
+                <Link
+                  key={tab.href}
+                  href={tab.href}
+                  ref={(el) => {
+                    tabRefs.current[tab.href] = el;
+                  }}
+                  className={`whitespace-nowrap text-sm font-medium transition-colors ${
+                    isActive(tab.href)
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {tab.label}
+                </Link>
+              ))}
+            </div>
 
-            <div className="flex items-center gap-4 ml-4 border-l border-border pl-4">
+            {/* ICONOS SOCIALES */}
+            <div className="hidden sm:flex items-center gap-4 ml-4 border-l border-border pl-4">
               <a
                 href="https://linkedin.com"
                 target="_blank"
