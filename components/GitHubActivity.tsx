@@ -2,9 +2,8 @@ import { CustomImage } from "./high-order-components/CustomImage";
 
 export const GitHubActivity = () => {
   return (
-    <section className="container mx-auto rounded-xl border bg-card/50 p-4 sm:p-6">
+    <section className="container mx-auto rounded-xl border bg-muted/30 p-4 sm:p-6">
       <div className="grid gap-6 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1.8fr)] items-start">
-        {/* Columna texto */}
         <div className="space-y-3">
           <h2 className="text-lg sm:text-2xl font-semibold tracking-tight">
             GitHub activity

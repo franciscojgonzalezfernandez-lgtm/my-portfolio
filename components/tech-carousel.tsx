@@ -7,7 +7,7 @@ const technologies = [
   { name: "Next.js", size: "text-6xl", color: "text-foreground" },
   { name: "Java", size: "text-5xl", color: "text-[#ED8B00]" },
   { name: "PostgreSQL", size: "text-3xl", color: "text-[#336791]" },
-  { name: "MongoDB", size: "text-5xl", color: "text-[#47A248]" },
+  { name: "Python", size: "text-5xl", color: "text-[#47A248]" },
   { name: "Google Cloud", size: "text-4xl", color: "text-[#4285F4]" },
   { name: "TypeScript", size: "text-6xl", color: "text-[#3178C6]" },
   { name: "Node.js", size: "text-5xl", color: "text-[#339933]" },
