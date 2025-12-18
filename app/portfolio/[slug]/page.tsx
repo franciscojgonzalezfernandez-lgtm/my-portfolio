@@ -60,7 +60,7 @@ export default async function ProjectDetailPage({
 
             <div className="prose prose-lg max-w-none mb-8">
               <h2 className="text-3xl font-bold mb-4">About This Project</h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <CustomPhotoGallery
                   images={project.images}
                   itemName="Project"
