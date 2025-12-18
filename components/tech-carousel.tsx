@@ -12,9 +12,9 @@ const technologies = [
   { name: "TypeScript", size: "text-6xl", color: "text-[#3178C6]" },
   { name: "Node.js", size: "text-5xl", color: "text-[#339933]" },
   { name: "Docker", size: "text-4xl", color: "text-[#2496ED]" },
-  { name: "Kubernetes", size: "text-3xl", color: "text-[#326CE5]" },
-  { name: "AWS", size: "text-5xl", color: "text-[#FF9900]" },
-  { name: "GraphQL", size: "text-4xl", color: "text-[#E10098]" },
+  { name: "Vercel", size: "text-3xl", color: "text-[#326CE5]" },
+  { name: "Figma", size: "text-5xl", color: "text-[#FF9900]" },
+  { name: "React-Query", size: "text-4xl", color: "text-[#E10098]" },
 ];
 
 export function TechCarousel() {

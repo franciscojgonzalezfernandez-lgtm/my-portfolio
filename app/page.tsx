@@ -1,15 +1,16 @@
-import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
-import { TechCarousel } from "@/components/tech-carousel"
+import { GitHubActivity } from "@/components/GitHubActivity";
+import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
+import { TechCarousel } from "@/components/tech-carousel";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <div className="min-h-screen pb-8">
       <main>
         <Hero />
         <TechCarousel />
+        <GitHubActivity />
       </main>
     </div>
-  )
+  );
 }

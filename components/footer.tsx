@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUp, Linkedin, Github, Youtube } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import { CustomLogo } from "./custom-logo";
 import { CustomNetworks } from "./CustomNetworks";

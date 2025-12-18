@@ -8,16 +8,16 @@ export const CustomNetworks = ({ className }: NetworkProps) => {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/fjgonzalezfernandez/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-muted-foreground hover:text-foreground transition-colors"
-        aria-label="LinkedIn"
+        aria-label="LinkedIn Profile"
       >
         <Linkedin className="w-5 h-5" />
       </a>
       <a
-        href="https://github.com"
+        href="https://github.com/franciscojgonzalezfernandez-lgtm"
         target="_blank"
         rel="noopener noreferrer"
         className="text-muted-foreground hover:text-foreground transition-colors"
@@ -26,7 +26,7 @@ export const CustomNetworks = ({ className }: NetworkProps) => {
         <Github className="w-5 h-5" />
       </a>
       <a
-        href="https://youtube.com"
+        href="https://www.youtube.com/@javi-tricker"
         target="_blank"
         rel="noopener noreferrer"
         className="text-muted-foreground hover:text-foreground transition-colors"

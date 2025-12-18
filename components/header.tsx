@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { Linkedin, Github, Youtube } from "lucide-react";
 import { CustomLogo } from "./custom-logo";
 import { CustomBackLink } from "./CustomBackLink";
 import { CustomNetworks } from "./CustomNetworks";
