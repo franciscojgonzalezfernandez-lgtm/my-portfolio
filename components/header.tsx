@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { Linkedin, Github, Youtube } from "lucide-react";
 import { CustomLogo } from "./custom-logo";
 import { CustomBackLink } from "./CustomBackLink";
+import { CustomNetworks } from "./CustomNetworks";
 
 const TABS = [
   { href: "/about", label: "About me" },
@@ -58,7 +59,7 @@ export const Header = () => {
           <CustomLogo />
         </div>
 
-        <nav className="px-0 sm:px-6 py-4 flex-1">
+        <nav className="px-0 sm:pl-6 py-4 flex-1">
           <div className="xs:grid xs:grid-cols-[1fr_4fr] flex items-center">
             {/* wrapper que en desktop empuja todo el nav a la derecha */}
             <div className="flex w-full justify-end">
@@ -94,38 +95,7 @@ export const Header = () => {
                   ))}
                 </div>
 
-                {/* ICONOS */}
-                <div className="hidden sm:flex items-center gap-4 ml-4 border-l border-border pl-4">
-                  <div className="hidden sm:flex items-center gap-4 ml-4 border-l border-border pl-4">
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      aria-label="GitHub"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
-                    <a
-                      href="https://youtube.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      aria-label="YouTube"
-                    >
-                      <Youtube className="w-5 h-5" />
-                    </a>
-                  </div>
-                </div>
+                <CustomNetworks className="hidden sm:flex ml-8 border-l border-border pl-8" />
               </div>
             </div>
           </div>

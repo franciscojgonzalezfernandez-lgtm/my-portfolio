@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { ArrowUp, Linkedin, Github, Youtube } from "lucide-react";
 import { useState, useEffect } from "react";
 import { CustomLogo } from "./custom-logo";
+import { CustomNetworks } from "./CustomNetworks";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -32,7 +33,7 @@ export const Footer = () => {
           <div className="flex flex-col items-center md:items-start gap-4">
             <CustomLogo />
             <p className="text-sm text-muted-foreground">
-              Building exceptional web experiences
+              Building exceptional Web Applications
             </p>
           </div>
 
@@ -79,35 +80,7 @@ export const Footer = () => {
             </Link>
           </nav>
 
-          <div className="flex items-center gap-4">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="YouTube"
-            >
-              <Youtube className="w-5 h-5" />
-            </a>
-          </div>
+          <CustomNetworks />
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
