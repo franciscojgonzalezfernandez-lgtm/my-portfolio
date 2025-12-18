@@ -6,6 +6,7 @@ import { ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import { CustomLogo } from "./custom-logo";
 import { CustomNetworks } from "./CustomNetworks";
+import { TABS } from "@/data/page.tabs.data";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -38,46 +39,19 @@ export const Footer = () => {
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-6">
-            <Link
-              href="/about"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/about")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              About me
-            </Link>
-            <Link
-              href="/experience"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/experience")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Experience
-            </Link>
-            <Link
-              href="/portfolio"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/portfolio")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/contact"
-              className={`text-sm font-medium transition-colors ${
-                isActive("/contact")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Contact
-            </Link>
+            {TABS.map((tab) => (
+              <Link
+                key={tab.href}
+                href={tab.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive(tab.href)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {tab.label}
+              </Link>
+            ))}
           </nav>
 
           <CustomNetworks />

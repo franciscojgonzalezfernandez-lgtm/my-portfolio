@@ -2,16 +2,28 @@ import { Experience } from "@/interfaces/experience.interface";
 
 export const experiences: Experience[] = [
   {
-    role: "Project Manager",
-    company: "Telefonica",
-    companyLink: "https://www.telefonica.es/es/",
-    period: "Jan 2024 - Sept 2025",
+    role: "Full Stack Software Engineer",
+    company: "Freelance",
+    period: "Sept 2025 - Now",
     description:
       "Managed cross-functional teams to deliver web and mobile applications. Coordinated with stakeholders to define project scope and timelines.",
     achievements: [
       "Successfully delivered 15+ projects on time and within budget",
       "Improved team productivity by 30% through agile methodologies",
       "Established new project management workflows",
+    ],
+  },
+  {
+    role: "Product Owner & Project Manager",
+    company: "Telefonica",
+    companyLink: "https://www.telefonica.es/es/",
+    period: "Jan 2024 - Sept 2025",
+    description:
+      "Leaded the integration of Adobe Experience Manager (CMS) in the Telefonica Ecosystem, making the business able to create pages with a friendly interface and without technical knowledge. Full integration meeting security requirements at the network layer, business requirements at the application layer. (2024-2025)",
+    achievements: [
+      "Supporting 10.000 visits/day without degrading",
+      "Proposed a workflow and provided the necessary building blocks to give the business full independence to create, edit, and publish pages.",
+      "A 40‑person team (contributors, UX, UI, SEO, and Analytics) working on these capabilities smoothly while continuously gathering and addressing their requirements & accomplishing times.",
     ],
   },
   {

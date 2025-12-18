@@ -6,14 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { CustomLogo } from "./custom-logo";
 import { CustomBackLink } from "./CustomBackLink";
 import { CustomNetworks } from "./CustomNetworks";
-
-const TABS = [
-  { href: "/about", label: "About me" },
-  { href: "/experience", label: "Experience" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/metrics", label: "Metrics" },
-  { href: "/contact", label: "Contact" },
-] as const;
+import { TABS } from "@/data/page.tabs.data";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
