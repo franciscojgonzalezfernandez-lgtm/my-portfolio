@@ -6,11 +6,21 @@ export const experiences: Experience[] = [
     company: "Freelance",
     period: "Sept 2025 - Now",
     description:
-      "Managed cross-functional teams to deliver web and mobile applications. Coordinated with stakeholders to define project scope and timelines.",
+      "Building end‑to‑end web applications as an independent full‑stack engineer while actively adapting to the Swiss tech market. Working autonomously across discovery, architecture, implementation, and deployment, with a strong focus on performance, UX, and production‑ready quality.",
     achievements: [
-      "Successfully delivered 15+ projects on time and within budget",
-      "Improved team productivity by 30% through agile methodologies",
-      "Established new project management workflows",
+      "Designed, implemented, and deployed end‑to‑end applications with Next.js and React on Vercel, including routing, data fetching, UI, performance tuning, and CI/CD.",
+      "Quickly adapted to the Swiss market’s expectations in terms of performance, accessibility, and SEO, achieving strong Lighthouse scores and clean Core Web Vitals on deployed projects.",
+      "Built a modular personal portfolio and metrics platform that showcases real usage data, automated deployments, and a codebase structured for team‑level scalability, even as a solo developer.",
+    ],
+    relatedProjects: [
+      {
+        label: "Optimized Web Portfolio",
+        url: "/this-portfolio",
+      },
+      {
+        label: "Full Stack E-commerce",
+        url: "/ecommerce-plattform",
+      },
     ],
   },
   {
@@ -25,6 +35,13 @@ export const experiences: Experience[] = [
       "Proposed a workflow and provided the necessary building blocks to give the business full independence to create, edit, and publish pages.",
       "A 40‑person team (contributors, UX, UI, SEO, and Analytics) working on these capabilities smoothly while continuously gathering and addressing their requirements & accomplishing times.",
     ],
+    relatedProjects: [
+      {
+        label:
+          "Full integration of Adobe Experience Manager (CMS) in Telefonica Ecosystem.",
+        url: "/adobe-experience-manager-integration",
+      },
+    ],
   },
   {
     role: "Lead Software Engineer",
@@ -37,6 +54,16 @@ export const experiences: Experience[] = [
       "Ranked Movistar.es as the #1 telecomunications website in Spain",
     ],
     companyLink: "https://www.telefonica.es/es/",
+    relatedProjects: [
+      {
+        label: "Next & React pages ecosystem",
+        url: "/whole-nextjs-ecosystem",
+      },
+      {
+        label: "Make editable all that React&Next ecosystem!",
+        url: "/whole-cms-next",
+      },
+    ],
   },
   {
     role: "Full Stack Developer",
@@ -49,6 +76,20 @@ export const experiences: Experience[] = [
       "Optimization of Front-end applications in React and Next to reach +90% of metrics performance (code chunk, pre-rendering...), SEO & Best practices. Still running in Production",
       "Developed a Full-stack lead generation & call tracking project hosted in Google Cloud Platform with 96% of traceability and <1% error rate. Built an interactive dashboard that provided real-time end-to-end system visibility and enabled business pattern detection.",
       "Developed a complete frontend e-commerce in Angular with the integration of the new in-house catalogue of products. Reached sales record ",
+    ],
+    relatedProjects: [
+      {
+        label: "Full Movistar Customer Portal",
+        url: "/customer-portal",
+      },
+      {
+        label: "End to End Call Tracking System",
+        url: "/call-tracking-system",
+      },
+      {
+        label: "Automated Python trading algorithm",
+        url: "/automatic-trading-algorighm",
+      },
     ],
   },
   {

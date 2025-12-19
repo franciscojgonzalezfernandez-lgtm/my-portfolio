@@ -3,6 +3,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 
 import type { Experience } from "@/interfaces/experience.interface";
+import { KeySquare, NotebookText } from "lucide-react";
+import Link from "next/link";
 
 interface ExperienceProps {
   experiences: Experience[];
@@ -39,21 +41,43 @@ const Experiences = ({ experiences }: ExperienceProps) => {
                 {exp.description}
               </p>
 
-              <div>
-                <h4 className="font-semibold mb-3 text-foreground">
-                  Key Achievements:
-                </h4>
-                <ul className="space-y-2">
-                  {exp.achievements.map((achievement, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-muted-foreground"
-                    >
-                      <span className="text-accent mt-1">•</span>
-                      <span className="leading-relaxed">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex flex-col gap-6">
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-3 text-foreground flex gap-4">
+                    <KeySquare /> Key Achievements:
+                  </h4>
+                  <ul className="space-y-2">
+                    {exp.achievements.map((achievement, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-2 text-muted-foreground"
+                      >
+                        <span className="text-accent mt-1">•</span>
+                        <span className="leading-relaxed">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {exp.relatedProjects && exp.relatedProjects.length > 0 && (
+                  <div className="md:text-right md:min-w-48">
+                    <h4 className="font-semibold mb-3 text-foreground flex gap-4">
+                      <NotebookText /> Highlighted Projects:
+                    </h4>
+                    <ul className="space-y-2 flex gap-4 justify-start">
+                      {exp.relatedProjects.map((project, i) => (
+                        <li key={project.url}>
+                          <Link
+                            href={`/portfolio/${project.url}`}
+                            className="text-sm text-gray-600 hover:underline transition-colors"
+                          >
+                            {project.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>

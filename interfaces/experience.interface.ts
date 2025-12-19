@@ -1,3 +1,8 @@
+interface RelatedProject {
+  label: string;
+  url: string;
+}
+
 export interface Experience {
   role: string;
   company: string;
@@ -5,4 +10,5 @@ export interface Experience {
   description: string;
   achievements: string[];
   companyLink?: string;
+  relatedProjects?: RelatedProject[];
 }
