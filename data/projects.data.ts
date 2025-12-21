@@ -147,7 +147,7 @@ It is still running in production.`,
     
     Built with Next.js for optimal performance and deployed on Vercel for instant global delivery. Features include dynamic routing, optimized images, and SEO-friendly structure.`,
     videoUrl: "/portfolio-website-demo-video.jpg",
-    releaseDate: "15-08-2019",
+    releaseDate: "28-12-2025",
   },
   {
     slug: "automatic-trading-algorighm",
