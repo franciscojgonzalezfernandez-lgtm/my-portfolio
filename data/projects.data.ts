@@ -181,7 +181,12 @@ It is still running in production.`,
     projectType: "Professional",
     description:
       "Responsive mobile application for task management and productivity.",
-    images: ["/miMovistar-cover.webp"],
+    images: [
+      "/miMovistar-cover.webp",
+      "mis-productos.webp",
+      "factura.webp",
+      "configurador.webp",
+    ],
     tags: ["React Native", "Firebase", "Redux", "UI/UX"],
     fullDescription: `A cross-platform mobile application designed for task management and productivity enhancement. Built with React Native for both iOS and Android platforms.
     

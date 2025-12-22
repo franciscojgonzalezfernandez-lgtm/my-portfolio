@@ -2,6 +2,7 @@
 
 import { AboutMe } from "@/interfaces/aboutMe.interface";
 import { CustomVideo } from "./high-order-components/CustomVideo";
+import { CustomCertifications } from "./CustomCertifications";
 
 interface AboutProps {
   mode: "professional" | "personal";
@@ -133,10 +134,9 @@ export const About = ({
                   </div>
                 );
               })}
-
-              {mode === "professional" && <h1>CERTIFICATIONS & OTHERS</h1>}
             </div>
           </div>
+          <CustomCertifications mode={mode} />
         </div>
       </div>
     </section>
