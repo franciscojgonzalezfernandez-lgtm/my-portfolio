@@ -14,9 +14,4 @@ export const architectures = [
     image: "/next-apps-rendition.webp",
     description: "nothing",
   },
-  {
-    title: "API Gateway Pattern",
-    image: "/api-gateway-architecture.png",
-    description: "nothing",
-  },
 ];

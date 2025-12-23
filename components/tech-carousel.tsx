@@ -1,21 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-
-const technologies = [
-  { name: "React", size: "text-4xl", color: "text-[#61DAFB]" },
-  { name: "Next.js", size: "text-6xl", color: "text-foreground" },
-  { name: "Java", size: "text-5xl", color: "text-[#ED8B00]" },
-  { name: "PostgreSQL", size: "text-3xl", color: "text-[#336791]" },
-  { name: "Python", size: "text-5xl", color: "text-[#47A248]" },
-  { name: "Google Cloud", size: "text-4xl", color: "text-[#4285F4]" },
-  { name: "TypeScript", size: "text-6xl", color: "text-[#3178C6]" },
-  { name: "Node.js", size: "text-5xl", color: "text-[#339933]" },
-  { name: "Docker", size: "text-4xl", color: "text-[#2496ED]" },
-  { name: "Vercel", size: "text-3xl", color: "text-[#326CE5]" },
-  { name: "Figma", size: "text-5xl", color: "text-[#FF9900]" },
-  { name: "React-Query", size: "text-4xl", color: "text-[#E10098]" },
-];
+import { technologies } from "@/data/technologies.data";
 
 export function TechCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
