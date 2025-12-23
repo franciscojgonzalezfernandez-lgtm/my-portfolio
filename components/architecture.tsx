@@ -15,7 +15,7 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentArchitecture((prev) => (prev + 1) % architectures.length);
-    }, 4000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -23,7 +23,8 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
     <div className="mt-20 max-w-4xl m-auto">
       <h2 className="text-4xl font-bold mb-4 text-center">Key Achievements</h2>
       <p className="text-center text-muted-foreground mb-12 text-lg">
-        Architecture designs and technical solutions I've created
+        Architecture designs and technical solutions I've created and I'm proud
+        of
       </p>
 
       <div className="relative">
@@ -49,7 +50,7 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
             <button
               key={index}
               onClick={() => setCurrentArchitecture(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
+              className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
                 index === currentArchitecture
                   ? "bg-accent w-8"
                   : "bg-muted-foreground/30"

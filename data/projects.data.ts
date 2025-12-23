@@ -25,6 +25,7 @@ export const projects: Project[] = [
       "AI UI Generators",
       "V0",
       "Lovable",
+      "JWT",
     ],
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
     
@@ -54,6 +55,8 @@ export const projects: Project[] = [
       "NPM",
       "Webpack",
       "Atomic Design",
+      "Workers",
+      "JWT",
     ],
     fullDescription: `An entrepreneurial project I led within Telefónica. When we saw that we wanted to acquire an off‑the‑shelf CMS, I demonstrated to my superiors that we could turn our Next-based application ecosystem into a set of contributable pages instead.
 
@@ -69,7 +72,7 @@ By using an access key to the catalog APIs shown in the architecture diagram, we
     description:
       "Full‑stack development of a lead generation system based on call routing and call traceability.",
     images: [
-      "/call-tracking-cover.png",
+      "/call-tracking-cover.webp",
       "call-tracking-architecture.png",
       "numero900.png",
       "C2C.png",
@@ -110,7 +113,7 @@ In addition, this whole system ingested data into BigQuery via Dataflow and Pub/
 All the system was monitorized and alarmed via Google Cloud Monitoring and periodic queries in BigQuery.
 
 It is still running in production.`,
-    videoUrl: "/portfolio-website-demo-video.jpg",
+    videoUrl: "scx-demo.MOV",
     externalUrl: "https://www.movistar.es/fibra-optica/fibra-600mb/",
     releaseDate: "03-11-2023",
   },
@@ -188,7 +191,18 @@ It is still running in production.`,
       "/factura.webp",
       "/configurador.webp",
     ],
-    tags: ["React", "CI/CD", "Redux", "UI/UX", "Workers", "Architecture"],
+    tags: [
+      "React",
+      "CI/CD",
+      "Redux",
+      "UI/UX",
+      "Workers",
+      "Architecture",
+      "Jest",
+      "Testing",
+      "JUnit",
+      "Mockito",
+    ],
     fullDescription: `A cross-platform mobile application designed for task management and productivity enhancement. Built with React Native for both iOS and Android platforms.
     
     Firebase integration provides real-time synchronization across devices, while Redux manages complex state efficiently. Features include push notifications, offline mode, and collaborative task lists.`,

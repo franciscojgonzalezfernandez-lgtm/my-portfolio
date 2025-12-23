@@ -65,16 +65,23 @@ const Experiences = ({ experiences }: ExperienceProps) => {
                       <NotebookText /> Highlighted Projects:
                     </h4>
                     <ul className="space-y-2 flex gap-4 justify-start">
-                      {exp.relatedProjects.map((project, i) => (
-                        <li key={project.url}>
-                          <Link
-                            href={`/portfolio/${project.url}`}
-                            className="text-sm text-gray-600 hover:underline transition-colors"
-                          >
-                            {project.label}
-                          </Link>
-                        </li>
-                      ))}
+                      {exp.relatedProjects &&
+                        exp.relatedProjects.map((project, i) => (
+                          <>
+                            <li key={project.url}>
+                              <Link
+                                href={`/portfolio/${project.url}`}
+                                className="text-sm text-gray-600 hover:underline transition-colors"
+                              >
+                                {project.label}
+                              </Link>
+                            </li>
+                            {exp.relatedProjects &&
+                              i < exp.relatedProjects.length - 1 && (
+                                <span className="text-gray-600">|</span>
+                              )}
+                          </>
+                        ))}
                     </ul>
                   </div>
                 )}
