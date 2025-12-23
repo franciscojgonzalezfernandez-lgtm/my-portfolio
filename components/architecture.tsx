@@ -20,7 +20,7 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
   }, []);
 
   return (
-    <div className="mt-20">
+    <div className="mt-20 max-w-4xl m-auto">
       <h2 className="text-4xl font-bold mb-4 text-center">Key Achievements</h2>
       <p className="text-center text-muted-foreground mb-12 text-lg">
         Architecture designs and technical solutions I've created
