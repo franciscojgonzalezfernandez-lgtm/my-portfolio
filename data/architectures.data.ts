@@ -1,17 +1,17 @@
 export const architectures = [
   {
-    title: "Microservices Architecture",
-    image: "/microservices-architecture.png",
+    title: "Call tracking system architechture",
+    image: "/call-tracking-architecture.webp",
     description: "nothing",
   },
   {
-    title: "Cloud Infrastructure Design",
-    image: "/cloud-infrastructure-architecture.png",
+    title: "Customer Portal Environments",
+    image: "/TCOL-environments.webp",
     description: "nothing",
   },
   {
-    title: "Database Schema Design",
-    image: "/database-schema-architecture-diagram.jpg",
+    title: "Next Apps Rendition Strategy",
+    image: "/next-apps-rendition.webp",
     description: "nothing",
   },
   {

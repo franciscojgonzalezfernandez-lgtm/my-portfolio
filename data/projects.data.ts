@@ -91,7 +91,7 @@ By using an access key to the catalog APIs shown in the architecture diagram, we
       "GTM",
       "Google app Store",
     ],
-    fullDescription: `A project to achieve traceability of assisted sales in the channel. Sixty percent of all website sales were made over the phone.
+    fullDescription: `A project to achieve traceability of assisted sales in the channel. 60% of all website sales were made over the phone.
 
 The goal was to track every cookie that generated a call, in order to analyze the customer journey of each user who called.
 

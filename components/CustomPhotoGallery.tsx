@@ -25,7 +25,7 @@ export const CustomPhotoGallery = ({ images, itemName }: Props) => {
           <button
             key={index}
             onClick={() => setSelectedImage(index)}
-            className={`aspect-square bg-gray-50 rounded-lg overflow-hidden border-2 transition-colors ${
+            className={`cursor-pointer aspect-square bg-gray-50 rounded-lg overflow-hidden border-2 transition-colors ${
               selectedImage === index
                 ? "border-black"
                 : "border-transparent hover:border-gray-300"
