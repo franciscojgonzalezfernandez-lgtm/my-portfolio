@@ -7,7 +7,8 @@ export const professional = {
   skills: [
     {
       title: "Development",
-      description: "React, Next.js, TypeScript, Node.js, PostgreSQL, MongoDB",
+      description:
+        "React, Next.js, TypeScript, Node.js, Java, PostgreSQL, MongoDB",
     },
     {
       title: "Management",
@@ -19,6 +20,6 @@ export const professional = {
       description: "Google Cloud, AWS, Docker, CI/CD, Microservices",
     },
   ],
-  videoUrl: "/CMS-next.mp4",
-  videoPoster: "/professional-video-introduction.jpg",
+  videoUrl: "/portfolio-intro.mp4",
+  videoPoster: "/intro-cover.webp",
 };
