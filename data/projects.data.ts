@@ -3,18 +3,19 @@ import { Project } from "@/interfaces/project.interface";
 export const projects: Project[] = [
   {
     slug: "ecommerce-platform",
-    title: "E-commerce Platform",
+    title: "Full Stack E-commerce Platform",
     projectType: "Side Project",
     description:
       "Full-featured e-commerce platform with shopping cart and payment gateway integration.",
     images: [
       "/ecommerce-1.png",
-      "/ecommerce-admin-1.png",
+      "/ecommerce-architecture.webp",
       "/ecommerce-admin-2.png",
     ],
     tags: [
       "React",
       "TypeScript",
+      "ViteJS",
       "React-Query",
       "Tailwind CSS",
       "PostgreSQL",
@@ -22,6 +23,7 @@ export const projects: Project[] = [
       "CI/CD",
       "GitHub Actions",
       "Zustand",
+      "UseForm hook",
       "AI UI Generators",
       "V0",
       "Lovable",
@@ -30,7 +32,7 @@ export const projects: Project[] = [
     fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
     
     The backend utilizes PostgreSQL for data management, ensuring fast and reliable performance. The admin panel allows for easy product management, order tracking, and customer analytics.`,
-    videoUrl: "/CMS-next.mp4",
+    videoUrl: "/e-commerce.webm",
     externalUrl:
       "https://franciscojgonzalezfernandez-lgtm.github.io/minimalist-e-commerce/",
     gitHubUrl:
@@ -206,7 +208,7 @@ It is still running in production.`,
     fullDescription: `A cross-platform mobile application designed for task management and productivity enhancement. Built with React Native for both iOS and Android platforms.
     
     Firebase integration provides real-time synchronization across devices, while Redux manages complex state efficiently. Features include push notifications, offline mode, and collaborative task lists.`,
-    videoUrl: "tcol.MOV",
+    videoUrl: "tcol.webm",
     releaseDate: "16-07-2021",
   },
 ];
