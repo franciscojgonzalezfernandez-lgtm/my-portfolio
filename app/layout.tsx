@@ -11,7 +11,23 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Javi - Web Portfolio",
-  description: "The web portfolio of an adventurer spanish developer",
+  description:
+    "Web portfolio of a full‑stack software engineer, passionate problem solver and performance‑focused developer, crafting fast, reliable and user‑centric web applications.",
+  openGraph: {
+    title: "Javi - Web Portfolio",
+    description:
+      "Web portfolio of a full‑stack software engineer and technical manager based in Switzerland.",
+    url: "https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/",
+    type: "website",
+    images: [
+      {
+        url: "https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/manager.webp",
+        width: 1200,
+        height: 630,
+        alt: "Javi Web Portfolio",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
