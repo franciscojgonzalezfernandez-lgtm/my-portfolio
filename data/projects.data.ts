@@ -64,7 +64,7 @@ export const projects: Project[] = [
 
 By using an access key to the catalog APIs shown in the architecture diagram, we were able to modify the contributed information directly, bypassing the catalog tool’s own interface and making the process much more user‑friendly. This updated the product information across all the pages where it appeared.
     Built with Next.js for optimal performance and deployed on Vercel for instant global delivery. Features include dynamic routing, optimized images, and SEO-friendly structure.`,
-    videoUrl: "/cms-editable.mp4",
+    videoUrl: "/cms-editable.webm",
     releaseDate: "19-07-2022",
   },
   {
@@ -115,9 +115,9 @@ In addition, this whole system ingested data into BigQuery via Dataflow and Pub/
 All the system was monitorized and alarmed via Google Cloud Monitoring and periodic queries in BigQuery.
 
 It is still running in production.`,
-    videoUrl: "scx-demo.MOV",
+    videoUrl: "scx-demo.webm",
     externalUrl: "https://www.movistar.es/fibra-optica/fibra-600mb/",
-    releaseDate: "03-11-2023",
+    releaseDate: "03-11-2019",
   },
   {
     slug: "whole-nextjs-ecosystem",
