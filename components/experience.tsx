@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import type { Experience } from "@/interfaces/experience.interface";
 import { KeySquare, NotebookText } from "lucide-react";
 import Link from "next/link";
+import React from "react";
 
 interface ExperienceProps {
   experiences: Experience[];
@@ -67,8 +68,8 @@ const Experiences = ({ experiences }: ExperienceProps) => {
                     <ul className="space-y-2 flex gap-4 justify-start">
                       {exp.relatedProjects &&
                         exp.relatedProjects.map((project, i) => (
-                          <>
-                            <li key={project.url}>
+                          <React.Fragment key={project.url}>
+                            <li>
                               <Link
                                 href={`/portfolio/${project.url}`}
                                 className="text-sm text-gray-600 hover:underline transition-colors"
@@ -78,9 +79,9 @@ const Experiences = ({ experiences }: ExperienceProps) => {
                             </li>
                             {exp.relatedProjects &&
                               i < exp.relatedProjects.length - 1 && (
-                                <span className="text-gray-600">|</span>
+                                <span>|</span>
                               )}
-                          </>
+                          </React.Fragment>
                         ))}
                     </ul>
                   </div>
