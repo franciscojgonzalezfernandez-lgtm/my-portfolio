@@ -3,6 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import { CustomNetworks } from "./CustomNetworks";
+import { CustomLink } from "./high-order-components/CustomLink";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "/my-portfolio";
 
 export function Contact() {
   return (
@@ -16,9 +19,11 @@ export function Contact() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button size="lg" className="min-w-[200px]">
-              <Mail className="mr-2 h-5 w-5" />
-              Send Email
+            <Button size="lg" className="min-w-[200px]" asChild>
+              <a href="mailto:franciscojgonzalezfernandez@gmail.com?subject=Job%20opportunity&body=Hello%20Javi%2C%0D%0A%0D%0A">
+                <Mail className="mr-2 h-5 w-5" />
+                Send Email
+              </a>
             </Button>
             <Button
               variant="outline"
@@ -26,7 +31,7 @@ export function Contact() {
               className="min-w-[200px] bg-transparent cursor-pointer"
               asChild
             >
-              <a href="/CV-Javi.pdf" download="CV-Javi.pdf">
+              <a href={`${BASE_PATH}/CV-Javi.pdf`} download="CV-Javi.pdf">
                 Download CV
               </a>
             </Button>
