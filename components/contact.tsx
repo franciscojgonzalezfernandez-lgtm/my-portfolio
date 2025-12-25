@@ -23,9 +23,12 @@ export function Contact() {
             <Button
               variant="outline"
               size="lg"
-              className="min-w-[200px] bg-transparent"
+              className="min-w-[200px] bg-transparent cursor-pointer"
+              asChild
             >
-              Download CV
+              <a href="/CV-Javi.pdf" download="CV-Javi.pdf">
+                Download CV
+              </a>
             </Button>
           </div>
 
