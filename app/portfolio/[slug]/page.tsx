@@ -36,6 +36,7 @@ export default async function ProjectDetailPage({
                 <div className="relative aspect-video bg-muted">
                   <CustomVideo
                     src={project.videoUrl || "/placeholder.svg"}
+                    poster={project.images[1]}
                     loop
                     playsInline
                     controls
