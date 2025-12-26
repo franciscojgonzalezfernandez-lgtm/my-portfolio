@@ -205,7 +205,7 @@ It is still running in production.`,
       "JUnit",
       "Mockito",
     ],
-    fullDescription: `A cross-platform mobile application designed for task management and productivity enhancement. Built with React Native for both iOS and Android platforms.
+    fullDescription: `A cross-platform mobile application designed for the management of clients of Movistar. Built with React Native for both iOS and Android platforms.
     
     Firebase integration provides real-time synchronization across devices, while Redux manages complex state efficiently. Features include push notifications, offline mode, and collaborative task lists.`,
     videoUrl: "tcol.webm",
