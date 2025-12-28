@@ -185,7 +185,7 @@ It is still running in production.`,
     title: "Customer Portal for Movistar Clients",
     projectType: "Professional",
     description:
-      "The management portal for Movistar customers. Responsive and embedded within the MiMovistar application.",
+      "The management portal for Movistar customers. Responsive and embedded within the MiMovistar application. And much more.",
     images: [
       "/miMovistar-cover.webp",
       "/TCOL-environments.webp",
