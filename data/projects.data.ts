@@ -172,7 +172,7 @@ It is still running in production.`,
   },
   {
     slug: "adobe-experience-manager-integration",
-    title: "Adobe Experience Manager Integration",
+    title: "Custom AEM Integration for Telefónica",
     projectType: "Professional",
     description:
       "The full integration of Adobe’s CMS across the entire Telefónica environment.",

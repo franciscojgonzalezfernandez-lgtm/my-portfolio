@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ExternalLink, Github } from "lucide-react";
 import { CustomVideo } from "@/components/high-order-components/CustomVideo";
+import parse from "html-react-parser";
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -69,7 +70,7 @@ export default async function ProjectDetailPage({
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-wrap gap-2 mb-4">
                     <div className="text-muted-foreground leading-relaxed whitespace-pre-line mb-4">
-                      {project.fullDescription}
+                      {parse(project.fullDescription)}
                     </div>
                   </div>
                   {project.externalUrl && (
