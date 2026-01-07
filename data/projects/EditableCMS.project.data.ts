@@ -6,7 +6,7 @@ export const EDITABLE_CMS: Project = {
   projectType: "Professional",
   description:
     "Next.js applications with built-in database editing capabilities in controlled environments (staging).",
-  images: ["/editable-cms-cover.webp", "/next-apps-rendition.webp"],
+  images: ["/editable-cms-cover.webp", "/Next-apps-rendition.webp"],
   tags: [
     "React",
     "Next14",

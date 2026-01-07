@@ -10,7 +10,7 @@ export const ADOBE_INTEGRATION: Project = {
     "/aem-cover.webp",
     "aem-arquetype.webp",
     "aem-infra.webp",
-    "aem-flow.webp",
+    "AEM-flow.webp",
     "aem-performance.webp",
   ],
   tags: [
