@@ -6,7 +6,7 @@ export const NEXT_ECOSYSTEM: Project = {
   projectType: "Professional",
   description:
     "The full integration of Adobe’s CMS across the entire Telefónica environment.",
-  images: ["/minimalist-portfolio.png"],
+  images: ["/next-ecosystem-cover.webp", "next-apps-rendition.webp"],
   tags: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
   fullDescription: `A stunning portfolio website showcasing creative work with smooth, buttery animations powered by Framer Motion. The minimalist design puts the focus on the content while maintaining visual interest.
     
