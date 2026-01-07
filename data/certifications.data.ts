@@ -13,7 +13,7 @@ export const certifications = [
     date: "2022",
     type: "degree" as const,
     driveUrl:
-      "https://drive.google.com/file/d/1m2jYdqtII6lc5hYxaYly9jElks_QQEO9/view?usp=sharing",
+      "https://drive.google.com/file/d/1IczUZxvVGI-QX09iq4fe72eu0G9uue1O/view?usp=sharing",
   },
   {
     title: "Professional Scrum Master I",
@@ -29,7 +29,7 @@ export const certifications = [
     date: "2018",
     type: "degree" as const,
     driveUrl:
-      "https://drive.google.com/file/d/1jkbIDjJI7wyrHvefHO7RmaT4cx1gi4DF/view?usp=sharing",
+      "https://drive.google.com/file/d/194PHMPF_e0xHQjPxDlg2PP5YE-PmUbYq/view?usp=sharing",
   },
   {
     title: "Bachelor’s academic transcript",
@@ -37,6 +37,6 @@ export const certifications = [
     date: "2018",
     type: "degree" as const,
     driveUrl:
-      "https://drive.google.com/file/d/1RUpionjR9PH4e_6jsnIN_uN9denk-HwU/view?usp=sharing",
+      "https://drive.google.com/file/d/1Ln9B_o5MUEtg08QjVz-kfOwFBO0SsUPZ/view?usp=sharing",
   },
 ];
