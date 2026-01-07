@@ -14,4 +14,9 @@ export const architectures = [
     image: "/next-apps-rendition.webp",
     description: "nothing",
   },
+  {
+    title: "Adobe Experience Manager - High level",
+    image: "/aem-infra.webp",
+    description: "nothing",
+  },
 ];

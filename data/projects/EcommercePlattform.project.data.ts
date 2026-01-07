@@ -28,9 +28,28 @@ export const ECOMMERCE_PLATFORM: Project = {
     "Lovable",
     "JWT",
   ],
-  fullDescription: `A comprehensive e-commerce solution built with modern technologies. This platform features a robust shopping cart system, secure payment processing through Stripe, and a fully responsive design. 
-    
-    The backend utilizes PostgreSQL for data management, ensuring fast and reliable performance. The admin panel allows for easy product management, order tracking, and customer analytics.`,
+  fullDescription: `<strong>Complete e-commerce platform</strong> developed <strong>100% independently</strong> by me —frontend with V0 + manual refinement, <strong>custom backend APIs</strong> and <strong>database</strong> from scratch— demonstrating full-stack end-to-end capabilities.
+
+    <h3 className="text-xl"><strong>My Role</strong></h3>
+    - <strong>100% independent development</strong> from design to deployment
+    - <strong>Complete architecture</strong>: Frontend (V0 + React) + Backend APIs + Database
+    - <strong>UI generation with V0</strong> + manual refinement of critical components
+    - Performance optimization + responsive design + accessibility 
+    - Product management + complete authentication
+
+    <h3 className="text-xl"><strong>Challenges Solved</strong></h3>
+    - <strong>Rapid UI generation</strong> maintaining professional quality with V0
+    - <strong>Separation of concerns</strong> + logic encapsulation between auto-generated components
+    - Scalable architecture for product/client growth
+    - E-commerce optimized performance (images, lazy loading, SEO)
+    - Security: authentication, sensitive data protection, validations
+
+    <h3 className="text-xl"><strong>Results</strong></h3>
+    ✅ <strong>100% functional e-commerce</strong> platform production-ready
+    ✅ <strong>Ultra-fast development</strong> using V0 + expert refinement
+    ✅ Responsive design + WCAG compliant accessibility
+    ✅ Optimized performance + SEO ready
+    ✅ Scalable architecture for future growth`,
   videoUrl: "/e-commerce.webm",
   externalUrl:
     "https://franciscojgonzalezfernandez-lgtm.github.io/minimalist-e-commerce/",
