@@ -112,12 +112,6 @@ export const Hero = () => {
             </p>
           </div>
         </div>
-
-        <div className="text-center mt-16">
-          <p className="text-sm text-muted-foreground italic">
-            ← Move your mouse to see both sides →
-          </p>
-        </div>
       </div>
     </section>
   );

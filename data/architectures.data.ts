@@ -11,7 +11,7 @@ export const architectures = [
   },
   {
     title: "Next Apps Rendition Strategy",
-    image: "/next-apps-rendition.webp",
+    image: "/Next-apps-rendition.webp",
     description: "nothing",
   },
   {
