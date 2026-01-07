@@ -14,5 +14,4 @@ export const projects: Project[] = [
   CUSTOMER_PORTAL,
   CALL_TRACKING,
   NEXT_ECOSYSTEM,
-  PERSONAL_PORTFOLIO,
 ];
