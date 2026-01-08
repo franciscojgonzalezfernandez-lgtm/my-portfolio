@@ -71,7 +71,7 @@ const Experiences = ({ experiences }: ExperienceProps) => {
                           <React.Fragment key={project.url}>
                             <li>
                               <Link
-                                href={`/portfolio/${project.url}`}
+                                href={`/portfolio${project.url}`}
                                 className="text-sm text-gray-600 hover:underline transition-colors"
                               >
                                 {project.label}

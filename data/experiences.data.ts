@@ -19,7 +19,7 @@ export const experiences: Experience[] = [
       },
       {
         label: "Full Stack E-commerce",
-        url: "/ecommerce-plattform",
+        url: "/ecommerce-platform",
       },
     ],
   },
@@ -57,7 +57,7 @@ export const experiences: Experience[] = [
     relatedProjects: [
       {
         label: "Next & React pages ecosystem",
-        url: "/whole-nextjs-ecosystem",
+        url: "/nextjs-ecosystem",
       },
       {
         label: "Make editable all that React&Next ecosystem!",
@@ -86,10 +86,10 @@ export const experiences: Experience[] = [
         label: "End to End Call Tracking System",
         url: "/call-tracking-system",
       },
-      {
+      /* {
         label: "Automated Python trading algorithm",
         url: "/automatic-trading-algorighm",
-      },
+      }, */
     ],
   },
   {
