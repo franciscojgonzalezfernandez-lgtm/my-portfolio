@@ -8,9 +8,9 @@ export const NEXT_ECOSYSTEM: Project = {
     "The full integration of Adobe’s CMS across the entire Telefónica environment.",
   images: [
     "/next-ecosystem-cover.webp",
-    "next-apps-rendition.webp",
-    "next-ecosystem.webp",
-    "mimovistar-performance.webp",
+    "/next-apps-rendition.webp",
+    "/next-ecosystem.webp",
+    "/mimovistar-performance.webp",
   ],
   tags: [
     "Next.js",
