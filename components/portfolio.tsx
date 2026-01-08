@@ -67,14 +67,24 @@ export function Portfolio({ projects }: PortfolioProps) {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tag}
-                        className="px-4 py-2 bg-gray-500 text-background text-sm rounded-full font-semibold"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {project.tags.map((tag, tagIndex) => {
+                      if (tagIndex < 9) {
+                        return (
+                          <span
+                            key={tag}
+                            className={`px-4 py-2 border-gray-500 border text-foreground text-sm rounded-full font-medium ${
+                              tagIndex < 8
+                                ? ""
+                                : "text-white bg-gray-900 border-0"
+                            }`}
+                          >
+                            {tagIndex < 8
+                              ? tag
+                              : `+ ${project.tags.length - 8} more`}
+                          </span>
+                        );
+                      }
+                    })}
                   </div>
                 </CardContent>
               </Card>
