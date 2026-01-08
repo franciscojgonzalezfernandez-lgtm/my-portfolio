@@ -19,6 +19,9 @@ export const ECOMMERCE_PLATFORM: Project = {
     "Tailwind CSS",
     "PostgreSQL",
     "NestJS",
+    "Render",
+    "Neon Database",
+    "Express",
     "CI/CD",
     "GitHub Actions",
     "Zustand",
@@ -27,6 +30,8 @@ export const ECOMMERCE_PLATFORM: Project = {
     "V0",
     "Lovable",
     "JWT",
+    "Shad/cn",
+    "Radix UI",
   ],
   fullDescription: `<strong>Complete e-commerce platform</strong> developed <strong>100% independently</strong> by me —frontend with V0 + manual refinement, <strong>custom backend APIs</strong> and <strong>database</strong> from scratch— demonstrating full-stack end-to-end capabilities.
 

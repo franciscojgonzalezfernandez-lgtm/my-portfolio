@@ -8,6 +8,7 @@ import { ADOBE_INTEGRATION } from "./projects/AdobeExperience.project.data";
 import { CUSTOMER_PORTAL } from "./projects/CustomerPortal.project.data";
 
 export const projects: Project[] = [
+  PERSONAL_PORTFOLIO,
   ECOMMERCE_PLATFORM,
   ADOBE_INTEGRATION,
   EDITABLE_CMS,
