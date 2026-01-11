@@ -37,7 +37,7 @@ export const PERSONAL_PORTFOLIO: Project = {
    ✅ Direct GitHub Pages deployment — simple, fast, scalable
    ✅ Contact form + CV download fully functional
 `,
-  videoUrl: "/portfolio-website-demo-video.jpg",
+  videoUrl: "/portfolio-demo.webm",
   releaseDate: "9-01-2026",
   externalUrl:
     "https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio",
