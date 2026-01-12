@@ -1,5 +1,3 @@
-type ProjectType = "Professional" | "Side Project";
-
 export interface Project {
   slug: string;
   title: string;
@@ -10,6 +8,6 @@ export interface Project {
   videoUrl?: string;
   externalUrl?: string;
   gitHubUrl?: string;
-  projectType: ProjectType;
+  projectType: string;
   releaseDate: string;
 }
