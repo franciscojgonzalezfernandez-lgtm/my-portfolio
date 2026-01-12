@@ -7,6 +7,7 @@ import { CustomLogo } from "./custom-logo";
 import { CustomBackLink } from "./CustomBackLink";
 import { CustomNetworks } from "./CustomNetworks";
 import { TABS } from "@/data/page.tabs.data";
+import { LanguageSwitch } from "./language-switch";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -46,12 +47,14 @@ export const Header = () => {
       }`}
     >
       <div className="flex items-center justify-between container mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center w-40 shrink-0">
-          <CustomBackLink />
+        <div className="flex justify-between items-center w-42 shrink-0 align-baseline">
           <CustomLogo />
         </div>
+        <div className="hidden sm:block">
+          <LanguageSwitch />
+        </div>
 
-        <nav className="px-0 sm:pl-6 py-4 flex-1">
+        <nav className="px-0 sm:pl-6 py-4 xs:flex-1">
           <div className="xs:grid xs:grid-cols-[1fr_4fr] flex items-center">
             {/* wrapper que en desktop empuja todo el nav a la derecha */}
             <div className="flex w-full justify-end">
@@ -86,7 +89,6 @@ export const Header = () => {
                     </Link>
                   ))}
                 </div>
-
                 <CustomNetworks className="hidden sm:flex ml-8 border-l border-border pl-8" />
               </div>
             </div>

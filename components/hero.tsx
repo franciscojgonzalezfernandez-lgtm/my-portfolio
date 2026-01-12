@@ -5,7 +5,12 @@ import type React from "react";
 import { useState } from "react";
 import { CustomImage } from "./high-order-components/CustomImage";
 
+import { HERO_DATA_ENGLISH } from "@/data/hero.data";
+import { HERO_DATA_GERMAN } from "@/data/hero.data.german";
+import { useLanguage } from "@/hooks/use-language";
+
 export const Hero = () => {
+  const { language } = useLanguage();
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
   const [isHovered, setIsHovered] = useState(false);
 
