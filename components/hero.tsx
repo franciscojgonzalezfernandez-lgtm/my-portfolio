@@ -5,12 +5,18 @@ import type React from "react";
 import { useState } from "react";
 import { CustomImage } from "./high-order-components/CustomImage";
 
-import { HERO_DATA_ENGLISH } from "@/data/hero.data";
-import { HERO_DATA_GERMAN } from "@/data/hero.data.german";
-import { useLanguage } from "@/hooks/use-language";
-
-export const Hero = () => {
-  const { language } = useLanguage();
+interface HeroProps {
+  role1: string;
+  role1Description: string;
+  role2: string;
+  role2Description: string;
+}
+export const Hero = ({
+  role1,
+  role1Description,
+  role2,
+  role2Description,
+}: HeroProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
   const [isHovered, setIsHovered] = useState(false);
 
@@ -38,12 +44,9 @@ export const Hero = () => {
               isLeftSide ? "opacity-100" : "opacity-40"
             }`}
           >
-            <h2 className="text-6xl font-bold mb-4 text-balance">
-              {"<Developer>"}
-            </h2>
+            <h2 className="text-6xl font-bold mb-4 text-balance">{role1}</h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Building clean, elegant, and efficient web experiences with modern
-              technologies.
+              {role1Description}
             </p>
           </div>
 
@@ -108,12 +111,9 @@ export const Hero = () => {
               !isLeftSide ? "opacity-100" : "opacity-40"
             }`}
           >
-            <h2 className="text-6xl font-bold mb-4 text-balance">
-              {"<Manager>"}
-            </h2>
+            <h2 className="text-6xl font-bold mb-4 text-balance">{role2}</h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Leading teams and projects to deliver exceptional results on time
-              and within scope.
+              {role2Description}
             </p>
           </div>
         </div>
