@@ -1,9 +1,9 @@
 "use client";
 
-import { useLanguage } from "@/hooks/use-language";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 export function LanguageSwitch() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage } = useLanguageStore();
 
   return (
     <div className="flex items-center gap-1 text-xs">

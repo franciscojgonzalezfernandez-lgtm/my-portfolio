@@ -1,20 +1,27 @@
 import { CustomImage } from "./high-order-components/CustomImage";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 export const GitHubActivity = () => {
+  const { language } = useLanguageStore();
   return (
     <section className="container mx-auto rounded-xl border bg-muted/30 p-4 sm:p-6">
       <div className="grid gap-6 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1.8fr)] items-start">
         <div className="space-y-3">
           <h2 className="text-lg sm:text-2xl font-semibold tracking-tight">
-            GitHub activity
+            {language == "english" && "GitHub activity"}
+            {language == "german" && "GitHub-Aktivität"}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Overview of my recent contributions across public repositories:
-            personal projects, experiments, and learning work.
+            {language == "english" &&
+              "Overview of my recent contributions across public repositories: personal projects, experiments, and learning work."}
+            {language == "german" &&
+              "Übersicht über meine jüngsten Beiträge in öffentlichen Repositories: persönliche Projekte, Experimente und Lernarbeiten."}
           </p>
           <p className="text-lg text-muted-foreground">
-            Consistent commits focused on modern web development, cloud
-            architecture, and frontend performance.
+            {language == "english" &&
+              "Consistent commits focused on modern web development, cloud architecture, and frontend performance."}
+            {language == "german" &&
+              "Konsistente Commits mit Fokus auf moderne Webentwicklung, Cloud-Architektur und Frontend-Performance."}
           </p>
           <a
             href="https://github.com/franciscojgonzalezfernandez-lgtm"
@@ -22,7 +29,8 @@ export const GitHubActivity = () => {
             rel="noreferrer"
             className="inline-flex text-xs font-medium text-muted-foreground hover:text-foreground underline underline-offset-4"
           >
-            View full GitHub profile
+            {language == "english" && "View full GitHub profile"}
+            {language == "german" && "Vollständiges GitHub-Profil ansehen"}
           </a>
         </div>
 

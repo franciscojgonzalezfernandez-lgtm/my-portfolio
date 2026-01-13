@@ -5,11 +5,11 @@ import { TechCarousel } from "@/components/tech-carousel";
 
 import { HERO_DATA_ENGLISH } from "@/data/hero.data";
 import { HERO_DATA_GERMAN } from "@/data/hero.data.german";
-import { useLanguage } from "@/hooks/use-language";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useEffect, useMemo } from "react";
 
 export default function Home() {
-  const { language } = useLanguage();
+  const { language } = useLanguageStore();
   console.log("My home language", language);
 
   const heroProps = useMemo(() => {
