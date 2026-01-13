@@ -4,14 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { CustomLogo } from "./custom-logo";
-import { CustomBackLink } from "./CustomBackLink";
 import { CustomNetworks } from "./CustomNetworks";
 import { TABS } from "@/data/page.tabs.data";
 import { LanguageSwitch } from "./language-switch";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { language } = useLanguageStore();
 
   const tabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const tabsContainerRef = useRef<HTMLDivElement | null>(null);
@@ -85,7 +86,7 @@ export const Header = () => {
                           : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
-                      {tab.label}
+                      {language == "english" ? tab.label : tab.labelGerman}
                     </Link>
                   ))}
                 </div>
