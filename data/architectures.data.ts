@@ -1,22 +1,51 @@
 export const architectures = [
   {
+    title: "Telefónica's Boost to Young Talent",
+    titleGerman: "Telefonicas Förderung jungen Talents",
+    image: "/talento-joven-todos.webp",
+    description: "nothing",
+    descriptionGerman: "nothing",
+  },
+  {
+    title: "Online seminar for recent graduates",
+    titleGerman: "Online-Seminar für junge Absolventen",
+    image: "/PowerIA.webp",
+    description: "nothing",
+    descriptionGerman: "nothing",
+  },
+  {
+    title: "Adobe Content Supply Chain Winners",
+    titleGerman: "Adobe Content Supply Chain Gewinner",
+    image: "/adobe-seminar.webp",
+    description: "nothing",
+    descriptionGerman: "nothing",
+  },
+  {
     title: "Call tracking system architechture",
+    titleGerman: "Call-Tracking-System Architektur",
     image: "/call-tracking-architecture.webp",
     description: "nothing",
+    descriptionGerman: "nothing",
   },
   {
     title: "Customer Portal Environments",
+    titleGerman: "Customer Portal Umgebungen",
     image: "/TCOL-environments.webp",
     description: "nothing",
+    descriptionGerman: "nothing",
   },
   {
     title: "Next Apps Rendition Strategy",
+    titleGerman: "Next Apps Rendition Strategie",
     image: "/Next-apps-rendition.webp",
     description: "nothing",
+    descriptionGerman: "nothing",
   },
   {
     title: "Adobe Experience Manager - High level",
+    titleGerman: "Adobe Experience Manager - Hochstufe",
     image: "/aem-infra.webp",
     description: "nothing",
+    descriptionGerman: "nothing",
   },
 ];
