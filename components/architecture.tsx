@@ -41,13 +41,19 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
               src={
                 architectures[currentArchitecture].image || "/placeholder.svg"
               }
-              alt={architectures[currentArchitecture].title}
+              alt={
+                language == "english"
+                  ? architectures[currentArchitecture].title
+                  : architectures[currentArchitecture].titleGerman
+              }
               className="w-full h-full object-contain p-4"
             />
           </div>
           <CardContent className="p-6 text-center">
             <h3 className="text-xl font-semibold">
-              {architectures[currentArchitecture].title}
+              {language == "english"
+                ? architectures[currentArchitecture].title
+                : architectures[currentArchitecture].titleGerman}
             </h3>
           </CardContent>
         </Card>

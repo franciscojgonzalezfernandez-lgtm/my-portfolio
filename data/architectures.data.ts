@@ -7,8 +7,8 @@ export const architectures = [
     descriptionGerman: "nothing",
   },
   {
-    title: "Online seminar for recent graduates",
-    titleGerman: "Online-Seminar für junge Absolventen",
+    title: "Online seminar for recent graduates of PowerMBA",
+    titleGerman: "Online-Seminar für junge Absolventen von PowerMBA",
     image: "/PowerIA.webp",
     description: "nothing",
     descriptionGerman: "nothing",

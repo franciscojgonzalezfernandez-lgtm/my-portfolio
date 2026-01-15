@@ -43,7 +43,9 @@ const Experiences = ({ experiences }: ExperienceProps) => {
               </div>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
-                {language == "german" ? exp.description : exp.descriptionGerman}
+                {language == "english"
+                  ? exp.description
+                  : exp.descriptionGerman}
               </p>
 
               <div className="flex flex-col gap-6">
