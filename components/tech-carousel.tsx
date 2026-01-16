@@ -2,9 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import { technologies } from "@/data/technologies.data";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 export function TechCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguageStore();
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -29,11 +31,14 @@ export function TechCarousel() {
     <section className="py-24 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
         <h2 className="text-4xl font-bold text-center mb-4">
-          Technologies I Use
+          {language == "english" && "Technologies I Use"}
+          {language == "german" && "Technologien, die ich nutze"}
         </h2>
         <p className="text-center text-muted-foreground max-w-2xl mx-auto">
-          A diverse toolkit of modern technologies I'm using for building full
-          scalable applications
+          {language == "english" &&
+            "A diverse toolkit of modern technologies I'm using for building full scalable applications"}
+          {language == "german" &&
+            "Ein vielfältiges Toolkit moderner Technologien, das ich für den Bau vollständig skalierbarer Anwendungen nutz"}
         </p>
       </div>
 

@@ -7,10 +7,12 @@ import { useState, useEffect } from "react";
 import { CustomLogo } from "./custom-logo";
 import { CustomNetworks } from "./CustomNetworks";
 import { TABS } from "@/data/page.tabs.data";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 export const Footer = () => {
   const pathname = usePathname();
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { language } = useLanguageStore();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,8 @@ export const Footer = () => {
           <div className="flex flex-col items-center md:items-start gap-4">
             <CustomLogo />
             <p className="text-sm text-muted-foreground">
-              Building exceptional Web Applications
+              {language == "english" && "Building exceptional Web Applications"}
+              {language == "german" && "Ausnahme-Web-Anwendungen entwickeln"}
             </p>
           </div>
 
@@ -49,7 +52,7 @@ export const Footer = () => {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {tab.label}
+                {language == "english" ? tab.label : tab.labelGerman}
               </Link>
             ))}
           </nav>
@@ -58,7 +61,12 @@ export const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()}{" "}
+            {language == "english"
+              ? "All rights reserved."
+              : "Alle Rechte vorbehalten"}
+          </p>
         </div>
       </div>
 

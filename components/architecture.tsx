@@ -4,6 +4,7 @@ import type { Architecture } from "@/interfaces/architecture.interface";
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { CustomImage } from "./high-order-components/CustomImage";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 interface ArchitecturesProps {
   architectures: Architecture[];
@@ -11,6 +12,7 @@ interface ArchitecturesProps {
 
 export const Architectures = ({ architectures }: ArchitecturesProps) => {
   const [currentArchitecture, setCurrentArchitecture] = useState(0);
+  const { language } = useLanguageStore();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,10 +23,15 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
 
   return (
     <div className="mt-20 max-w-4xl m-auto">
-      <h2 className="text-4xl font-bold mb-4 text-center">Key Achievements</h2>
+      <h2 className="text-4xl font-bold mb-4 text-center">
+        {language == "english"
+          ? "Featured Achievements and Activities"
+          : "Ausgewählte Erfolge und Aktivitäten"}
+      </h2>
       <p className="text-center text-muted-foreground mb-12 text-lg">
-        Architecture designs and technical solutions I've created and I'm proud
-        of
+        {language == "english"
+          ? "Architectural designs, technical solutions, and impactful activities I've created and I'm proud of"
+          : "Architekturdesigns, technische Lösungen und einflussreiche Aktivitäten, auf die ich stolz bin"}
       </p>
 
       <div className="relative">
@@ -34,13 +41,19 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
               src={
                 architectures[currentArchitecture].image || "/placeholder.svg"
               }
-              alt={architectures[currentArchitecture].title}
+              alt={
+                language == "english"
+                  ? architectures[currentArchitecture].title
+                  : architectures[currentArchitecture].titleGerman
+              }
               className="w-full h-full object-contain p-4"
             />
           </div>
           <CardContent className="p-6 text-center">
             <h3 className="text-xl font-semibold">
-              {architectures[currentArchitecture].title}
+              {language == "english"
+                ? architectures[currentArchitecture].title
+                : architectures[currentArchitecture].titleGerman}
             </h3>
           </CardContent>
         </Card>

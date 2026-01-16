@@ -12,10 +12,14 @@ import {
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
+import { useLanguageStore } from "@/stores/useLanguageStore";
+import { METRICS_DATA } from "@/data/metrics.data";
+import parse from "html-react-parser";
 
 export function Metrics() {
   const [launched, setLaunched] = useState(false);
   const [showScores, setShowScores] = useState(false);
+  const { language } = useLanguageStore();
 
   useEffect(() => {
     const timer1 = setTimeout(() => setLaunched(true), 500);
@@ -27,15 +31,34 @@ export function Metrics() {
   }, []);
 
   const metrics = [
-    { name: "Performance", score: 100, icon: Zap, color: "text-green-500" },
+    {
+      name: "Performance",
+      nameGerman: "Leistung",
+      score: 100,
+      icon: Zap,
+      color: "text-green-500",
+    },
     {
       name: "Accessibility",
+      nameGerman: "Barrierefreiheit",
       score: 100,
       icon: Accessibility,
       color: "text-green-500",
     },
-    { name: "Best Practices", score: 100, icon: Eye, color: "text-green-500" },
-    { name: "SEO", score: 100, icon: Search, color: "text-green-500" },
+    {
+      name: "Best Practices",
+      nameGerman: "Best Practices",
+      score: 100,
+      icon: Eye,
+      color: "text-green-500",
+    },
+    {
+      name: "SEO",
+      nameGerman: "SEO",
+      score: 100,
+      icon: Search,
+      color: "text-green-500",
+    },
   ];
 
   return (
@@ -44,12 +67,14 @@ export function Metrics() {
         {/* Hero Section with Rocket Animation */}
         <section className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
-            Numbers Don't Lie
+            {language == "english"
+              ? METRICS_DATA.title
+              : METRICS_DATA.titleGerman}
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Achieving perfect scores isn't just about bragging rights — it's
-            about delivering exceptional user experiences that drive real
-            business results.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
+            {language == "english"
+              ? METRICS_DATA.subtitle
+              : METRICS_DATA.subtitleGerman}
           </p>
 
           {/* Rocket Animation */}
@@ -191,7 +216,7 @@ export function Metrics() {
                   </span>
                 </div>
                 <h3 className="text-sm font-medium text-muted-foreground">
-                  {metric.name}
+                  {language == "english" ? metric.name : metric.nameGerman}
                 </h3>
               </div>
             ))}
@@ -258,40 +283,38 @@ export function Metrics() {
               <Zap className="w-8 h-8 text-accent" />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Committed to Performance Excellence
+              {language == "english"
+                ? METRICS_DATA.title2
+                : METRICS_DATA.title2German}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              As an engineer, I understand that web performance isn't just a
-              technical metric — it's a
-              <strong className="text-foreground">
-                {" "}
-                critical business driver
-              </strong>
-              . Studies show that a 1-second delay in page load time can result
-              in a{" "}
-              <strong className="text-foreground">
-                7% reduction in conversions
-              </strong>
-              . That's why I obsess over every millisecond, every byte, and
-              every render cycle.
+              {language == "english"
+                ? parse(METRICS_DATA.subtitle2)
+                : parse(METRICS_DATA.subtitle2German)}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="p-4">
                 <p className="text-3xl font-bold text-foreground mb-2">53%</p>
                 <p className="text-sm text-muted-foreground">
-                  of mobile users abandon sites that take over 3 seconds to load
+                  {language == "english"
+                    ? METRICS_DATA.fact1
+                    : METRICS_DATA.fact1German}
                 </p>
               </div>
               <div className="p-4">
                 <p className="text-3xl font-bold text-foreground mb-2">2x</p>
                 <p className="text-sm text-muted-foreground">
-                  higher conversion rates for sites with sub-2-second load times
+                  {language == "english"
+                    ? METRICS_DATA.fact2
+                    : METRICS_DATA.fact2German}
                 </p>
               </div>
               <div className="p-4">
                 <p className="text-3xl font-bold text-foreground mb-2">$2.6B</p>
                 <p className="text-sm text-muted-foreground">
-                  lost annually due to slow-loading websites
+                  {language == "english"
+                    ? METRICS_DATA.fact3
+                    : METRICS_DATA.fact3German}
                 </p>
               </div>
             </div>
@@ -303,11 +326,14 @@ export function Metrics() {
           <div className="bg-card border border-border rounded-xl p-8 md:p-12">
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Try It Yourself!
+                {language == "english"
+                  ? METRICS_DATA.tryYourselfTitle
+                  : METRICS_DATA.tryYourselfTitleGerman}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Don't just take my word for it. Run a Lighthouse audit on this
-                very website and see the results with your own eyes.
+                {language == "english"
+                  ? METRICS_DATA.tryYourselfSubtitle
+                  : METRICS_DATA.tryYourselfSubtitleGerman}
               </p>
             </div>
 
@@ -321,18 +347,22 @@ export function Metrics() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                     <Chrome className="w-5 h-5" />
-                    Open Chrome DevTools
+                    {language == "english"
+                      ? "Open Chrome DevTools"
+                      : "Chrome DevTools öffnen"}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Right-click anywhere on this page and select{" "}
+                    {language == "english"
+                      ? "Right-click anywhere on this page and select"
+                      : "Rechtsklick überall auf dieser Seite und auswählen"}{" "}
                     <span className="bg-muted px-2 py-0.5 rounded text-foreground font-mono text-xs">
-                      Inspect
+                      {language == "english" ? "Inspect" : "Untersuchen"}
                     </span>
-                    , or press{" "}
+                    , {language == "english" ? "or press" : "oder drücke"}{" "}
                     <span className="bg-muted px-2 py-0.5 rounded text-foreground font-mono text-xs">
                       F12
                     </span>{" "}
-                    (Windows/Linux) or{" "}
+                    (Windows/Linux) {language == "english" ? "or " : "oder"}{" "}
                     <span className="bg-muted px-2 py-0.5 rounded text-foreground font-mono text-xs">
                       Cmd + Option + I
                     </span>{" "}
@@ -349,18 +379,26 @@ export function Metrics() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                     <ArrowRight className="w-5 h-5" />
-                    Navigate to Lighthouse Tab
+                    {language == "english"
+                      ? "Navigate to Lighthouse Tab "
+                      : "Zum Lighthouse-Tab navigieren"}{" "}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    In the DevTools panel, click on the{" "}
+                    {language == "english"
+                      ? "In the DevTools panel, click on the"
+                      : "Im DevTools-Bereich auf klicken"}{" "}
                     <span className="bg-muted px-2 py-0.5 rounded text-foreground font-mono text-xs">
                       Lighthouse
                     </span>{" "}
-                    tab. If you don't see it, click the{" "}
+                    {language == "english"
+                      ? "tab. If you don't see it, click the"
+                      : "Register. Wenn du ihn nicht siehst, klicke auf den"}{" "}
                     <span className="bg-muted px-2 py-0.5 rounded text-foreground font-mono text-xs">
                       &gt;&gt;
                     </span>{" "}
-                    arrows to find more tabs.
+                    {language == "english"
+                      ? "arrows to find more tabs."
+                      : "Pfeile, um weitere Register zu finden."}
                   </p>
                 </div>
               </div>
@@ -373,10 +411,14 @@ export function Metrics() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                     <MonitorSmartphone className="w-5 h-5" />
-                    Configure the Audit
+                    {language == "english"
+                      ? "Configure the audit"
+                      : "Den Audit konfigurieren"}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Select the categories you want to test:{" "}
+                    {language == "english"
+                      ? "Select the categories you want to test:"
+                      : "Wähle die Kategorien aus, die du testen möchtest:"}{" "}
                     <span className="font-medium text-foreground">
                       Performance
                     </span>
@@ -388,9 +430,11 @@ export function Metrics() {
                     <span className="font-medium text-foreground">
                       Best Practices
                     </span>
-                    , and{" "}
+                    , {language == "english" ? "and" : "und"}{" "}
                     <span className="font-medium text-foreground">SEO</span>.
-                    Choose either Desktop or Mobile device.
+                    {language == "english"
+                      ? "Choose either Desktop or Mobile device."
+                      : "Wähle entweder Desktop oder Mobilgerät."}
                   </p>
                 </div>
               </div>
@@ -403,15 +447,20 @@ export function Metrics() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                     <Zap className="w-5 h-5" />
-                    Analyze the Page
+                    {language == "english"
+                      ? "Analyze the Page"
+                      : "Seite analysieren"}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Click{" "}
+                    {language == "english" ? "Click" : "Klicke"}{" "}
                     <span className="bg-foreground text-background px-3 py-1 rounded text-xs font-medium">
-                      Analyze page load
+                      {language == "english"
+                        ? "Analyze page load"
+                        : "Seitenladevorgang analysieren"}
                     </span>{" "}
-                    and wait for the audit to complete. In a few seconds, you'll
-                    see the results!
+                    {language == "english"
+                      ? "and wait for the audit to complete. In a few seconds, you'll see the results!"
+                      : "und warte, bis der Audit abgeschlossen ist. In wenigen Sekunden siehst du die Ergebnisse!"}
                   </p>
                 </div>
               </div>
@@ -420,7 +469,9 @@ export function Metrics() {
             {/* Alternative: PageSpeed Insights */}
             <div className="mt-10 pt-8 border-t border-border">
               <p className="text-center text-muted-foreground mb-4">
-                Prefer a quicker way? Use Google's PageSpeed Insights:
+                {language == "english"
+                  ? "Prefer a quicker way? Use Google's PageSpeed Insights:"
+                  : "Bevorzugst du einen schnelleren Weg? Nutze Google's PageSpeed Insights:"}
               </p>
               <a
                 href="https://pagespeed.web.dev/"
@@ -428,11 +479,16 @@ export function Metrics() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-foreground text-background px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity mx-auto w-fit"
               >
-                Open PageSpeed Insights
+                {language == "english"
+                  ? "Open PageSpeed Insights"
+                  : "PageSpeed Insights öffnen"}
+
                 <ExternalLink className="w-4 h-4" />
               </a>
               <p className="text-center text-xs text-muted-foreground mt-3">
-                Just paste this website's URL and hit Analyze
+                {language == "english"
+                  ? "Just paste this website's URL and hit Analyze"
+                  : "Füge einfach die URL dieser Website ein und klicke auf Analysieren"}
               </p>
             </div>
           </div>

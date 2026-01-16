@@ -3,9 +3,12 @@ import { Project } from "@/interfaces/project.interface";
 export const CALL_TRACKING: Project = {
   slug: "call-tracking-system",
   title: "Call Tracking System",
+  titleGerman: "Call-Tracking-System",
   projectType: "Professional",
   description:
     "Full‑stack development of a lead generation system based on call routing and call traceability.",
+  descriptionGerman:
+    "Full-Stack-Entwicklung eines Lead-Generierungs-Systems basierend auf Call-Routing und Call-Traceability.",
   images: [
     "/call-tracking-cover.webp",
     "call-tracking-architecture.png",
@@ -37,12 +40,14 @@ export const CALL_TRACKING: Project = {
   - <strong>Data pipeline mastery</strong>: BigQuery views + dashboards via Dataflow/Pub/Sub ingestion for business intelligence.
   - <strong>Production monitoring</strong>: Google Cloud Monitoring + BigQuery alerts ensuring 24/7 system reliability.
 
+
   <h3 className="text-xl"><strong>Challenges Solved</strong></h3>
   - <strong>Mapped complete customer journeys</strong> from website cookies through phone sales (60% of total revenue).
   - <strong>Implemented intelligent call routing</strong> across multiple campaigns/products to correct call centers without errors.
   - <strong>Built production-grade "best effort" system</strong> achieving 96% accuracy while protecting proprietary algorithms.
   - <strong>Orchestrated complex data flows</strong>: Real-time ingestion → BigQuery analysis → actionable business dashboards.
   - Delivered zero-downtime monitoring across entire GCP stack.
+
 
   <h3 className="text-xl"><strong>Results</strong></h3>
    ✅ 96% call traceability accuracy across 60% of website revenue
@@ -52,6 +57,32 @@ export const CALL_TRACKING: Project = {
    ✅ Intelligent campaign-based call center routing at scale
    
   System continues delivering ROI in production today.`,
+  fullDescriptionGerman: `<strong>Entwicklung eines Call-Tracking-Systems</strong>, das 96% genaue Nachverfolgbarkeit für assistierte Verkäufe erreichte, die 60% aller Website-Konversionen ausmachen, vollständiges geistiges Eigentum bewahrend und vollständige Customer-Journey-Analyse von Cookie bis Anruf ermöglichend.
+
+  <h3 className="text-xl"><strong>Meine strategische Rolle</strong></h3>
+  - <strong>End-to-End-Architektur</strong>: 4-API Maven-Backend (Kampagnen-Konfiguration → Rules Engine → Nummern-Routing) auf Google Cloud Platform deployed.
+  - <strong>Phone-Pool-Integration</strong>: Echtzeit-Call-Status-Updates für präzise Cookie-to-Call-Zuordnung.
+  - <strong>Click-to-Call-Orchestrierung</strong>: Robuste Frontend dynamisch gebuchte gebührenfreie Nummern (<1% Fehlerquote) mit intelligentem kampagnenbasiertem Routing zu Call-Centern.
+  - <strong>Data-Pipeline-Meisterschaft</strong>: BigQuery-Views + Dashboards via Dataflow/Pub/Sub-Ingestion für Business Intelligence.
+  - <strong>Production-Monitoring</strong>: Google Cloud Monitoring + BigQuery-Alerts für 24/7 Systemzuverlässigkeit.
+
+
+  <h3 className="text-xl"><strong>Gelöste Herausforderungen</strong></h3>
+  - <strong>Vollständige Customer Journeys abgebildet</strong> von Website-Cookies durch Telefonverkäufe (60% des Gesamtumsatzes).
+  - <strong>Intelligentes Call-Routing implementiert</strong> über mehrere Kampagnen/Produkte zu korrekten Call-Centern ohne Fehler.
+  - <strong>Production-grade "Best-Effort"-System gebaut</strong> mit 96% Genauigkeit bei Schutz proprietärer Algorithmen.
+  - <strong>Komplexe Datenflüsse orchestriert</strong>: Echtzeit-Ingestion → BigQuery-Analyse → handlungsrelevante Business-Dashboards.
+  - Zero-Downtime-Monitoring über gesamten GCP-Stack geliefert.
+
+
+  <h3 className="text-xl"><strong>Ergebnisse</strong></h3>
+   ✅ 96% Call-Traceability-Genauigkeit über 60% des Website-Umsatzes
+   ✅ Production-System läuft weiterhin mit <1% Fehlerquote
+   ✅ Vollständige Customer-Journey-Sichtbarkeit von Cookie → assistierter Verkauf
+   ✅ Business-ready BigQuery-Dashboards + automatisierte Google Cloud-Alerts
+   ✅ Intelligentes kampagnenbasiertes Call-Center-Routing im Scale
+   
+  System liefert nach wie vor ROI in Production.`,
   videoUrl: "scx-demo.webm",
   externalUrl: "https://www.movistar.es/fibra-optica/fibra-600mb/",
   releaseDate: "03-11-2019",

@@ -1,7 +1,9 @@
 export const certifications = [
   {
     title: "Recommendation Letter by my last Director",
+    titleGerman: "Empfehlungsschreiben meines letzten Direktors",
     issuer: "Telefonica",
+    issuerGerman: "Telefónica",
     date: "2025",
     type: "certification" as const,
     driveUrl:
@@ -9,7 +11,9 @@ export const certifications = [
   },
   {
     title: "Master in Executive Business Management",
+    titleGerman: "Master in Executive Business Management",
     issuer: "IMF Tech School - University of Nebrija",
+    issuerGerman: "IMF Tech School - Universität Nebrija",
     date: "2022",
     type: "degree" as const,
     driveUrl:
@@ -17,7 +21,9 @@ export const certifications = [
   },
   {
     title: "Professional Scrum Master I",
+    titleGerman: "Professional Scrum Master I",
     issuer: "Scrum.org",
+    issuerGerman: "Scrum.org",
     date: "2020",
     type: "certification" as const,
     driveUrl:
@@ -25,15 +31,19 @@ export const certifications = [
   },
   {
     title: "Computer Science Degree",
+    titleGerman: "Informatik-Abschluss",
     issuer: "University of Granada",
+    issuerGerman: "Universität Granada",
     date: "2018",
     type: "degree" as const,
     driveUrl:
       "https://drive.google.com/file/d/194PHMPF_e0xHQjPxDlg2PP5YE-PmUbYq/view?usp=sharing",
   },
   {
-    title: "Bachelor’s academic transcript",
+    title: "Bachelor's academic transcript",
+    titleGerman: "Bachelor-Abschlusszeugnis",
     issuer: "University of Granada",
+    issuerGerman: "Universität Granada",
     date: "2018",
     type: "degree" as const,
     driveUrl:
