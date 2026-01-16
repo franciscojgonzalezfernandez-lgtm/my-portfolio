@@ -1,11 +1,14 @@
+"use client";
 import { certifications } from "@/data/certifications.data";
 import { Award, ExternalLink, GraduationCap } from "lucide-react";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 interface CertificationsProps {
   mode: string;
 }
 
 export const CustomCertifications = ({ mode }: CertificationsProps) => {
+  const { language } = useLanguageStore();
   return (
     <div className="mt-20 pt-12 border-t border-border/50">
       <h3
@@ -13,7 +16,9 @@ export const CustomCertifications = ({ mode }: CertificationsProps) => {
           mode === "personal" ? "text-background" : "text-foreground"
         }`}
       >
-        Certifications & Education
+        {language == "english"
+          ? "Certifications & Education"
+          : "Zertifikate & Ausbildung"}
       </h3>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -50,7 +55,7 @@ export const CustomCertifications = ({ mode }: CertificationsProps) => {
                     mode === "personal" ? "text-background" : "text-foreground"
                   }`}
                 >
-                  {cert.title}
+                  {language == "english" ? cert.title : cert.titleGerman}
                 </h4>
                 <ExternalLink
                   className={`w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity ${
@@ -67,7 +72,8 @@ export const CustomCertifications = ({ mode }: CertificationsProps) => {
                     : "text-muted-foreground"
                 }`}
               >
-                {cert.issuer} · {cert.date}
+                {language == "english" ? cert.issuer : cert.issuerGerman} ·{" "}
+                {cert.date}
               </p>
             </div>
           </a>
@@ -79,7 +85,9 @@ export const CustomCertifications = ({ mode }: CertificationsProps) => {
           mode === "personal" ? "text-background/60" : "text-muted-foreground"
         }`}
       >
-        Click on any certification to view the official document
+        {language == "english"
+          ? "Click on any certification to view the official document"
+          : "Klicke auf jedes Zertifikat, um das offizielle Dokument anzusehen"}
       </p>
     </div>
   );

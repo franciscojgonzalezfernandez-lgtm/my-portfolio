@@ -3,6 +3,7 @@
 import { AboutMe } from "@/interfaces/aboutMe.interface";
 import { CustomVideo } from "./high-order-components/CustomVideo";
 import { CustomCertifications } from "./CustomCertifications";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 interface AboutProps {
   mode: "professional" | "personal";
@@ -18,6 +19,7 @@ export const About = ({
   professional,
 }: AboutProps) => {
   const actualTopic = mode === "personal" ? personal : professional;
+  const { language } = useLanguageStore();
   return (
     <section
       id="about"
@@ -83,57 +85,108 @@ export const About = ({
               mode === "personal" ? "text-background" : "text-foreground"
             }`}
           >
-            {actualTopic.title}
+            {language == "english"
+              ? actualTopic.title
+              : actualTopic.titleGerman}
           </h2>
 
           <div className="prose prose-lg mx-auto">
-            {actualTopic.paragraphs.map((paragraph, index) => {
-              return (
-                <p
-                  key={paragraph.charAt(0) + index}
-                  className={`text-lg leading-relaxed mb-6 ${
-                    mode === "personal"
-                      ? "text-background/80"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {paragraph}
-                </p>
-              );
-            })}
-
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
-              {actualTopic.skills.map((skill) => {
+            {language == "english" &&
+              actualTopic.paragraphs.map((paragraph, index) => {
                 return (
-                  <div
-                    key={skill.title}
-                    className={`p-6 rounded-lg ${
+                  <p
+                    key={paragraph.charAt(0) + index}
+                    className={`text-lg leading-relaxed mb-6 ${
                       mode === "personal"
-                        ? "bg-background/20 border border-background/30"
-                        : "bg-card border border-border"
+                        ? "text-background/80"
+                        : "text-muted-foreground"
                     }`}
                   >
-                    <h3
-                      className={`font-semibold mb-2 ${
-                        mode === "personal"
-                          ? "text-background"
-                          : "text-foreground"
-                      }`}
-                    >
-                      {skill.title}
-                    </h3>
-                    <p
-                      className={`text-sm ${
-                        mode === "personal"
-                          ? "text-background/70"
-                          : "text-muted-foreground"
-                      }`}
-                    >
-                      {skill.description}
-                    </p>
-                  </div>
+                    {paragraph}
+                  </p>
                 );
               })}
+            {language == "german" &&
+              actualTopic.paragraphsGerman.map((paragraph, index) => {
+                return (
+                  <p
+                    key={paragraph.charAt(0) + index}
+                    className={`text-lg leading-relaxed mb-6 ${
+                      mode === "personal"
+                        ? "text-background/80"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
+                );
+              })}
+
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              {language == "english" &&
+                actualTopic.skills.map((skill) => {
+                  return (
+                    <div
+                      key={skill.title}
+                      className={`p-6 rounded-lg ${
+                        mode === "personal"
+                          ? "bg-background/20 border border-background/30"
+                          : "bg-card border border-border"
+                      }`}
+                    >
+                      <h3
+                        className={`font-semibold mb-2 ${
+                          mode === "personal"
+                            ? "text-background"
+                            : "text-foreground"
+                        }`}
+                      >
+                        {skill.title}
+                      </h3>
+                      <p
+                        className={`text-sm ${
+                          mode === "personal"
+                            ? "text-background/70"
+                            : "text-muted-foreground"
+                        }`}
+                      >
+                        {skill.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              {language == "german" &&
+                actualTopic.skillsGerman.map((skill) => {
+                  return (
+                    <div
+                      key={skill.title}
+                      className={`p-6 rounded-lg ${
+                        mode === "personal"
+                          ? "bg-background/20 border border-background/30"
+                          : "bg-card border border-border"
+                      }`}
+                    >
+                      <h3
+                        className={`font-semibold mb-2 ${
+                          mode === "personal"
+                            ? "text-background"
+                            : "text-foreground"
+                        }`}
+                      >
+                        {skill.title}
+                      </h3>
+                      <p
+                        className={`text-sm ${
+                          mode === "personal"
+                            ? "text-background/70"
+                            : "text-muted-foreground"
+                        }`}
+                      >
+                        {skill.description}
+                      </p>
+                    </div>
+                  );
+                })}
             </div>
           </div>
           <CustomCertifications mode={mode} />
