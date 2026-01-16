@@ -13,8 +13,8 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { useLanguageStore } from "@/stores/useLanguageStore";
-
 import { METRICS_DATA } from "@/data/metrics.data";
+import parse from "html-react-parser";
 
 export function Metrics() {
   const [launched, setLaunched] = useState(false);
@@ -288,19 +288,9 @@ export function Metrics() {
                 : METRICS_DATA.title2German}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              As an engineer, I understand that web performance isn't just a
-              technical metric — it's a
-              <strong className="text-foreground">
-                {" "}
-                critical business driver
-              </strong>
-              . Studies show that a 1-second delay in page load time can result
-              in a{" "}
-              <strong className="text-foreground">
-                7% reduction in conversions
-              </strong>
-              . That's why I obsess over every millisecond, every byte, and
-              every render cycle.
+              {language == "english"
+                ? parse(METRICS_DATA.subtitle2)
+                : parse(METRICS_DATA.subtitle2German)}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="p-4">
