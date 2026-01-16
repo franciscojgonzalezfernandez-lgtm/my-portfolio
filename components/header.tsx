@@ -8,6 +8,7 @@ import { CustomNetworks } from "./CustomNetworks";
 import { TABS } from "@/data/page.tabs.data";
 import { LanguageSwitch } from "./language-switch";
 import { useLanguageStore } from "@/stores/useLanguageStore";
+import { CustomBackLink } from "./CustomBackLink";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -49,6 +50,7 @@ export const Header = () => {
     >
       <div className="flex items-center justify-between container mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center w-42 shrink-0 align-baseline">
+          <CustomBackLink />
           <CustomLogo />
         </div>
         <div className="hidden sm:block">

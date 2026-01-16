@@ -3,13 +3,17 @@ import { Project } from "@/interfaces/project.interface";
 export const PERSONAL_PORTFOLIO: Project = {
   slug: "this-portfolio",
   title: "Optimized Portfolio Website",
+  titleGerman: "Optimierte Portfolio-Website",
   projectType: "Side Project",
   description: "This portfolio itself. The one you're watching right now",
+  descriptionGerman: "Dieses Portfolio selbst. Das, was du gerade anschaust",
   images: ["/portfolio-cover.webp", "/portfolio-arq.webp"],
   tags: [
     "NextJS",
     "AI UI Generators",
     "V0",
+    "Zustand",
+    "Performance Optimization",
     "CI/CD",
     "Github Actions",
     "Tailwind CSS",
@@ -36,6 +40,26 @@ export const PERSONAL_PORTFOLIO: Project = {
    ✅ Production-ready in 5 working days using Next.js 16 + React 19
    ✅ Direct GitHub Pages deployment — simple, fast, scalable
    ✅ Contact form + CV download fully functional
+`,
+  fullDescriptionGerman: `Mein persönliches Portfolio von Grund auf in nur 5 effektiven Arbeitstagen gebaut, mit perfekten Lighthouse-Metriken (100% Performance, Barrierefreiheit, Best Practices und SEO) durch Nutzung der neuesten modernen Tools im Ökosystem.
+  
+  <h3 className="text-xl"><strong>Meine strategische Rolle</strong></h3>
+  - <strong>Technologie-Scouting</strong>: Auswahl von Next.js 16 + React 19 mit Vite für ultraschnelle statische Builds, shadcn/ui über Tailwind CSS für elegante Radix-UI-basierte Komponenten — Erkundung innovativster Optionen zur Demonstration von Anpassungsfähigkeit.
+  - <strong>End-to-End-Optimierung</strong>: Parallelisierte Frontend/Backend-Workflows, Pre-Rendering-Meisterschaft und Instant-Loading-Garantie.
+  - <strong>Production-Härtung</strong>: Direktes GitHub Pages Deployment mit Kontaktformular + CV-Download-Funktionalität.
+  - <strong>Performance-Verpflichtung</strong>: Lighthouse-perfekte Scores durch präzise technische Entscheidungen.
+
+  <h3 className="text-xl"><strong>Gelöste Herausforderungen</strong></h3>
+  - Production-ready Site in Rekordzeit mit neuesten Framework-Releases geliefert.
+  - <strong>Innovation mit Stabilität balanciert</strong> — Bleeding-Edge-Stack ohne Kompromisse bei Zuverlässigkeit.
+  - 100% Lighthouse über alle Metriken im statischen Export-Environment erreicht.
+  - Nahtlose User Experience mit E-Mail-Integration und Instant-Downloads geschaffen.
+
+  <h3 className="text-xl"><strong>Ergebnisse</strong></h3>
+   ✅ Perfekte Lighthouse Performance/Barrierefreiheit/SEO/Best Practices Scores
+   ✅ Production-ready in 5 Arbeitstagen mit Next.js 16 + React 19
+   ✅ Direktes GitHub Pages Deployment — einfach, schnell, skalierbar
+   ✅ Kontaktformular + CV-Download vollständig funktional
 `,
   videoUrl: "/portfolio-demo.webm",
   releaseDate: "9-01-2026",

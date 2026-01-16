@@ -1,7 +1,9 @@
+"use client";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Project } from "@/interfaces/project.interface";
 import { CustomImage } from "./high-order-components/CustomImage";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 interface PortfolioProps {
   projects: Project[];
@@ -33,13 +35,15 @@ function formatDate(date: string) {
 }
 
 export function Portfolio({ projects }: PortfolioProps) {
+  const { language } = useLanguageStore();
   return (
     <section id="portfolio" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold mb-4 text-center">Portfolio</h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A selection of projects that showcase my skills in web development and
-          interface design.
+        <p className="text-center text-muted-foreground mb-12 mx-auto">
+          {language == "english"
+            ? "A selection of projects that showcase my skills in web development and interface design."
+            : "Eine Auswahl von Projekten, die meine Fähigkeiten in Webentwicklung und Interface-Design zeigen."}
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -52,7 +56,11 @@ export function Portfolio({ projects }: PortfolioProps) {
                   </span>
                   <CustomImage
                     src={project.images[0] || "/placeholder.svg"}
-                    alt={project.title}
+                    alt={
+                      language == "english"
+                        ? project.title
+                        : project.titleGerman
+                    }
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <span className="absolute bottom-3 right-3 px-2 py-1 bg-background/90 backdrop-blur-sm text-foreground text-xs font-medium rounded">
@@ -61,10 +69,14 @@ export function Portfolio({ projects }: PortfolioProps) {
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2">
-                    {project.title}
+                    {language == "english"
+                      ? project.title
+                      : project.titleGerman}
                   </h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
+                    {language == "english"
+                      ? project.description
+                      : project.descriptionGerman}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIndex) => {
