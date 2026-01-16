@@ -12,10 +12,14 @@ import {
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
+import { useLanguageStore } from "@/stores/useLanguageStore";
+
+import { METRICS_DATA } from "@/data/metrics.data";
 
 export function Metrics() {
   const [launched, setLaunched] = useState(false);
   const [showScores, setShowScores] = useState(false);
+  const { language } = useLanguageStore();
 
   useEffect(() => {
     const timer1 = setTimeout(() => setLaunched(true), 500);
@@ -27,15 +31,34 @@ export function Metrics() {
   }, []);
 
   const metrics = [
-    { name: "Performance", score: 100, icon: Zap, color: "text-green-500" },
+    {
+      name: "Performance",
+      nameGerman: "Leistung",
+      score: 100,
+      icon: Zap,
+      color: "text-green-500",
+    },
     {
       name: "Accessibility",
+      nameGerman: "Barrierefreiheit",
       score: 100,
       icon: Accessibility,
       color: "text-green-500",
     },
-    { name: "Best Practices", score: 100, icon: Eye, color: "text-green-500" },
-    { name: "SEO", score: 100, icon: Search, color: "text-green-500" },
+    {
+      name: "Best Practices",
+      nameGerman: "Best Practices",
+      score: 100,
+      icon: Eye,
+      color: "text-green-500",
+    },
+    {
+      name: "SEO",
+      nameGerman: "SEO",
+      score: 100,
+      icon: Search,
+      color: "text-green-500",
+    },
   ];
 
   return (
@@ -44,12 +67,14 @@ export function Metrics() {
         {/* Hero Section with Rocket Animation */}
         <section className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
-            Numbers Don't Lie
+            {language == "english"
+              ? METRICS_DATA.title
+              : METRICS_DATA.titleGerman}
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Achieving perfect scores isn't just about bragging rights — it's
-            about delivering exceptional user experiences that drive real
-            business results.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
+            {language == "english"
+              ? METRICS_DATA.subtitle
+              : METRICS_DATA.subtitleGerman}
           </p>
 
           {/* Rocket Animation */}
@@ -191,7 +216,7 @@ export function Metrics() {
                   </span>
                 </div>
                 <h3 className="text-sm font-medium text-muted-foreground">
-                  {metric.name}
+                  {language == "english" ? metric.name : metric.nameGerman}
                 </h3>
               </div>
             ))}
@@ -258,7 +283,9 @@ export function Metrics() {
               <Zap className="w-8 h-8 text-accent" />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Committed to Performance Excellence
+              {language == "english"
+                ? METRICS_DATA.title2
+                : METRICS_DATA.title2German}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               As an engineer, I understand that web performance isn't just a
