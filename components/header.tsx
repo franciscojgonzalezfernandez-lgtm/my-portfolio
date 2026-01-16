@@ -48,12 +48,12 @@ export const Header = () => {
         scrolled ? " shadow-sm" : ""
       }`}
     >
-      <div className="flex items-center justify-between container mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center w-42 shrink-0 align-baseline">
+      <div className="flex items-center justify-between container mx-auto px-4 sm:px-6 gap-2 align-baseline">
+        <div className="flex justify-between items-center shrink-0 align-baseline">
           <CustomBackLink />
           <CustomLogo />
         </div>
-        <div className="hidden sm:block">
+        <div>
           <LanguageSwitch />
         </div>
 
