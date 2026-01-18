@@ -13,7 +13,7 @@ export function TechCarousel() {
     if (!carousel) return;
 
     let scrollAmount = 0;
-    const scrollSpeed = 1;
+    const scrollSpeed = 4;
 
     const scroll = () => {
       scrollAmount += scrollSpeed;
