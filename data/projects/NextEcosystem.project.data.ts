@@ -27,6 +27,7 @@ export const NEXT_ECOSYSTEM: Project = {
     "Bitbucket",
     "Terraform",
     "Figma",
+    "Storybook",
     "XD",
     "Jira",
     "Scrum",

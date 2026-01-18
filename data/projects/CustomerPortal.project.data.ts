@@ -25,6 +25,7 @@ export const CUSTOMER_PORTAL: Project = {
     "Architecture",
     "Jest",
     "Figma",
+    "Storybook",
     "JUnit",
     "XD",
     "Stress testing",
