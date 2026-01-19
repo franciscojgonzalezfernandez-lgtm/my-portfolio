@@ -36,7 +36,8 @@ npm run dev
 
 ```
 
-📈 Performance
+## 📈 Performance
+
 ┌────────┬───────┐
 │ Metric │ Score │
 ├────────┼───────┨
