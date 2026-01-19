@@ -11,7 +11,8 @@
 - TanStack Query for data mastery
 - Shad/cn on top of Radix UI for an optimized Accesibility
 
-**[Live Demo](https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/)**
+👈 **[Live Demo](https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/)** |
+📖 **[Project explanation](https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/portfolio/this-portfolio)**
 
 ## ✨ Featured Technologies
 
@@ -36,10 +37,7 @@ npm run dev
 
 ```
 
-## 📈 Performance
-
-| Metric | Score |
-| ------ | ----- |
-| LCP    | 0.8s  |
-| FID    | 0ms   |
-| CLS    | 0.00  |
+## 📊 Metrics
+| Performance     | Accesibility                    | Best Practices  | SEO |
+|--------------|-------------------------------|---------------|---------|
+| 100    | 95     |  93 | 100 |
