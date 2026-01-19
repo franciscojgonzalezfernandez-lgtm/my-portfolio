@@ -25,8 +25,7 @@
 | Design     | V0 + Tailwind                         |
 | Data       | TanStack Query                        |
 | Bundler    | Vite                                  |
-
-| Deploy | Github Actions |
+| Deploy     | Github Actions                        |
 
 ## 🎯 Getting Started
 
@@ -34,9 +33,11 @@
 git clone https://github.com/franciscojgonzalezfernandez-lgtm/my-portfolio.git
 npm install
 npm run dev
-📈 Performance
-Metric	Score
-LCP	0.8s
-FID	0ms
-CLS	0.00
+
 ```
+
+📈 Performance
+Metric Score
+LCP 0.8s
+FID 0ms
+CLS 0.00
