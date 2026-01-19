@@ -9,19 +9,24 @@
 - Zustand (lightning-fast state management)
 - V0 AI design + TailwindCSS
 - TanStack Query for data mastery
+- Shad/cn on top of Radix UI for an optimized Accesibility
 
 **[Live Demo](https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/)**
 
 ## ✨ Featured Technologies
 
-| Category  | Tech Stack     |
-| --------- | -------------- |
-| Framework | Next.js 16     |
-| Library   | React 19       |
-| State     | Zustand        |
-| Design    | V0 + Tailwind  |
-| Data      | TanStack Query |
-| Deploy    | Github Actions |
+| Category   | Tech Stack                            |
+| ---------- | ------------------------------------- |
+| Framework  | Next.js 16                            |
+| Library    | React 19                              |
+| UI         | **Shadcn/UI** (perfect accessibility) |
+| Primitives | Radix UI                              |
+| State      | Zustand                               |
+| Design     | V0 + Tailwind                         |
+| Data       | TanStack Query                        |
+| Bundler    | Vite                                  |
+
+| Deploy | Github Actions |
 
 ## 🎯 Getting Started
 
