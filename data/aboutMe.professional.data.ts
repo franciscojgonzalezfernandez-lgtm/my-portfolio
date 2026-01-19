@@ -50,6 +50,6 @@ export const professional = {
     },
   ],
 
-  videoUrl: "/portfolio-intro.mp4",
+  videoUrl: "/portfolio-intro.webm",
   videoPoster: "/intro-cover.webp",
 };

@@ -47,6 +47,6 @@ export const personal = {
     },
   ],
 
-  videoUrl: "/portfolio-intro.mp4",
+  videoUrl: "/portfolio-intro.webm",
   videoPoster: "/intro-cover.webp",
 };
