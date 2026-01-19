@@ -37,7 +37,10 @@ npm run dev
 ```
 
 📈 Performance
-Metric Score
-LCP 0.8s
-FID 0ms
-CLS 0.00
+┌────────┬───────┐
+│ Metric │ Score │
+├────────┼───────┨
+│ LCP │ 0.8s │
+│ FID │ 0ms │
+│ CLS │ 0.00 │
+└────────┴───────┘
