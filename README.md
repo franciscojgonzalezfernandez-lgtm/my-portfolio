@@ -21,7 +21,7 @@
 | State     | Zustand        |
 | Design    | V0 + Tailwind  |
 | Data      | TanStack Query |
-| Deploy    | Vercel         |
+| Deploy    | Github Actions |
 
 ## 🎯 Getting Started
 
