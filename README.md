@@ -8,7 +8,7 @@
 - React 19 (new compiler, garbage collector, Server Components)
 - Zustand (lightning-fast state management)
 - V0 AI design + TailwindCSS
-- TanStack Query for data mastery
+- TanStack Query **(React-Query)** for data mastery
 - Shad/cn on top of Radix UI for an optimized Accesibility
 
 👈 **[Live Demo](https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/)** |
@@ -22,7 +22,7 @@
 | Library    | React 19                              |
 | UI         | **Shadcn/UI** (perfect accessibility) |
 | Primitives | Radix UI                              |
-| State      | Zustand                               |
+| State      | **Zustand** (Language state)                            |
 | Design     | V0 + Tailwind                         |
 | Data       | TanStack Query                        |
 | Bundler    | Vite                                  |
@@ -41,3 +41,9 @@ npm run dev
 | Performance     | Accesibility                    | Best Practices  | SEO |
 |--------------|-------------------------------|---------------|---------|
 | 100    | 95     |  93 | 100 |
+
+
+Built with ❤️ to show some **Frontend Excellence** and **Performance Commitment**
+
+**⭐ Star for more useful projects**
+
