@@ -6,6 +6,7 @@ import { CALL_TRACKING } from "./projects/CallTrackingSystem.project.data";
 import { PERSONAL_PORTFOLIO } from "./projects/PersonalPortfolio.project.data";
 import { ADOBE_INTEGRATION } from "./projects/AdobeExperience.project.data";
 import { CUSTOMER_PORTAL } from "./projects/CustomerPortal.project.data";
+import { TRADING_ALGORITHM } from "./projects/TradingAlgorithm.project.data";
 
 export const projects: Project[] = [
   PERSONAL_PORTFOLIO,
@@ -14,5 +15,6 @@ export const projects: Project[] = [
   EDITABLE_CMS,
   NEXT_ECOSYSTEM,
   CUSTOMER_PORTAL,
+  TRADING_ALGORITHM,
   CALL_TRACKING,
 ];
