@@ -66,7 +66,7 @@ export const TRADING_ALGORITHM: Project = {
   ],
   description: `"Real-time Binance trading bot with trailing-stops, GCP infrastructure, BigQuery analytics, and Telegram monitoring`,
   descriptionGerman: `"Echtzeit-Binance-Trading-Bot mit Trailing-Stops, GCP-Infrastruktur, BigQuery-Analytics und Telegram-Monitoring`,
-  videoUrl: "/demo-moby.webm",
+  videoUrl: "/moby_demo.webm",
   releaseDate: "15-02-2021",
   gitHubUrl:
     "https://github.com/franciscojgonzalezfernandez-lgtm/automatic-trading-algorithm",
