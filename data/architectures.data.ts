@@ -35,6 +35,13 @@ export const architectures = [
     descriptionGerman: "nothing",
   },
   {
+    title: "My farewell day with part of the team",
+    titleGerman: "Mein Abschiedstag mit Teilen des Teams",
+    image: "/Despedida.webp",
+    description: "nothing",
+    descriptionGerman: "nothing",
+  },
+  {
     title: "Next Apps Rendition Strategy",
     titleGerman: "Next Apps Rendition Strategie",
     image: "/Next-apps-rendition.webp",
