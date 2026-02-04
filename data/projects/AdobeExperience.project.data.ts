@@ -31,6 +31,7 @@ export const ADOBE_INTEGRATION: Project = {
     "Business requirements",
     "Testing",
     "Cypress",
+    "Dynatrace",
     "Flow definition",
   ],
   fullDescription: `<strong>Led a technical team of 6 </strong> to build a CMS empowering 40+ non-technical users (UX/UI, sales, SEO, analytics) to fully manage the Movistar freelancers/enterprises portal independently.
