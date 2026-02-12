@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     title: "Javi - Web Portfolio",
     description:
       "Web portfolio of a full‑stack software engineer and technical manager based in Switzerland.",
-    url: "https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/",
+    url: "https://javier-gonzalez-portfolio.com/",
     type: "website",
     images: [
       {
-        url: "https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio/manager.webp",
+        url: "https://javier-gonzalez-portfolio/manager.webp",
         width: 1200,
         height: 630,
         alt: "Javi Web Portfolio",

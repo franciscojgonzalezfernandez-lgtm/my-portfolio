@@ -1,4 +1,4 @@
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "/my-portfolio";
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 interface CustomVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
@@ -14,5 +14,5 @@ export const CustomVideo = ({
     ? src
     : `${BASE_PATH}${src.startsWith("/") ? src : `/${src}`}`;
 
-  return <video src={finalSrc} poster={`${BASE_PATH}/${poster}`} {...props} />;
+  return <video src={finalSrc} poster={`${poster}`} {...props} />;
 };

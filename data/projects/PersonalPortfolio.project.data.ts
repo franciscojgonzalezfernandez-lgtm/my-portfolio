@@ -63,7 +63,6 @@ export const PERSONAL_PORTFOLIO: Project = {
 `,
   videoUrl: "/portfolio-demo.webm",
   releaseDate: "9-01-2026",
-  externalUrl:
-    "https://franciscojgonzalezfernandez-lgtm.github.io/my-portfolio",
+  externalUrl: "https://javier-gonzalez-portfolio.com",
   gitHubUrl: "https://github.com/franciscojgonzalezfernandez-lgtm/my-portfolio",
 };

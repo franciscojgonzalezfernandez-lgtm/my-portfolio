@@ -5,7 +5,7 @@ import { Mail } from "lucide-react";
 import { CustomNetworks } from "./CustomNetworks";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "/my-portfolio";
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function Contact() {
   const { language } = useLanguageStore();
