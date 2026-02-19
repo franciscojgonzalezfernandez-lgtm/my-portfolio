@@ -11,109 +11,36 @@ interface HeroProps {
   role2: string;
   role2Description: string;
 }
+
 export const Hero = ({
   role1,
   role1Description,
   role2,
   role2Description,
 }: HeroProps) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    setMousePosition({ x, y });
-  };
-
-  const isLeftSide = mousePosition.x < 0.5;
-
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background pt-20"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="flex items-center justify-center bg-background pt-28 pb-16"
     >
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div
-            className={`text-left transition-opacity duration-500 ${
-              isLeftSide ? "opacity-100" : "opacity-40"
-            }`}
-          >
-            <h2 className="text-6xl font-bold mb-4 text-balance">{role1}</h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 justify-center">
+          <div className="shrink-0">
+            <div className="w-40 h-40 md:w-50 md:h-50 rounded-full overflow-hidden border-4 border-foreground shadow-xl">
+              <img
+                src="manager.webp"
+                alt="Profile photo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground text-balance">
+              {role1}
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
               {role1Description}
-            </p>
-          </div>
-
-          <div className="relative h-[500px] flex items-center justify-center">
-            {/* Developer side (left) */}
-            <div
-              className={`absolute inset-0 transition-all duration-700 ${
-                isLeftSide ? "opacity-100 scale-100" : "opacity-0 scale-95"
-              }`}
-            >
-              <div className="relative w-full h-full flex items-center justify-center">
-                <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-accent shadow-2xl">
-                  <CustomImage
-                    src="developer2.webp"
-                    alt="Developer"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -right-8 top-20 bg-card border border-border rounded-lg p-4 shadow-lg opacity-80">
-                  <code className="text-xs font-mono text-accent">
-                    {"const code = () => {"}
-                    <br />
-                    {"  return <App />;"}
-                    <br />
-                    {"};"}
-                  </code>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className={`absolute inset-0 transition-all duration-700 ${
-                !isLeftSide ? "opacity-100 scale-100" : "opacity-0 scale-95"
-              }`}
-            >
-              <div className="relative w-full h-full flex items-center justify-center">
-                <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
-                  <CustomImage
-                    src="manager.webp"
-                    alt="Manager image"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -left-8 top-20 bg-card border border-border rounded-lg p-4 shadow-lg opacity-80">
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
-                      <div className="h-1 w-12 bg-accent/40 rounded"></div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary"></div>
-                      <div className="h-1 w-16 bg-primary/40 rounded"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className={`text-right lg:col-start-2 transition-opacity duration-500 ${
-              !isLeftSide ? "opacity-100" : "opacity-40"
-            }`}
-          >
-            <h2 className="text-6xl font-bold mb-4 text-balance">{role2}</h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {role2Description}
             </p>
           </div>
         </div>
