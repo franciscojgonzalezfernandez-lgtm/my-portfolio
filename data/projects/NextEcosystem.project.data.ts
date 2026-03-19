@@ -23,6 +23,8 @@ export const NEXT_ECOSYSTEM: Project = {
     "Webpack",
     "CI/CD",
     "NPM",
+    "API REST",
+    "OAUTH2",
     "GCP",
     "Bitbucket",
     "Terraform",

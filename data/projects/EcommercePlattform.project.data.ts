@@ -17,7 +17,7 @@ export const ECOMMERCE_PLATFORM: Project = {
   tags: [
     "React",
     "TypeScript",
-    "ViteJS",
+    "Vite",
     "React-Query",
     "Tailwind CSS",
     "PostgreSQL",
@@ -26,6 +26,7 @@ export const ECOMMERCE_PLATFORM: Project = {
     "Neon Database",
     "Express",
     "CI/CD",
+    "API REST",
     "GitHub Actions",
     "Zustand",
     "UseForm hook",
