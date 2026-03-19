@@ -10,6 +10,7 @@ interface HeroProps {
   role1Description: string;
   role2: string;
   role2Description: string;
+  img?: string;
 }
 
 export const Hero = ({
@@ -17,6 +18,7 @@ export const Hero = ({
   role1Description,
   role2,
   role2Description,
+  img,
 }: HeroProps) => {
   return (
     <section
@@ -28,7 +30,7 @@ export const Hero = ({
           <div className="shrink-0">
             <div className="w-40 h-40 md:w-50 md:h-50 rounded-full overflow-hidden border-4 border-foreground shadow-xl">
               <img
-                src="manager.webp"
+                src={img || "/manager.webp"}
                 alt="Profile photo"
                 className="w-full h-full object-cover"
               />

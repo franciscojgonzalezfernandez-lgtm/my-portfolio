@@ -15,14 +15,6 @@ const Experiences = ({ experiences }: ExperienceProps) => {
   const { language } = useLanguageStore();
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-5xl font-bold mb-4 text-center">Experience</h1>
-      <p className="text-center text-muted-foreground mb-16 text-lg">
-        {language == "english" &&
-          "My professional journey in web development and project management"}
-        {language == "german" &&
-          "Meinen beruflichen Werdegang in Webentwicklung und Projektmanagement"}
-      </p>
-
       <div className="space-y-8 mb-20">
         {experiences.map((exp, index) => (
           <Card
