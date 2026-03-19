@@ -4,24 +4,25 @@ import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import { CustomNetworks } from "./CustomNetworks";
 import { useLanguageStore } from "@/stores/useLanguageStore";
+import { HERO_CONTACT_DATA_ENGLISH } from "@/data/contact.hero.data";
+import { HERO_CONTACT_DATA_GERMAN } from "@/data/contact.hero.data.german";
+import { Hero } from "./hero";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function Contact() {
   const { language } = useLanguageStore();
+
+  const heroData =
+    language === "english"
+      ? HERO_CONTACT_DATA_ENGLISH
+      : HERO_CONTACT_DATA_GERMAN;
+
   return (
-    <section id="contact" className="py-24 bg-muted/30">
+    <section id="contact" className="bg-muted/30">
+      <Hero {...heroData} />
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            {language == "english" ? "Contact" : "Kontakt"}
-          </h2>
-          <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-            {language == "english"
-              ? "Have a project in mind? I'd love to hear about your idea. Let's work together to create something amazing."
-              : "Hast du ein Projekt im Kopf? Ich würde mich freuen, mehr über deine Idee zu erfahren. Lass uns gemeinsam etwas Großartiges erschaffen."}
-          </p>
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button size="lg" className="min-w-[200px]" asChild>
               <a href="mailto:franciscojgonzalezfernandez@gmail.com?subject=Job%20opportunity&body=Hello%20Javi%2C%0D%0A%0D%0A">
