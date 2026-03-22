@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { getMessages } from "@/lib/intl";
+import { IntlProviderClient } from "@/components/IntlProviderClient";
 
 const _inter = Inter({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -35,13 +37,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = "en"; // with static export we'll default to English; language switching can be added client-side
+  const messages = getMessages(locale);
+
   return (
-    <html lang="es">
+    <html lang="en">
       <body className={`font-sans antialiased`}>
-        <Header />
-        {children}
-        <Footer />
-        <Analytics />
+        <IntlProviderClient locale={locale} messages={messages}>
+          <Header />
+          {children}
+          <Footer />
+          <Analytics />
+        </IntlProviderClient>
       </body>
     </html>
   );

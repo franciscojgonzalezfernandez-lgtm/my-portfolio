@@ -41,11 +41,7 @@ export const About = ({
                 onClick={() => onModeChange("professional")}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   mode === "professional"
-                    ? mode === "personal"
-                      ? "bg-background text-foreground"
-                      : "bg-foreground text-background"
-                    : mode === "personal"
-                    ? "text-background hover:text-background/80"
+                    ? "bg-foreground text-background"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -56,8 +52,6 @@ export const About = ({
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   mode === "personal"
                     ? "bg-background text-foreground"
-                    : mode === "personal"
-                    ? "text-background hover:text-background/80"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >

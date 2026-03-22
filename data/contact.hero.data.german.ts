@@ -1,3 +1,5 @@
+import type { HeroData } from "@/interfaces/hero.interface";
+
 export const HERO_CONTACT_DATA_GERMAN: HeroData = {
   role1: "Kontakt",
   role2: "",

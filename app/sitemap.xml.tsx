@@ -2,18 +2,9 @@ import { projects } from "@/data/projects.data";
 
 const SITE_URL = "https://javier-gonzalez-portfolio.com";
 
-export default function Sitemap() {
-  const urls = [
-    "",
-    "about",
-    "portfolio",
-    "experience",
-    "contact",
-    "metrics",
-  ];
-
+export async function GET() {
+  const urls = ["", "about", "portfolio", "experience", "contact", "metrics"];
   const locales = ["en", "de"];
-
   const projectSlugs = projects.map((p) => p.slug);
 
   const xmlParts = [
@@ -34,7 +25,6 @@ export default function Sitemap() {
   }
 
   xmlParts.push("</urlset>");
-
   const xml = xmlParts.join("\n");
 
   return new Response(xml, {
