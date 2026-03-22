@@ -1,3 +1,4 @@
+"use client";
 import { CustomImage } from "./high-order-components/CustomImage";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 

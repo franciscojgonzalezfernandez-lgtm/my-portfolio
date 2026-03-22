@@ -1,25 +1,20 @@
 "use client";
 
 import type React from "react";
-
-import { useState } from "react";
+import { useLanguageStore } from "@/stores/useLanguageStore";
+import type { HeroData } from "@/interfaces/hero.interface";
 import { CustomImage } from "./high-order-components/CustomImage";
 
 interface HeroProps {
-  role1: string;
-  role1Description: string;
-  role2: string;
-  role2Description: string;
-  img?: string;
+  data_english: HeroData;
+  data_german: HeroData;
 }
 
-export const Hero = ({
-  role1,
-  role1Description,
-  role2,
-  role2Description,
-  img,
-}: HeroProps) => {
+export const Hero = ({ data_english, data_german }: HeroProps) => {
+  const { language } = useLanguageStore();
+  const selected = language === "english" ? data_english : data_german;
+
+  const { role1, role1Description, role2, role2Description, img } = selected;
   return (
     <section
       id="hero"

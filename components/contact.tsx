@@ -13,14 +13,12 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export function Contact() {
   const { language } = useLanguageStore();
 
-  const heroData =
-    language === "english"
-      ? HERO_CONTACT_DATA_ENGLISH
-      : HERO_CONTACT_DATA_GERMAN;
-
   return (
     <section id="contact" className="bg-muted/30">
-      <Hero {...heroData} />
+      <Hero
+        data_english={HERO_CONTACT_DATA_ENGLISH}
+        data_german={HERO_CONTACT_DATA_GERMAN}
+      />
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">

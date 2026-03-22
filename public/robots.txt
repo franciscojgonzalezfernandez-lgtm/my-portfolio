@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://javier-gonzalez-portfolio.com/sitemap.xml
