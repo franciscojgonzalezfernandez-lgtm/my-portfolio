@@ -8,13 +8,14 @@ import { Footer } from "@/components/footer";
 import { getMessages } from "@/lib/intl";
 import { IntlProviderClient } from "@/components/IntlProviderClient";
 
-const _inter = Inter({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
+  metadataBase: new URL("https://javier-gonzalez-portfolio.com"),
   title: "Javi - Web Portfolio",
   description:
     "Web portfolio of a full‑stack software engineer, passionate problem solver and performance‑focused developer, crafting fast, reliable and user‑centric web applications.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Javi - Web Portfolio",
     description:

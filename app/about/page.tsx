@@ -1,30 +1,34 @@
-"use client";
-
-import { Header } from "@/components/header";
 import { About } from "@/components/about";
-import { useState } from "react";
+import { Metadata } from "next";
 import { professional } from "@/data/aboutMe.professional.data";
 import { personal } from "@/data/aboutMe.personal.data";
 
-const AboutPage = () => {
-  const [mode, setMode] = useState<"professional" | "personal">("professional");
+export const metadata: Metadata = {
+  title: "About - Javier González | Full-Stack Engineer",
+  description:
+    "Get to know my experience with Next.js, React, Node.js, DevOps, and web optimization. Portfolio with real projects and performance metrics.",
+  alternates: {
+    canonical: "/about", // https://javier-gonzalez-portfolio.com/about
+  },
+  openGraph: {
+    title: "About - Javier González Portfolio",
+    description:
+      "Full-stack developer specialized in web performance and scalable architecture.",
+    url: "/about",
+    type: "website",
+    images: [
+      {
+        url: "/og-about.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Javier González - About",
+      },
+    ],
+  },
+};
 
-  return (
-    <div
-      className={`min-h-screen ${
-        mode === "personal" ? "bg-foreground text-background" : ""
-      }`}
-    >
-      <main className="pt-20">
-        <About
-          mode={mode}
-          onModeChange={setMode}
-          professional={professional}
-          personal={personal}
-        />
-      </main>
-    </div>
-  );
+const AboutPage = () => {
+  return <About professional={professional} personal={personal} />;
 };
 
 export default AboutPage;
