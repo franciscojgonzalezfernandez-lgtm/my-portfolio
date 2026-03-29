@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://javier-gonzalez-portfolio/manager.webp",
+        url: "https://javier-gonzalez-portfolio.com/manager.webp",
         width: 1200,
         height: 630,
         alt: "Javi Web Portfolio",
