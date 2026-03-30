@@ -31,6 +31,18 @@ export const metadata: Metadata = {
       },
     ],
   },
+  keywords: [
+    "Javier González",
+    "Full-Stack Engineer",
+    "Next.js developer",
+    "React developer",
+    "Node.js developer",
+    "Frontend engineer",
+    "Web performance",
+    "DevOps",
+    "Software engineer portfolio",
+    "Switzerland",
+  ],
 };
 
 export default function RootLayout({
