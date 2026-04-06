@@ -9,6 +9,7 @@ import { TABS } from "@/data/page.tabs.data";
 import { LanguageSwitch } from "./language-switch";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { CustomBackLink } from "./CustomBackLink";
+import { trackEvent } from "@/lib/analytics";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -82,6 +83,11 @@ export const Header = () => {
                       ref={(el) => {
                         tabRefs.current[tab.href] = el;
                       }}
+                      onClick={() => {
+                        trackEvent("navigation", {
+                          tab: tab.label,
+                        });
+                      }}
                       className={`whitespace-nowrap text-sm font-medium transition-colors ${
                         isActive(tab.href)
                           ? "text-foreground"
@@ -92,7 +98,10 @@ export const Header = () => {
                     </Link>
                   ))}
                 </div>
-                <CustomNetworks className="hidden sm:flex ml-8 border-l border-border pl-8" />
+                <CustomNetworks
+                  className="hidden sm:flex ml-8 border-l border-border pl-8"
+                  parent="header"
+                />
               </div>
             </div>
           </div>

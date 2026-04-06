@@ -7,6 +7,7 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "motion/react";
 import type { Experience } from "@/interfaces/experience.interface";
+import { trackProjectClick } from "@/lib/analytics";
 
 interface ExperienceProps {
   experiences: Experience[];
@@ -173,6 +174,12 @@ const Experiences = ({ experiences }: ExperienceProps) => {
                                 <Link
                                   href={`/portfolio${project.url}`}
                                   className="text-sm text-gray-600 transition-all duration-200 hover:underline hover:text-foreground"
+                                  onClick={() =>
+                                    trackProjectClick(
+                                      project.url,
+                                      "from experience",
+                                    )
+                                  }
                                 >
                                   {language == "english"
                                     ? project.label

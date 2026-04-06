@@ -1,4 +1,5 @@
 import { sendGAEvent } from "@next/third-parties/google";
+import { url } from "inspector/promises";
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 
@@ -13,10 +14,10 @@ export function trackProjectClick(projectSlug: string, projectType?: string) {
   });
 }
 
-export function trackExternalClick(label: string, url: string) {
+export function trackExternalClick(label: string, from: string) {
   trackEvent("external_link_click", {
     link_label: label,
-    link_url: url,
+    link_from: from,
   });
 }
 

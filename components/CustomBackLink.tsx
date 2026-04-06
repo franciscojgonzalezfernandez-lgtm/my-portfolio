@@ -1,3 +1,4 @@
+import { trackEvent } from "@/lib/analytics";
 import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,7 +8,7 @@ const neededBackLink = (path: string): Boolean => {
 };
 
 const getBackLink = (
-  path: string
+  path: string,
 ): { backLink: string; backLinkTitle: string } => {
   const segments = path.split("/");
   segments.pop();
@@ -23,6 +24,7 @@ export const CustomBackLink = () => {
     <Link
       href={getBackLink(pathname).backLink}
       title={`Back to ${getBackLink(pathname).backLinkTitle}`}
+      onClick={() => trackEvent("back_button")}
       className="text-2xl font-bold text-foreground hover:text-accent transition-colors"
     >
       <ArrowLeftIcon />

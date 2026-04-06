@@ -57,7 +57,7 @@ export const Footer = () => {
             ))}
           </nav>
 
-          <CustomNetworks />
+          <CustomNetworks parent="footer" />
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
