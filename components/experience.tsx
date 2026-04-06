@@ -23,7 +23,7 @@ const cardVariants = {
     transition: {
       duration: 0.65,
       delay: index * 0.12,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   }),
 };
@@ -51,7 +51,7 @@ const projectVariants = {
     rotate: 0,
     filter: "blur(0px)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       damping: 18,
       stiffness: 220,
     },
@@ -166,29 +166,31 @@ const Experiences = ({ experiences }: ExperienceProps) => {
                         viewport={{ once: true, amount: 0.4 }}
                         className="flex flex-wrap justify-start gap-4 space-y-0"
                       >
-                        {exp.relatedProjects.map((project, i) => (
-                          <React.Fragment key={project.url}>
-                            <motion.li variants={projectVariants}>
-                              <Link
-                                href={`/portfolio${project.url}`}
-                                className="text-sm text-gray-600 transition-all duration-200 hover:underline hover:text-foreground"
-                              >
-                                {language == "english"
-                                  ? project.label
-                                  : project.labelGerman}
-                              </Link>
-                            </motion.li>
+                        {exp.relatedProjects &&
+                          exp.relatedProjects.map((project, i) => (
+                            <React.Fragment key={project.url}>
+                              <motion.li variants={projectVariants}>
+                                <Link
+                                  href={`/portfolio${project.url}`}
+                                  className="text-sm text-gray-600 transition-all duration-200 hover:underline hover:text-foreground"
+                                >
+                                  {language == "english"
+                                    ? project.label
+                                    : project.labelGerman}
+                                </Link>
+                              </motion.li>
 
-                            {i < exp.relatedProjects.length - 1 && (
-                              <motion.span
-                                variants={projectVariants}
-                                className="text-muted-foreground"
-                              >
-                                |
-                              </motion.span>
-                            )}
-                          </React.Fragment>
-                        ))}
+                              {exp.relatedProjects &&
+                                i < exp.relatedProjects.length - 1 && (
+                                  <motion.span
+                                    variants={projectVariants}
+                                    className="text-muted-foreground"
+                                  >
+                                    |
+                                  </motion.span>
+                                )}
+                            </React.Fragment>
+                          ))}
                       </motion.ul>
                     </div>
                   )}
