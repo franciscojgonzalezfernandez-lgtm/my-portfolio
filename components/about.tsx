@@ -4,6 +4,7 @@ import { CustomVideo } from "./high-order-components/CustomVideo";
 import { CustomCertifications } from "./CustomCertifications";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface AboutProps {
   professional: AboutMe;
@@ -38,7 +39,10 @@ export const About = ({ personal, professional }: AboutProps) => {
                   }`}
                 >
                   <button
-                    onClick={() => setMode("professional")}
+                    onClick={() => {
+                      setMode("professional");
+                      trackEvent("about_mode_switch", { mode: "professional" });
+                    }}
                     className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                       mode === "professional"
                         ? "bg-foreground text-background"
@@ -48,7 +52,10 @@ export const About = ({ personal, professional }: AboutProps) => {
                     Professional
                   </button>
                   <button
-                    onClick={() => setMode("personal")}
+                    onClick={() => {
+                      setMode("personal");
+                      trackEvent("about_mode_switch", { mode: "personal" });
+                    }}
                     className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                       mode === "personal"
                         ? "bg-background text-foreground"
