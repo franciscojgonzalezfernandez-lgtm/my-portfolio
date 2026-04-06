@@ -2,7 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { AnalyticsTracker } from "@/components/analytics-tracker";
+import { AnalyticsWrapper } from "@/components/analytics-wrapper";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { getMessages } from "@/lib/intl";
@@ -60,7 +60,7 @@ export default function RootLayout({
         <IntlProviderClient locale={locale} messages={messages}>
           <Header />
           {children}
-          {gaId ? <AnalyticsTracker /> : null}
+          {gaId ? <AnalyticsWrapper /> : null}
           <Footer />
         </IntlProviderClient>
       </body>
