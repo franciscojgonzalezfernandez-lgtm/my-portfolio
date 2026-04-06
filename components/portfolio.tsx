@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Project } from "@/interfaces/project.interface";
 import { CustomImage } from "./high-order-components/CustomImage";
@@ -15,7 +16,7 @@ function formatDate(date: string) {
 
   const [, dia, mes, año] = partes;
   const fecha = new Date(
-    `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`
+    `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`,
   );
 
   if (
@@ -34,75 +35,119 @@ function formatDate(date: string) {
   }).format(fecha);
 }
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
 export function Portfolio({ projects }: PortfolioProps) {
   const { language } = useLanguageStore();
+
   return (
-    <section id="portfolio" className="py-24 bg-background">
+    <section id="portfolio" className="bg-background py-24">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-4 text-center">Portfolio</h2>
-        <p className="text-center text-muted-foreground mb-12 mx-auto">
+        <h2 className="mb-4 text-center text-4xl font-bold">Portfolio</h2>
+        <p className="mx-auto mb-12 text-center text-muted-foreground">
           {language == "english"
             ? "A selection of projects that showcase my skills in web development and interface design."
             : "Eine Auswahl von Projekten, die meine Fähigkeiten in Webentwicklung und Interface-Design zeigen."}
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <motion.div
+          className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           {projects.map((project, index) => (
-            <Link key={index} href={`/portfolio/${project.slug}`}>
-              <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group cursor-pointer h-full">
-                <div className="relative h-64 overflow-hidden">
-                  <span className="absolute top-0 right-0 z-10 px-3 py-1 text-xs font-semibold rounded bg-gray-600 text-white">
-                    {project.projectType}
-                  </span>
-                  <CustomImage
-                    src={project.images[0] || "/placeholder.svg"}
-                    alt={
-                      language == "english"
-                        ? project.title
-                        : project.titleGerman
-                    }
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <span className="absolute bottom-3 right-3 px-2 py-1 bg-background/90 backdrop-blur-sm text-foreground text-xs font-medium rounded">
-                    {formatDate(project.releaseDate)}
-                  </span>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {language == "english"
-                      ? project.title
-                      : project.titleGerman}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {language == "english"
-                      ? project.description
-                      : project.descriptionGerman}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => {
-                      if (tagIndex < 9) {
-                        return (
-                          <span
-                            key={tag}
-                            className={`px-4 py-2 border-gray-500 border text-foreground text-sm rounded-full font-medium ${
-                              tagIndex < 8
-                                ? ""
-                                : "text-white bg-gray-900 border-0"
-                            }`}
-                          >
-                            {tagIndex < 8
-                              ? tag
-                              : `+ ${project.tags.length - 8} more`}
-                          </span>
-                        );
+            <motion.div key={index} variants={cardVariants}>
+              <Link
+                href={`/portfolio/${project.slug}`}
+                className="block h-full"
+              >
+                <Card className="group h-full cursor-pointer overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                  <div className="relative h-64 overflow-hidden">
+                    <span className="absolute top-0 right-0 z-10 rounded bg-gray-600 px-3 py-1 text-xs font-semibold text-white">
+                      {project.projectType}
+                    </span>
+
+                    <CustomImage
+                      src={project.images[0] || "/placeholder.svg"}
+                      alt={
+                        language == "english"
+                          ? project.title
+                          : project.titleGerman
                       }
-                    })}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+
+                    <span className="absolute right-3 bottom-3 rounded bg-background/90 px-2 py-1 text-xs font-medium text-foreground backdrop-blur-sm">
+                      {formatDate(project.releaseDate)}
+                    </span>
                   </div>
-                </CardContent>
-              </Card>
-            </Link>
+
+                  <CardContent className="p-6">
+                    <h3 className="mb-2 text-xl font-semibold">
+                      {language == "english"
+                        ? project.title
+                        : project.titleGerman}
+                    </h3>
+
+                    <p className="mb-4 leading-relaxed text-muted-foreground">
+                      {language == "english"
+                        ? project.description
+                        : project.descriptionGerman}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => {
+                        if (tagIndex < 9) {
+                          return (
+                            <span
+                              key={tag}
+                              className={`rounded-full px-4 py-2 text-sm font-medium text-foreground border ${
+                                tagIndex < 8
+                                  ? "border-gray-500"
+                                  : "border-0 bg-gray-900 text-white"
+                              }`}
+                            >
+                              {tagIndex < 8
+                                ? tag
+                                : `+ ${project.tags.length - 8} more`}
+                            </span>
+                          );
+                        }
+
+                        return null;
+                      })}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
