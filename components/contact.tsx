@@ -7,6 +7,7 @@ import { useLanguageStore } from "@/stores/useLanguageStore";
 import { HERO_CONTACT_DATA_ENGLISH } from "@/data/contact.hero.data";
 import { HERO_CONTACT_DATA_GERMAN } from "@/data/contact.hero.data.german";
 import { Hero } from "./hero";
+import { trackEvent } from "@/lib/analytics";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -34,13 +35,21 @@ export function Contact() {
               className="min-w-[200px] bg-transparent cursor-pointer"
               asChild
             >
-              <a href={`${BASE_PATH}/CV-Javi.pdf`} download="CV-Javi.pdf">
+              <a
+                href={`${BASE_PATH}/CV-Javi.pdf`}
+                download="CV-Javi.pdf"
+                onClick={() => {
+                  trackEvent("cv_download", {
+                    language,
+                  });
+                }}
+              >
                 {language == "english" ? "Download CV" : "CV herunterladen"}
               </a>
             </Button>
           </div>
 
-          <CustomNetworks className="justify-center gap-8" />
+          <CustomNetworks className="justify-center gap-8" parent="contact" />
 
           <div className="mt-12 pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground">
