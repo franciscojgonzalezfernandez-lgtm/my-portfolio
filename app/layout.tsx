@@ -2,7 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { AnalyticsWrapper } from "@/components/analytics-wrapper";
+import { AnalyticsWrapper } from "@/components/high-order-components/Analytics-wrapper";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { getMessages } from "@/lib/intl";
