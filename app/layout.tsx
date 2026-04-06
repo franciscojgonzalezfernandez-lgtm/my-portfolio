@@ -1,8 +1,8 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { AnalyticsTracker } from "@/components/analytics-tracker";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { getMessages } from "@/lib/intl";
@@ -52,6 +52,7 @@ export default function RootLayout({
 }>) {
   const locale = "en"; // with static export we'll default to English; language switching can be added client-side
   const messages = getMessages(locale);
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
     <html lang="en">
@@ -59,10 +60,11 @@ export default function RootLayout({
         <IntlProviderClient locale={locale} messages={messages}>
           <Header />
           {children}
+          {gaId ? <AnalyticsTracker /> : null}
           <Footer />
-          <Analytics />
         </IntlProviderClient>
       </body>
+      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </html>
   );
 }

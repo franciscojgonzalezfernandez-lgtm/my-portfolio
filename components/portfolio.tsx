@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Project } from "@/interfaces/project.interface";
 import { CustomImage } from "./high-order-components/CustomImage";
 import { useLanguageStore } from "@/stores/useLanguageStore";
+import { trackProjectClick } from "@/lib/analytics";
 
 interface PortfolioProps {
   projects: Project[];
@@ -85,6 +86,9 @@ export function Portfolio({ projects }: PortfolioProps) {
               <Link
                 href={`/portfolio/${project.slug}`}
                 className="block h-full"
+                onClick={() =>
+                  trackProjectClick(project.slug, project.projectType)
+                }
               >
                 <Card className="group h-full cursor-pointer overflow-hidden transition-shadow duration-300 hover:shadow-xl">
                   <div className="relative h-64 overflow-hidden">
