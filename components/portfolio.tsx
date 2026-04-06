@@ -39,8 +39,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.08,
+      staggerChildren: 0.1,
+      delayChildren: 0.05,
     },
   },
 };
@@ -48,13 +48,13 @@ const containerVariants = {
 const cardVariants = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 16,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.55,
+      duration: 0.45,
       ease: [0.16, 1, 0.3, 1],
     },
   },
@@ -64,7 +64,7 @@ export function Portfolio({ projects }: PortfolioProps) {
   const { language } = useLanguageStore();
 
   return (
-    <section id="portfolio" className="bg-background py-24">
+    <section id="portfolio" className="bg-background py-24 overflow-x-hidden">
       <div className="container mx-auto px-6">
         <h2 className="mb-4 text-center text-4xl font-bold">Portfolio</h2>
         <p className="mx-auto mb-12 text-center text-muted-foreground">
@@ -78,10 +78,10 @@ export function Portfolio({ projects }: PortfolioProps) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.08 }}
         >
           {projects.map((project, index) => (
-            <motion.div key={index} variants={cardVariants}>
+            <motion.div key={index} variants={cardVariants} className="min-w-0">
               <Link
                 href={`/portfolio/${project.slug}`}
                 className="block h-full"
@@ -138,7 +138,6 @@ export function Portfolio({ projects }: PortfolioProps) {
                             </span>
                           );
                         }
-
                         return null;
                       })}
                     </div>
