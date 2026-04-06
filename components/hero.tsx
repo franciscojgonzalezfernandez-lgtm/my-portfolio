@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import type { HeroData } from "@/interfaces/hero.interface";
@@ -25,7 +25,6 @@ export const Hero = ({ data_english, data_german }: HeroProps) => {
     >
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 justify-center">
-          {/* Imagen: entra desde la izquierda */}
           <motion.div
             className="shrink-0"
             initial={{ opacity: 0, x: -60 }}
@@ -45,7 +44,6 @@ export const Hero = ({ data_english, data_german }: HeroProps) => {
             </div>
           </motion.div>
 
-          {/* Texto: entra desde la derecha */}
           <motion.div
             className="flex flex-col items-center md:items-start gap-4 text-center md:text-left"
             initial={{ opacity: 0, x: 60 }}
