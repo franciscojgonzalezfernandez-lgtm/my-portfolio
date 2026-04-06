@@ -8,6 +8,7 @@ import { CustomLogo } from "./custom-logo";
 import { CustomNetworks } from "./CustomNetworks";
 import { TABS } from "@/data/page.tabs.data";
 import { useLanguageStore } from "@/stores/useLanguageStore";
+import { trackEvent } from "@/lib/analytics";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -51,6 +52,11 @@ export const Footer = () => {
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
+                onClick={() => {
+                  trackEvent("navigation_footer_click", {
+                    tab: tab.label,
+                  });
+                }}
               >
                 {language == "english" ? tab.label : tab.labelGerman}
               </Link>

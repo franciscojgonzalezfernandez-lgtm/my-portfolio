@@ -84,7 +84,7 @@ export const Header = () => {
                         tabRefs.current[tab.href] = el;
                       }}
                       onClick={() => {
-                        trackEvent("navigation", {
+                        trackEvent("navigation_header_click", {
                           tab: tab.label,
                         });
                       }}
