@@ -1,6 +1,8 @@
-import { GitHubActivity } from "@/components/GitHubActivity";
+import { Architectures } from "@/components/architecture";
+
 import { Hero } from "@/components/hero";
 import { TechCarousel } from "@/components/tech-carousel";
+import { architectures } from "@/data/architectures.data";
 
 import { HERO_DATA_ENGLISH } from "@/data/hero.data";
 import { HERO_DATA_GERMAN } from "@/data/hero.data.german";
@@ -11,7 +13,7 @@ export default function Home() {
       <main>
         <Hero data_english={HERO_DATA_ENGLISH} data_german={HERO_DATA_GERMAN} />
         <TechCarousel />
-        <GitHubActivity />
+        <Architectures architectures={architectures} />
       </main>
     </div>
   );

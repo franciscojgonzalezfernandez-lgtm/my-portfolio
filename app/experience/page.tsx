@@ -53,7 +53,6 @@ const ExperiencePage = () => {
             data_german={HERO_EXPERIENCE_DATA_GERMAN}
           />
           <Experiences experiences={experiences} />
-          <Architectures architectures={architectures} />
         </div>
       </section>
     </>

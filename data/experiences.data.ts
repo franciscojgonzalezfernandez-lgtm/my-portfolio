@@ -2,10 +2,10 @@ import { Experience } from "@/interfaces/experience.interface";
 
 export const experiences: Experience[] = [
   {
-    role: "Full Stack Software Engineer",
-    roleGerman: "Full-Stack-Softwareentwickler",
-    company: "Freelance",
-    period: "Sept 2025 - Now",
+    role: "SENIOR SOFTWARE ENGINEER – AI-Driven Product Development",
+    roleGerman: "SENIOR SOFTWARE ENGINEER – AI‑gesteuerte Produktentwicklung",
+    company: "Portfolio Expansion",
+    period: "Dec 2025 - Now",
     description:
       "Building end‑to‑end web applications as an independent full‑stack engineer while actively adapting to the Swiss tech market. Working autonomously across discovery, architecture, implementation, and deployment, with a strong focus on performance, UX, and production‑ready quality.",
     descriptionGerman:
@@ -43,7 +43,7 @@ export const experiences: Experience[] = [
     roleGerman: "Product Owner & Projektmanager",
     company: "Telefonica",
     companyLink: "https://www.telefonica.es/es/",
-    period: "Jan 2024 - Sept 2025",
+    period: "Jan 2024 - Dec 2025",
     description:
       "Leaded the integration of Adobe Experience Manager (CMS) in the Telefonica Ecosystem, making the business able to create pages with a friendly interface and without technical knowledge. Full integration meeting security requirements at the network layer, business requirements at the application layer. (2024-2025)",
     descriptionGerman:
