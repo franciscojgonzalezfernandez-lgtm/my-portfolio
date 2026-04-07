@@ -26,3 +26,15 @@ export function trackCvDownload(language?: string) {
     language,
   });
 }
+
+export function trackVideoEvent(
+  name:
+    | "video_click"
+    | "video_play"
+    | "video_pause"
+    | "video_progress"
+    | "video_complete",
+  params?: EventParams,
+) {
+  trackEvent(name, params);
+}
