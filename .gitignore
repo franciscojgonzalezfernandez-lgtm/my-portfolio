@@ -2,3 +2,5 @@ node_modules
 dev
 .next/ 
 out/
+*storybook.log
+storybook-static
