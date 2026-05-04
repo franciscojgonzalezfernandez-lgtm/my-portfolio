@@ -10,6 +10,7 @@ export const PERSONAL_PORTFOLIO: Project = {
   images: ["/portfolio-cover.webp", "/portfolio-arq.webp"],
   tags: [
     "NextJS",
+    "Framer Motion",
     "AI UI Generators",
     "V0",
     "Zustand",
@@ -27,7 +28,7 @@ export const PERSONAL_PORTFOLIO: Project = {
   fullDescription: `Built my personal portfolio from scratch in just 5 effective working days, achieving perfect Lighthouse metrics (100% Performance, Accessibility, Best Practices, and SEO) by leveraging the latest cutting-edge tools in the ecosystem.
   
   <h3 className="text-xl"><strong>My Strategic Role</strong></h3>
-  - <strong>Technology scouting</strong>: Selected Next.js 16 + React 19 with Vite for ultra-fast static builds, shadcn/ui over Tailwind CSS for elegant Radix UI-based components —exploring the most innovative options to demonstrate adaptability.
+  - <strong>Technology scouting</strong>: Selected Next.js 16 + React 19 with Vite for ultra-fast static builds, shadcn/ui over Tailwind CSS for elegant Radix UI-based components, and Framer Motion for fluid, purposeful animations throughout —exploring the most innovative options to demonstrate adaptability.
   - <strong>End-to-end optimization</strong>: Parallelized frontend/backend workflows, pre-rendering mastery, and instant-loading guarantees.
   - <strong>Production hardening</strong>: Direct GitHub Pages deployment with contact form + CV download functionality.
   - <strong>Performance commitment</strong>: Lighthouse-perfect scores through precise technical decisions.
@@ -47,7 +48,7 @@ export const PERSONAL_PORTFOLIO: Project = {
   fullDescriptionGerman: `Mein persönliches Portfolio von Grund auf in nur 5 effektiven Arbeitstagen gebaut, mit perfekten Lighthouse-Metriken (100% Performance, Barrierefreiheit, Best Practices und SEO) durch Nutzung der neuesten modernen Tools im Ökosystem.
   
   <h3 className="text-xl"><strong>Meine strategische Rolle</strong></h3>
-  - <strong>Technologie-Scouting</strong>: Auswahl von Next.js 16 + React 19 mit Vite für ultraschnelle statische Builds, shadcn/ui über Tailwind CSS für elegante Radix-UI-basierte Komponenten — Erkundung innovativster Optionen zur Demonstration von Anpassungsfähigkeit.
+  - <strong>Technologie-Scouting</strong>: Auswahl von Next.js 16 + React 19 mit Vite für ultraschnelle statische Builds, shadcn/ui über Tailwind CSS für elegante Radix-UI-basierte Komponenten, und Framer Motion für flüssige, gezielte Animationen — Erkundung innovativster Optionen zur Demonstration von Anpassungsfähigkeit.
   - <strong>End-to-End-Optimierung</strong>: Parallelisierte Frontend/Backend-Workflows, Pre-Rendering-Meisterschaft und Instant-Loading-Garantie.
   - <strong>Production-Härtung</strong>: Direktes GitHub Pages Deployment mit Kontaktformular + CV-Download-Funktionalität.
   - <strong>Performance-Verpflichtung</strong>: Lighthouse-perfekte Scores durch präzise technische Entscheidungen.
