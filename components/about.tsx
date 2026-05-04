@@ -5,11 +5,21 @@ import { CustomCertifications } from "./CustomCertifications";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { motion } from "motion/react";
 
 interface AboutProps {
   professional: AboutMe;
   personal: AboutMe;
 }
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+};
 
 export const About = ({ personal, professional }: AboutProps) => {
   const [mode, setMode] = useState<"professional" | "personal">("professional");
@@ -30,7 +40,14 @@ export const About = ({ personal, professional }: AboutProps) => {
         >
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
-              <div className="flex justify-center mb-12">
+              {/* Mode toggle */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="flex justify-center mb-12"
+              >
                 <div
                   className={`inline-flex rounded-full p-1 ${
                     mode === "personal"
@@ -65,9 +82,16 @@ export const About = ({ personal, professional }: AboutProps) => {
                     Personal
                   </button>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="mb-12 rounded-lg overflow-hidden">
+              {/* Video */}
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-12 rounded-lg overflow-hidden"
+              >
                 <div className="relative aspect-video bg-muted/50">
                   <CustomVideo
                     className="w-full h-full object-cover"
@@ -79,9 +103,14 @@ export const About = ({ personal, professional }: AboutProps) => {
                     Your browser does not support the video tag.
                   </CustomVideo>
                 </div>
-              </div>
+              </motion.div>
 
-              <h2
+              {/* Title */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className={`text-4xl font-bold mb-8 text-center ${
                   mode === "personal" ? "text-background" : "text-foreground"
                 }`}
@@ -89,106 +118,143 @@ export const About = ({ personal, professional }: AboutProps) => {
                 {language == "english"
                   ? actualTopic.title
                   : actualTopic.titleGerman}
-              </h2>
+              </motion.h2>
 
+              {/* Paragraphs */}
               <div className="prose prose-lg mx-auto">
                 {language == "english" &&
-                  actualTopic.paragraphs.map((paragraph, index) => {
-                    return (
-                      <p
-                        key={paragraph.charAt(0) + index}
-                        className={`text-lg leading-relaxed mb-6 ${
-                          mode === "personal"
-                            ? "text-background/80"
-                            : "text-muted-foreground"
-                        }`}
-                      >
-                        {paragraph}
-                      </p>
-                    );
-                  })}
+                  actualTopic.paragraphs.map((paragraph, index) => (
+                    <motion.p
+                      key={paragraph.charAt(0) + index}
+                      custom={index * 0.04}
+                      variants={fadeUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className={`text-lg leading-relaxed mb-6 ${
+                        mode === "personal"
+                          ? "text-background/80"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {paragraph}
+                    </motion.p>
+                  ))}
                 {language == "german" &&
-                  actualTopic.paragraphsGerman.map((paragraph, index) => {
-                    return (
-                      <p
-                        key={paragraph.charAt(0) + index}
-                        className={`text-lg leading-relaxed mb-6 ${
+                  actualTopic.paragraphsGerman.map((paragraph, index) => (
+                    <motion.p
+                      key={paragraph.charAt(0) + index}
+                      custom={index * 0.04}
+                      variants={fadeUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className={`text-lg leading-relaxed mb-6 ${
+                        mode === "personal"
+                          ? "text-background/80"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {paragraph}
+                    </motion.p>
+                  ))}
+
+                {/* Skill cards */}
+                <motion.div
+                  className="grid md:grid-cols-3 gap-6 mt-12"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+                    },
+                  }}
+                >
+                  {language == "english" &&
+                    actualTopic.skills.map((skill) => (
+                      <motion.div
+                        key={skill.title}
+                        variants={{
+                          hidden: { opacity: 0, y: 30 },
+                          visible: {
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                              duration: 0.5,
+                              ease: [0.16, 1, 0.3, 1] as const,
+                            },
+                          },
+                        }}
+                        className={`p-6 rounded-lg ${
                           mode === "personal"
-                            ? "text-background/80"
-                            : "text-muted-foreground"
+                            ? "bg-background/20 border border-background/30"
+                            : "bg-card border border-border"
                         }`}
                       >
-                        {paragraph}
-                      </p>
-                    );
-                  })}
-
-                <div className="grid md:grid-cols-3 gap-6 mt-12">
-                  {language == "english" &&
-                    actualTopic.skills.map((skill) => {
-                      return (
-                        <div
-                          key={skill.title}
-                          className={`p-6 rounded-lg ${
+                        <h3
+                          className={`font-semibold mb-2 ${
                             mode === "personal"
-                              ? "bg-background/20 border border-background/30"
-                              : "bg-card border border-border"
+                              ? "text-background"
+                              : "text-foreground"
                           }`}
                         >
-                          <h3
-                            className={`font-semibold mb-2 ${
-                              mode === "personal"
-                                ? "text-background"
-                                : "text-foreground"
-                            }`}
-                          >
-                            {skill.title}
-                          </h3>
-                          <p
-                            className={`text-sm ${
-                              mode === "personal"
-                                ? "text-background/70"
-                                : "text-muted-foreground"
-                            }`}
-                          >
-                            {skill.description}
-                          </p>
-                        </div>
-                      );
-                    })}
+                          {skill.title}
+                        </h3>
+                        <p
+                          className={`text-sm ${
+                            mode === "personal"
+                              ? "text-background/70"
+                              : "text-muted-foreground"
+                          }`}
+                        >
+                          {skill.description}
+                        </p>
+                      </motion.div>
+                    ))}
                   {language == "german" &&
-                    actualTopic.skillsGerman.map((skill) => {
-                      return (
-                        <div
-                          key={skill.title}
-                          className={`p-6 rounded-lg ${
+                    actualTopic.skillsGerman.map((skill) => (
+                      <motion.div
+                        key={skill.title}
+                        variants={{
+                          hidden: { opacity: 0, y: 30 },
+                          visible: {
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                              duration: 0.5,
+                              ease: [0.16, 1, 0.3, 1] as const,
+                            },
+                          },
+                        }}
+                        className={`p-6 rounded-lg ${
+                          mode === "personal"
+                            ? "bg-background/20 border border-background/30"
+                            : "bg-card border border-border"
+                        }`}
+                      >
+                        <h3
+                          className={`font-semibold mb-2 ${
                             mode === "personal"
-                              ? "bg-background/20 border border-background/30"
-                              : "bg-card border border-border"
+                              ? "text-background"
+                              : "text-foreground"
                           }`}
                         >
-                          <h3
-                            className={`font-semibold mb-2 ${
-                              mode === "personal"
-                                ? "text-background"
-                                : "text-foreground"
-                            }`}
-                          >
-                            {skill.title}
-                          </h3>
-                          <p
-                            className={`text-sm ${
-                              mode === "personal"
-                                ? "text-background/70"
-                                : "text-muted-foreground"
-                            }`}
-                          >
-                            {skill.description}
-                          </p>
-                        </div>
-                      );
-                    })}
-                </div>
+                          {skill.title}
+                        </h3>
+                        <p
+                          className={`text-sm ${
+                            mode === "personal"
+                              ? "text-background/70"
+                              : "text-muted-foreground"
+                          }`}
+                        >
+                          {skill.description}
+                        </p>
+                      </motion.div>
+                    ))}
+                </motion.div>
               </div>
               <CustomCertifications mode={mode} />
             </div>

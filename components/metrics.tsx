@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import {
   Rocket,
   Zap,
@@ -174,15 +175,41 @@ export function Metrics() {
         <section className="mb-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
             {metrics.map((metric, index) => (
-              <div
+              <motion.div
                 key={metric.name}
-                className={`bg-card border border-border rounded-xl p-6 text-center transition-all duration-500 hover:shadow-lg hover:-translate-y-1 ${
+                initial="rest"
+                whileHover="hovered"
+                animate="rest"
+                variants={{
+                  rest: { scale: 1, y: 0 },
+                  hovered: {
+                    scale: 1.04,
+                    y: -4,
+                    transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
+                  },
+                }}
+                className={`relative overflow-hidden bg-card border border-border rounded-xl p-6 text-center transition-shadow duration-500 hover:shadow-2xl ${
                   showScores
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
+                {/* Shine sweep */}
+                <motion.div
+                  variants={{
+                    rest: { x: "-200%" },
+                    hovered: {
+                      x: "200%",
+                      transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+                    },
+                  }}
+                  className="absolute inset-0 z-10 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.15) 50%, transparent 75%)",
+                  }}
+                />
                 <metric.icon
                   className={`w-8 h-8 mx-auto mb-3 ${metric.color}`}
                 />
@@ -218,7 +245,7 @@ export function Metrics() {
                 <h3 className="text-sm font-medium text-muted-foreground">
                   {language == "english" ? metric.name : metric.nameGerman}
                 </h3>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>

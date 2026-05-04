@@ -74,7 +74,7 @@ const Experiences = ({ experiences }: ExperienceProps) => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <Card className="overflow-hidden border-l-4 border-l-accent transition-shadow duration-300 hover:shadow-lg">
+            <Card className="overflow-hidden border-l-4 border-l-foreground/20 transition-shadow duration-300 hover:shadow-lg">
               <CardContent className="p-8">
                 <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                   <div>
