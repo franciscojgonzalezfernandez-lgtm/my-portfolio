@@ -47,7 +47,7 @@ export const Footer = () => {
               <Link
                 key={tab.href}
                 href={tab.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`group relative text-sm font-medium transition-colors ${
                   isActive(tab.href)
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -59,6 +59,13 @@ export const Footer = () => {
                 }}
               >
                 {language == "english" ? tab.label : tab.labelGerman}
+                <span
+                  className={`absolute -bottom-0.5 left-0 h-px w-full origin-left bg-linear-to-r from-foreground to-foreground/0 transition-transform duration-300 ease-out ${
+                    isActive(tab.href)
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
               </Link>
             ))}
           </nav>

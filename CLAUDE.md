@@ -41,6 +41,8 @@ viewport={{ once: true, amount: 0.2 }}
 | `contact.tsx` | Contacto | Micro-animaciones en botones |
 | `tech-carousel.tsx` | Carrusel | `animate-pulse` Tailwind |
 | `architecture.tsx` | Arquitecturas | Carrusel Embla |
+| `header.tsx` | Navegación | Subrayado con gradiente al hover |
+| `footer.tsx` | Pie de página | Subrayado con gradiente al hover |
 
 ## Colores (OKLCH)
 
@@ -50,10 +52,14 @@ viewport={{ once: true, amount: 0.2 }}
 - `--border`: gris muy claro en light
 - Paleta monochromática — los glows deben ser `rgba(255,255,255,*)` en dark, `rgba(0,0,0,*)` en light
 
-## Issues conocidos
+## Issues corregidos
 
-- `border-l-accent` en Experience cards: invisible en light mode (accent ≈ blanco)
-- Tags `+N more` en Portfolio usan `bg-gray-900 text-white` hardcodeado
+- `border-l-accent` en Experience cards → cambiado a `border-l-foreground/20` (visible en ambos modos)
+- Tags `+N more` en Portfolio → cambiado a `bg-foreground text-background` (compatible con temas)
+
+## Issues pendientes / a vigilar
+
+- `bg-accent` en el botón scroll-to-top del footer: en light mode `accent ≈ blanco`, el botón es casi invisible
 
 ## Estructura de datos
 

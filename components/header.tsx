@@ -88,13 +88,20 @@ export const Header = () => {
                           tab: tab.label,
                         });
                       }}
-                      className={`whitespace-nowrap text-sm font-medium transition-colors ${
+                      className={`group relative whitespace-nowrap text-sm font-medium transition-colors ${
                         isActive(tab.href)
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       {language == "english" ? tab.label : tab.labelGerman}
+                      <span
+                        className={`absolute -bottom-0.5 left-0 h-px w-full origin-left bg-linear-to-r from-foreground to-foreground/0 transition-transform duration-300 ease-out ${
+                          isActive(tab.href)
+                            ? "scale-x-100"
+                            : "scale-x-0 group-hover:scale-x-100"
+                        }`}
+                      />
                     </Link>
                   ))}
                 </div>
