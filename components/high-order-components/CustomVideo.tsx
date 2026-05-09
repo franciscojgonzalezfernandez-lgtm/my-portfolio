@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { trackVideoEvent } from "@/lib/analytics";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -20,15 +20,42 @@ export const CustomVideo = ({
   onClick,
   onTimeUpdate,
   onEnded,
+  onVolumeChange,
   ...props
 }: CustomVideoProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const wasMutedRef = useRef(true);
 
   const finalSrc = src.startsWith("http")
     ? src
     : `${BASE_PATH}${src.startsWith("/") ? src : `/${src}`}`;
 
   const trackedMilestones = useRef(new Set<number>());
+  const autoPlay = props.autoPlay ?? false;
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !autoPlay) return;
+
+    video.muted = true;
+    wasMutedRef.current = true;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [autoPlay, finalSrc]);
 
   const videoName = useMemo(() => {
     if (title) return title;
@@ -112,6 +139,18 @@ export const CustomVideo = ({
     onEnded?.(event);
   };
 
+  const handleVolumeChange: React.ReactEventHandler<HTMLVideoElement> = (
+    event,
+  ) => {
+    const video = videoRef.current;
+    if (video && wasMutedRef.current && !video.muted) {
+      trackVideoEvent("video_unmute", getVideoMetrics());
+    }
+    if (video) wasMutedRef.current = video.muted;
+
+    onVolumeChange?.(event);
+  };
+
   return (
     <video
       ref={videoRef}
@@ -122,6 +161,7 @@ export const CustomVideo = ({
       onPause={handlePause}
       onTimeUpdate={handleTimeUpdate}
       onEnded={handleEnded}
+      onVolumeChange={handleVolumeChange}
       {...props}
     />
   );

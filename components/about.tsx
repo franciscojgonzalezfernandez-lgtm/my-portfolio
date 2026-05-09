@@ -94,8 +94,14 @@ export const About = ({ personal, professional }: AboutProps) => {
               >
                 <div className="relative aspect-video bg-muted/50">
                   <CustomVideo
+                    key={actualTopic.videoUrl}
                     className="w-full h-full object-cover"
                     controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
                     poster={actualTopic.videoPoster}
                     src={actualTopic.videoUrl}
                   >

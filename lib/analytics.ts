@@ -33,7 +33,8 @@ export function trackVideoEvent(
     | "video_play"
     | "video_pause"
     | "video_progress"
-    | "video_complete",
+    | "video_complete"
+    | "video_unmute",
   params?: EventParams,
 ) {
   trackEvent(name, params);
