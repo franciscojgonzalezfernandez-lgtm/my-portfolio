@@ -1,7 +1,7 @@
 import { Project } from "@/interfaces/project.interface";
 
 export const BETTER_AUTH_SHOWCASE: Project = {
-  slug: "better-auth-boilerplate-&-tradeoffs",
+  slug: "better-auth-boilerplate-and-tradeoffs",
   title: "Better Auth - Next.js Showcase",
   titleGerman: "Better Auth - Next.js Showcase",
   projectType: "Didactic",
