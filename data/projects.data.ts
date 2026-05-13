@@ -8,8 +8,10 @@ import { ADOBE_INTEGRATION } from "./projects/AdobeExperience.project.data";
 import { CUSTOMER_PORTAL } from "./projects/CustomerPortal.project.data";
 import { TRADING_ALGORITHM } from "./projects/TradingAlgorithm.project.data";
 import { FULL_STACK_CALENDAR } from "./projects/FullStackCalendar.data";
+import { BETTER_AUTH_SHOWCASE } from "./projects/BetterAuth.project.data";
 
 export const projects: Project[] = [
+  BETTER_AUTH_SHOWCASE,
   FULL_STACK_CALENDAR,
   PERSONAL_PORTFOLIO,
   ECOMMERCE_PLATFORM,
