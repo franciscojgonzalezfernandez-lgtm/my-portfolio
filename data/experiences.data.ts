@@ -31,11 +31,6 @@ export const experiences: Experience[] = [
         labelGerman: "Full-Stack-E-Commerce",
         url: "/ecommerce-platform",
       },
-      {
-        label: "Full Stack Calendar",
-        labelGerman: "Full-Stack-Kalender",
-        url: "/full-stack-calendar",
-      },
     ],
   },
   {
