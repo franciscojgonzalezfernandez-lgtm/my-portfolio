@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Project docs:**
+- [`AGENTS.md`](AGENTS.md) — thin pointer to this file for Codex/other agents (never define conventions there).
+- [`docs/FEATURES.md`](docs/FEATURES.md) — living backlog, source of truth for ticket scope.
+- [`docs/WORKFLOW.md`](docs/WORKFLOW.md) — subagent loop + per-feature verification.
+
 ## Commands
 
 ```bash
@@ -79,3 +84,60 @@ Section components (`hero`, `portfolio`, `experience`, `metrics`, `about`, `cont
 ## Language of authored content
 
 The site copy is English + German. Existing code comments are a mix of Spanish and English.
+
+---
+
+## Git workflow
+
+**Merge to `main` deploys to production.** `.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`. There is no staging environment and no preview deploy — the diff and the local `out/` are the only review surface. Never push straight to `main`.
+
+**Worktree per ticket.** Each ticket lives in its own sibling worktree cut from `origin/main`:
+
+```
+git fetch origin
+git worktree add -b f-XXX-kebab-slug ../my-web-portfolio-nextjs.f-XXX origin/main
+cd ../my-web-portfolio-nextjs.f-XXX && npm install
+```
+
+`.env.local` is committed here, so unlike the booking platform there is nothing gitignored to seed — but `node_modules` is per-worktree and `npm install` is required before `tsc`/`build` will run. Don't `checkout` a branch in the primary worktree except for trivial meta-doc edits.
+
+After merge: `git worktree remove ../my-web-portfolio-nextjs.f-XXX && git branch -d f-XXX-kebab-slug` (`-D` if the PR was squash-merged). At session start, run `git worktree list` and drop any worktree whose branch is merged and whose status is clean.
+
+**Descriptive commits.** Every commit must read on its own. No `wip`, no `update X`, no `fixes`.
+
+**Subject (≤72 chars):** `tipo(f-XXX): verb + concrete object + short motivation`
+- Good: `chore(f-001): hide Full Stack Calendar project from the public site`
+- Bad: `update projects`, `f-001 changes`
+
+**Body (mandatory):**
+```
+Qué:
+- <files/modules touched and what changed>
+
+Por qué:
+- <business or technical motivation>
+
+Cómo verificar:
+- <manual steps / command / "N/A: refactor">
+
+Refs: f-XXX
+```
+
+Trivial commits (typo, mechanical rename) may carry a one-line body, but the `Refs:` footer with the ticket is always mandatory. Stage explicitly per file or folder — **never `git add -A`** (`.claude/` and `tsconfig.tsbuildinfo` are untracked and not gitignored; a blind `add -A` commits them).
+
+**Before every PR to `main`:**
+
+- [ ] Branch is `f-XXX-kebab-slug` cut from an up-to-date `main` — no piggybacking on a previous ticket's branch.
+- [ ] PR opened against `main`, titled `feat(f-XXX): …` / `chore(f-XXX): …` / `docs(f-XXX): …`.
+- [ ] `npx tsc --noEmit` clean and `npm run build` green — the build alone proves nothing, it ignores type errors.
+- [ ] If the ticket touched routes or `data/projects.data.ts`: inspected `out/` directly, not just the route list `next build` prints (it truncates with `[+N more paths]`).
+- [ ] If it touched UI: reviewed with the `impeccable` skill, in both languages.
+- [ ] Ticket in `docs/FEATURES.md` moved to `review` (or `done`).
+
+## Agent workflow
+
+Full spec in [`docs/WORKFLOW.md`](docs/WORKFLOW.md). In short: `caveman:cavecrew-investigator` to locate, `Plan` to design (never edits), `caveman:cavecrew-builder` for 1-2 file edits, `caveman:cavecrew-reviewer` on the diff before any PR. No ticket in `FEATURES.md` → no delegation; the ticket is the scope.
+
+Two rules that matter most here:
+- Changes to conventions (this file) are their own ticket, never a side effect of a feature.
+- Give the reviewer the static-export context explicitly. Without it, it can't know that `public/sitemap.xml` is what ships and `app/sitemap.xml.tsx` is not.
