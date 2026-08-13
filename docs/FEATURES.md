@@ -29,12 +29,12 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 
 ## f-003 — `public/sitemap.xml` se mantiene a mano y ya está desincronizado
 
-- Estado: backlog · Prioridad: P2
+- Estado: review · Prioridad: P2
 - AC:
-  - [ ] `better-auth-boilerplate-and-tradeoffs` presente en el sitemap servido
-  - [ ] El sitemap se deriva de `data/projects.data.ts`, no se edita a mano
-  - [ ] Un proyecto nuevo aparece en el sitemap sin tocar ningún fichero extra
-- Notas: `app/sitemap.xml.tsx` ya existe pero **no se emite** bajo `output: "export"` — el que se sirve es el estático de `public/`. Detectado en f-001.
+  - [x] `better-auth-boilerplate-and-tradeoffs` presente en el sitemap servido
+  - [x] El sitemap se deriva de `data/projects.data.ts`, no se edita a mano
+  - [x] Un proyecto nuevo aparece en el sitemap sin tocar ningún fichero extra
+- Notas: `app/sitemap.xml.tsx` no se emitía porque no es ninguna convención de Next: un route handler necesita `app/sitemap.xml/route.ts`, y la convención de metadata es `app/sitemap.ts`. Sustituido por `app/sitemap.ts` (`MetadataRoute.Sitemap`), que sí se prerenderiza a `out/sitemap.xml` bajo `output: "export"`. `public/sitemap.xml` borrado — si volviera, ganaría él (los ficheros de `public/` se copian sobre el output). Las rutas estáticas siguen listadas a mano en `STATIC_PATHS`; solo los proyectos son automáticos. Detectado en f-001.
 
 ## f-004 — El dark mode no está enchufado
 
