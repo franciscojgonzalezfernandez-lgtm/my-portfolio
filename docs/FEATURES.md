@@ -29,13 +29,14 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 
 ## f-003 — `public/sitemap.xml` se mantiene a mano y ya está desincronizado
 
-- Estado: review · Prioridad: P2
+- Estado: done · Prioridad: P2
 - AC:
   - [x] `better-auth-boilerplate-and-tradeoffs` presente en el sitemap servido
   - [x] El sitemap se deriva de `data/projects.data.ts`, no se edita a mano
   - [x] Un proyecto nuevo aparece en el sitemap sin tocar ningún fichero extra
 - Notas: `app/sitemap.xml.tsx` no se emitía porque no es ninguna convención de Next: un route handler necesita `app/sitemap.xml/route.ts`, y la convención de metadata es `app/sitemap.ts`. Sustituido por `app/sitemap.ts` (`MetadataRoute.Sitemap`), que sí se prerenderiza a `out/sitemap.xml` bajo `output: "export"`. `public/sitemap.xml` borrado — si volviera, ganaría él (los ficheros de `public/` se copian sobre el output). Las rutas estáticas siguen listadas a mano en `STATIC_PATHS`; solo los proyectos son automáticos. Detectado en f-001.
 - Pendiente (ticket propio): `STATIC_PATHS` puede desincronizarse en silencio. Ver f-008.
+- PR #5, mergeada. Verificado en producción: `sitemap.xml` sirve 15 `<loc>` y 0 de `full-stack-calendar`.
 
 ## f-008 — `STATIC_PATHS` del sitemap se puede desincronizar en silencio
 
@@ -47,15 +48,16 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 
 ## f-004 — El dark mode no está enchufado
 
-- Estado: review · Prioridad: P2
+- Estado: done · Prioridad: P2
 - AC:
   - [x] Decidir: montar `ThemeProvider` en `app/layout.tsx` o borrar `components/theme-provider.tsx` y las variables `.dark` — **decisión del owner: borrar, el sitio es light-only**
   - [x] Si se monta: revisar contraste con la skill `impeccable`, incluido el botón scroll-to-top del footer (`bg-accent` es casi invisible en light) — N/A, no se monta
 - Notas: borrados `components/theme-provider.tsx` y el bloque `.dark` de `app/globals.css`. **`@custom-variant dark (&:is(.dark *))` se queda a propósito**: los 43 `dark:` de los primitivos generados de `components/ui/` dependen de él, y sin él Tailwind v4 cae a su variante `dark` nativa por `prefers-color-scheme` y los encendería para visitantes con el SO en oscuro, contra tokens light-only. Verificado en el CSS emitido: 0 `prefers-color-scheme`, 0 `.dark{`, 35 selectores `:is(.dark *)` inertes. `next-themes` **sigue en dependencias** porque `components/ui/sonner.tsx` importa `useTheme`; ese primitivo no está montado en ninguna parte, así que borrarlo + quitar la dep es su propio ticket de limpieza de `components/ui/`. El botón scroll-to-top del footer sigue con `bg-accent` casi invisible en light — sigue abierto, ahora sin relación con el dark mode.
+- PR #6, mergeada. El review verificó el claim del `@custom-variant` construyendo sin él: aparece `@media (prefers-color-scheme:dark)` y se encenderían 35 utilidades.
 
 ## f-005 — `npm run lint` está roto
 
-- Estado: review · Prioridad: P2
+- Estado: done · Prioridad: P2
 - AC:
   - [x] O se instala eslint + config y el script pasa, o se borra el script — **decisión del owner: instalar**. `npm run lint` sale con 0 errores y 0 warnings
   - [x] `typescript.ignoreBuildErrors` revisado: hoy el build pasa con errores de tipos — **borrado**, el build ya falla con un type error (verificado metiendo uno a propósito)
@@ -66,10 +68,11 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
   - Silenciado con motivo: `components/ui/**` y `hooks/use-mobile.ts` (generado por shadcn, `CLAUDE.md` dice regenerar en vez de editar; `ui/sidebar.tsx`, único consumidor del hook, no está montado), y la regla `@next/next/no-img-element` (bajo `output: "export"` + `images.unoptimized` el patrón del repo son los HOCs `CustomImage`/`CustomVideo`, así que solo daría falsos positivos).
   - `tsconfig.tsbuildinfo` añadido a `.gitignore`: lo genera `tsc --noEmit` y ensuciaba `git status` en cada worktree.
 - Pendiente (ticket propio): el workflow de deploy no ejecuta `npm run lint`, así que la puerta es local. Ver f-007.
+- PR #7, mergeada. Rebasada sobre f-003 antes del merge: `app/sitemap.ts` entra en el scope del lint y pasa.
 
 ## f-006 — El deploy usa acciones sobre Node 20, ya deprecado
 
-- Estado: review · Prioridad: P1
+- Estado: done · Prioridad: P1
 - AC:
   - [x] `.github/workflows/deploy.yml` sin acciones que targeteen Node 20
   - [x] `node-version` alineado con el Node local de desarrollo (24)
@@ -83,4 +86,24 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 - AC:
   - [ ] `.github/workflows/deploy.yml` ejecuta `npm run lint` antes del build
   - [ ] Un error de lint tumba el deploy
-- Notas: desde f-005 `npm run lint` pasa limpio, así que enchufarlo a CI ya no arrastra deuda. No se metió en f-005 para no chocar con las PRs que ya tocaban ese fichero (f-006, mergeada; f-009, abierta).
+- Notas: desde f-005 `npm run lint` pasa limpio, así que enchufarlo a CI ya no arrastra deuda. No se metió en f-005 para no chocar con las PRs que ya tocaban ese fichero (f-006 y f-009).
+
+## f-009 — Un re-run del workflow puede republicar un commit viejo sobre producción
+
+- Estado: review · Prioridad: P0
+- Depende de: f-006
+- AC:
+  - [x] Dos merges seguidos no cancelan ningún deploy
+  - [x] Un re-run de un run cuyo commit ya no es el tip de `main` falla en vez de publicar
+  - [x] El mensaje de error dice cuál es la alternativa correcta (`workflow_dispatch` sobre `main`)
+- Notas: **incidente real, no hipotético.** f-001 escondió Full Stack Calendar y aun así el proyecto seguía en producción. Secuencia, sacada de la API de Actions y Deployments:
+  1. `06:22:16` se mergea la PR #3 → push de `65be17f`, arranca el run `31673580686`.
+  2. `06:22:38` se mergea la PR #2 (f-001) → push de `5c06af5`; con `cancel-in-progress: true` el run de `65be17f` se **cancela**.
+  3. `06:24:45` `5c06af5` despliega bien: el calendario desaparece de producción.
+  4. `~06:27:52` se hace **re-run** del run cancelado (`run_attempt=2`).
+  5. `06:28:15` ese intento despliega **`65be17f`**, que es anterior a f-001 y todavía lleva `FULL_STACK_CALENDAR` en el array. `06:28:17` el deployment correcto pasa a `inactive`.
+  → producción rueda hacia atrás en silencio. Confirmado: `git merge-base --is-ancestor 5cfb03a 65be17f` es falso.
+  
+  La clave es que **"Re-run jobs" reejecuta el commit al que estaba fijado el run, no el tip de `main`**. Un run cancelado parece algo que hay que reintentar, y reintentarlo es justo lo que rompe producción. `cancel-in-progress: false` quita el motivo para reintentar (los runs se encolan en orden de push, así que el último que publica es el más nuevo) y el step guarda la puerta para el caso manual. El guard solo corre si `github.run_attempt != '1'`: en el intento 1 el commit pusheado es el tip por definición.
+  
+  Probado en local contra el commit real del incidente: con `65be17f` sale `exit 1`; con el tip actual continúa.

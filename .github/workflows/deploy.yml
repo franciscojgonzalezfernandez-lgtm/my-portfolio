@@ -10,15 +10,37 @@ permissions:
   pages: write
   id-token: write
 
+# Queue deploys instead of cancelling them (f-009). With cancel-in-progress: true,
+# merging two PRs seconds apart killed the first run — and re-running that dead run
+# republished its own (older) commit and rolled production back. Queued runs execute
+# in push order, so the newest commit is always the last one published.
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+
+      # "Re-run jobs" replays the commit the run was pinned to, NOT the current tip
+      # of main, so re-running an old run publishes stale content over production.
+      # That is what put the hidden Full Stack Calendar project back on the live site
+      # after f-001 had already shipped. Only re-runs are checked: on attempt 1 the
+      # pushed commit is the tip by definition, and rapid merges are handled by the
+      # concurrency queue above.
+      - name: Refuse to re-publish a stale commit
+        if: github.run_attempt != '1'
+        run: |
+          git fetch --depth=1 origin main
+          head="$(git rev-parse HEAD)"
+          tip="$(git rev-parse FETCH_HEAD)"
+          if [ "$head" != "$tip" ]; then
+            echo "::error::Re-run attempt ${{ github.run_attempt }} is pinned to ${head:0:7}, which is no longer the tip of main (${tip:0:7}). Refusing to publish — it would roll production back. To redeploy the current main, use the workflow_dispatch trigger (Actions -> Run workflow) instead of re-running this job."
+            exit 1
+          fi
+          echo "${head:0:7} is still the tip of main; continuing."
 
       - name: Setup Node
         uses: actions/setup-node@v7
