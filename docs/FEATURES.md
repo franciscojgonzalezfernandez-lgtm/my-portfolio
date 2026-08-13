@@ -8,24 +8,24 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 
 ## f-001 — Ocultar el proyecto Full Stack Calendar
 
-- Estado: review · Prioridad: P1
+- Estado: done · Prioridad: P1
 - AC:
   - [x] `FULL_STACK_CALENDAR` fuera del array `projects`
   - [x] Sin card en `/portfolio` y sin página `/portfolio/full-stack-calendar` en `out/`
   - [x] Sin links muertos: fuera de `relatedProjects` en `data/experiences.data.ts`
   - [x] Fuera de `public/sitemap.xml`
   - [x] `data/projects/FullStackCalendar.data.ts` y los assets `/public/calendar-*` intactos, para poder restaurarlo
-- Notas: PR #2. Restaurar = volver a añadir la entrada al array de `data/projects.data.ts`.
+- Notas: PR #2, mergeada. Restaurar = volver a añadir la entrada al array de `data/projects.data.ts`.
 
 ## f-002 — Documentación de proyecto + workflow con agentes
 
-- Estado: review · Prioridad: P1
+- Estado: done · Prioridad: P1
 - AC:
   - [x] `CLAUDE.md` describe las constraints reales del export estático
   - [x] Ritual de git (worktrees, commits `Qué/Por qué/Cómo verificar/Refs`, PRs) documentado
   - [x] Loop de subagentes documentado en `docs/WORKFLOW.md`
   - [x] `AGENTS.md` como puntero fino, sin convenciones propias
-- Notas: portado de `snowboard-booking-platform`.
+- Notas: PR #3, mergeada. Portado de `snowboard-booking-platform`.
 
 ## f-003 — `public/sitemap.xml` se mantiene a mano y ya está desincronizado
 
@@ -60,3 +60,12 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
   - [ ] O se instala eslint + config y el script pasa, o se borra el script
   - [ ] `typescript.ignoreBuildErrors` revisado: hoy el build pasa con errores de tipos
 - Notas: `package.json` declara `"lint": "eslint ."` pero eslint no está en dependencias y no hay config.
+
+## f-006 — El deploy usa acciones sobre Node 20, ya deprecado
+
+- Estado: review · Prioridad: P1
+- AC:
+  - [x] `.github/workflows/deploy.yml` sin acciones que targeteen Node 20
+  - [x] `node-version` alineado con el Node local de desarrollo (24)
+  - [x] El run de deploy en `main` termina sin el warning `Node.js 20 is deprecated`
+- Notas: el run 31673603328 avisa `The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4, actions/deploy-pages@v4`. El runtime ya era Node 24 de facto; el bump solo lo hace explícito. Ver [deprecación de Node 20](https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/).
