@@ -11,7 +11,7 @@ export function LanguageSwitch() {
       language,
     });
     setLanguage(language === "english" ? "english" : "german");
-  }, []);
+  }, [setLanguage]);
 
   return (
     <div className="flex items-center gap-1 text-xs">

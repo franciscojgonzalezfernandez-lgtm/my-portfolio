@@ -55,11 +55,17 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 
 ## f-005 — `npm run lint` está roto
 
-- Estado: backlog · Prioridad: P2
+- Estado: review · Prioridad: P2
 - AC:
-  - [ ] O se instala eslint + config y el script pasa, o se borra el script
-  - [ ] `typescript.ignoreBuildErrors` revisado: hoy el build pasa con errores de tipos
-- Notas: `package.json` declara `"lint": "eslint ."` pero eslint no está en dependencias y no hay config.
+  - [x] O se instala eslint + config y el script pasa, o se borra el script — **decisión del owner: instalar**. `npm run lint` sale con 0 errores y 0 warnings
+  - [x] `typescript.ignoreBuildErrors` revisado: hoy el build pasa con errores de tipos — **borrado**, el build ya falla con un type error (verificado metiendo uno a propósito)
+- Notas: eslint 9 + `eslint-config-next` 16.0.7 en flat config (`eslint.config.mjs`). Next 16 eliminó `next lint`, así que el script sigue siendo `eslint .`. El baseline eran 13 findings; los de código propio están arreglados de verdad, no silenciados:
+  - `components/metrics.tsx` llamaba a `Math.random()` en el render para 20 estrellas → posiciones distintas en el prerender y en el cliente, o sea hydration mismatch. Ahora es un PRNG mulberry32 con semilla fija a nivel de módulo: determinista y visualmente igual.
+  - `CustomImage` recibía `alt` por el spread de props, lo que ocultaba el `<img>` a `jsx-a11y/alt-text`. Ahora `alt` es obligatorio en la interfaz y se pasa explícito; los 5 callers ya lo pasaban.
+  - `exhaustive-deps` en `architecture.tsx` (`[architectures.length]`) y `language-switch.tsx` (`[setLanguage]`).
+  - Silenciado con motivo: `components/ui/**` y `hooks/use-mobile.ts` (generado por shadcn, `CLAUDE.md` dice regenerar en vez de editar; `ui/sidebar.tsx`, único consumidor del hook, no está montado), y la regla `@next/next/no-img-element` (bajo `output: "export"` + `images.unoptimized` el patrón del repo son los HOCs `CustomImage`/`CustomVideo`, así que solo daría falsos positivos).
+  - `tsconfig.tsbuildinfo` añadido a `.gitignore`: lo genera `tsc --noEmit` y ensuciaba `git status` en cada worktree.
+- Pendiente (ticket propio): el workflow de deploy no ejecuta `npm run lint`, así que la puerta es local. Ver f-007.
 
 ## f-006 — El deploy usa acciones sobre Node 20, ya deprecado
 
@@ -69,3 +75,12 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
   - [x] `node-version` alineado con el Node local de desarrollo (24)
   - [x] El run de deploy en `main` termina sin el warning `Node.js 20 is deprecated`
 - Notas: el run 31673603328 avisa `The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4, actions/deploy-pages@v4`. El runtime ya era Node 24 de facto; el bump solo lo hace explícito. Ver [deprecación de Node 20](https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/).
+
+## f-007 — El deploy no ejecuta lint
+
+- Estado: backlog · Prioridad: P2
+- Depende de: f-005, f-006
+- AC:
+  - [ ] `.github/workflows/deploy.yml` ejecuta `npm run lint` antes del build
+  - [ ] Un error de lint tumba el deploy
+- Notas: desde f-005 `npm run lint` pasa limpio, así que enchufarlo a CI ya no arrastra deuda. No se metió en f-005 para no chocar con las PRs que ya tocaban ese fichero (f-006, mergeada; f-009, abierta).

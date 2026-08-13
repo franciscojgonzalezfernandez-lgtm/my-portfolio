@@ -3,6 +3,9 @@ const ENV = process.env.NODE_ENV;
 
 interface CustomImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
+  // Required rather than optional: every caller already passes it, and taking it
+  // through the props spread hid the img from the jsx-a11y/alt-text rule.
+  alt: string;
 }
 
 const generateMobileRoute = (route: string) => {
@@ -16,7 +19,7 @@ const generateMobileRoute = (route: string) => {
   }
 };
 
-export function CustomImage({ src, ...props }: CustomImageProps) {
+export function CustomImage({ src, alt, ...props }: CustomImageProps) {
   const finalSrc = src.startsWith("http")
     ? src
     : `${BASE_PATH}${src.startsWith("/") ? src : `/${src}`}`;
@@ -28,7 +31,7 @@ export function CustomImage({ src, ...props }: CustomImageProps) {
         media="(max-width: 640px)"
       /> */}
       <source srcSet={finalSrc} media="(max-width: 1024px)" />
-      <img src={finalSrc} {...props} />
+      <img src={finalSrc} alt={alt} {...props} />
     </picture>
   );
 }

@@ -17,6 +17,27 @@ import { useLanguageStore } from "@/stores/useLanguageStore";
 import { METRICS_DATA } from "@/data/metrics.data";
 import parse from "html-react-parser";
 
+// Star field positions. These used to be Math.random() calls inside the render,
+// which produced different values on the server prerender and on the client and
+// therefore a hydration mismatch. A fixed seed makes the layout deterministic
+// while keeping the scattered look.
+const STARS = (() => {
+  let seed = 20240513;
+  const next = () => {
+    // Mulberry32: cheap deterministic PRNG, same output on server and client.
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+
+  return Array.from({ length: 20 }, () => ({
+    left: `${next() * 100}%`,
+    top: `${next() * 100}%`,
+    animationDelay: `${next() * 2}s`,
+  }));
+})();
+
 export function Metrics() {
   const [launched, setLaunched] = useState(false);
   const [showScores, setShowScores] = useState(false);
@@ -82,15 +103,11 @@ export function Metrics() {
           <div className="relative h-64 md:h-80 flex items-center justify-center overflow-hidden">
             {/* Stars Background */}
             <div className="absolute inset-0">
-              {[...Array(20)].map((_, i) => (
+              {STARS.map((star, i) => (
                 <div
                   key={i}
                   className="absolute w-1 h-1 bg-foreground/20 rounded-full animate-pulse"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 2}s`,
-                  }}
+                  style={star}
                 />
               ))}
             </div>
