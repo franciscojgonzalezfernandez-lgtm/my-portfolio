@@ -35,6 +35,15 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
   - [x] El sitemap se deriva de `data/projects.data.ts`, no se edita a mano
   - [x] Un proyecto nuevo aparece en el sitemap sin tocar ningún fichero extra
 - Notas: `app/sitemap.xml.tsx` no se emitía porque no es ninguna convención de Next: un route handler necesita `app/sitemap.xml/route.ts`, y la convención de metadata es `app/sitemap.ts`. Sustituido por `app/sitemap.ts` (`MetadataRoute.Sitemap`), que sí se prerenderiza a `out/sitemap.xml` bajo `output: "export"`. `public/sitemap.xml` borrado — si volviera, ganaría él (los ficheros de `public/` se copian sobre el output). Las rutas estáticas siguen listadas a mano en `STATIC_PATHS`; solo los proyectos son automáticos. Detectado en f-001.
+- Pendiente (ticket propio): `STATIC_PATHS` puede desincronizarse en silencio. Ver f-008.
+
+## f-008 — `STATIC_PATHS` del sitemap se puede desincronizar en silencio
+
+- Estado: backlog · Prioridad: P2
+- Depende de: f-003
+- AC:
+  - [ ] Añadir una ruta estática nueva bajo `app/` la mete en el sitemap sin editar `app/sitemap.ts`, **o** el build falla si `STATIC_PATHS` no cuadra con el árbol de rutas
+- Notas: f-003 automatizó las rutas de proyecto pero dejó las estáticas (`""`, `about`, `portfolio`, `experience`, `contact`, `metrics`) a mano. Hoy cuadran una a una con los `page.tsx` de `app/`, pero nada lo comprueba: una página nueva (`/privacy`, `/terms`) se quedaría fuera del sitemap sin aviso. Salió en el review de f-003. Ojo al derivarlo del filesystem: hay que ignorar route groups, segmentos dinámicos y carpetas privadas, y `app/portfolio/[slug]` ya lo cubren los proyectos.
 
 ## f-004 — El dark mode no está enchufado
 
