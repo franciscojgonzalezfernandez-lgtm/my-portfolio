@@ -38,11 +38,11 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 
 ## f-004 — El dark mode no está enchufado
 
-- Estado: backlog · Prioridad: P2
+- Estado: review · Prioridad: P2
 - AC:
-  - [ ] Decidir: montar `ThemeProvider` en `app/layout.tsx` o borrar `components/theme-provider.tsx` y las variables `.dark`
-  - [ ] Si se monta: revisar contraste con la skill `impeccable`, incluido el botón scroll-to-top del footer (`bg-accent` es casi invisible en light)
-- Notas: hoy nada añade la clase `.dark`, así que todo el bloque `.dark` de `app/globals.css` es código muerto.
+  - [x] Decidir: montar `ThemeProvider` en `app/layout.tsx` o borrar `components/theme-provider.tsx` y las variables `.dark` — **decisión del owner: borrar, el sitio es light-only**
+  - [x] Si se monta: revisar contraste con la skill `impeccable`, incluido el botón scroll-to-top del footer (`bg-accent` es casi invisible en light) — N/A, no se monta
+- Notas: borrados `components/theme-provider.tsx` y el bloque `.dark` de `app/globals.css`. **`@custom-variant dark (&:is(.dark *))` se queda a propósito**: los 43 `dark:` de los primitivos generados de `components/ui/` dependen de él, y sin él Tailwind v4 cae a su variante `dark` nativa por `prefers-color-scheme` y los encendería para visitantes con el SO en oscuro, contra tokens light-only. Verificado en el CSS emitido: 0 `prefers-color-scheme`, 0 `.dark{`, 35 selectores `:is(.dark *)` inertes. `next-themes` **sigue en dependencias** porque `components/ui/sonner.tsx` importa `useTheme`; ese primitivo no está montado en ninguna parte, así que borrarlo + quitar la dep es su propio ticket de limpieza de `components/ui/`. El botón scroll-to-top del footer sigue con `bg-accent` casi invisible en light — sigue abierto, ahora sin relación con el dark mode.
 
 ## f-005 — `npm run lint` está roto
 
