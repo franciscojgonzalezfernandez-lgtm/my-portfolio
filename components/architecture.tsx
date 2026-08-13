@@ -19,7 +19,7 @@ export const Architectures = ({ architectures }: ArchitecturesProps) => {
       setCurrentArchitecture((prev) => (prev + 1) % architectures.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [architectures.length]);
 
   return (
     <div className="mt-20 max-w-4xl m-auto">
