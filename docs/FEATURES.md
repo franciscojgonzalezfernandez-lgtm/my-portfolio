@@ -8,24 +8,24 @@ Formato en [`WORKFLOW.md`](./WORKFLOW.md) §"Formato de ticket". Estados: `backl
 
 ## f-001 — Ocultar el proyecto Full Stack Calendar
 
-- Estado: review · Prioridad: P1
+- Estado: done · Prioridad: P1
 - AC:
   - [x] `FULL_STACK_CALENDAR` fuera del array `projects`
   - [x] Sin card en `/portfolio` y sin página `/portfolio/full-stack-calendar` en `out/`
   - [x] Sin links muertos: fuera de `relatedProjects` en `data/experiences.data.ts`
   - [x] Fuera de `public/sitemap.xml`
   - [x] `data/projects/FullStackCalendar.data.ts` y los assets `/public/calendar-*` intactos, para poder restaurarlo
-- Notas: PR #2. Restaurar = volver a añadir la entrada al array de `data/projects.data.ts`.
+- Notas: PR #2, mergeada. Restaurar = volver a añadir la entrada al array de `data/projects.data.ts`.
 
 ## f-002 — Documentación de proyecto + workflow con agentes
 
-- Estado: review · Prioridad: P1
+- Estado: done · Prioridad: P1
 - AC:
   - [x] `CLAUDE.md` describe las constraints reales del export estático
   - [x] Ritual de git (worktrees, commits `Qué/Por qué/Cómo verificar/Refs`, PRs) documentado
   - [x] Loop de subagentes documentado en `docs/WORKFLOW.md`
   - [x] `AGENTS.md` como puntero fino, sin convenciones propias
-- Notas: portado de `snowboard-booking-platform`.
+- Notas: PR #3, mergeada. Portado de `snowboard-booking-platform`.
 
 ## f-003 — `public/sitemap.xml` se mantiene a mano y ya está desincronizado
 
