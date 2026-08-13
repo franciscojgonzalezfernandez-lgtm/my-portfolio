@@ -62,9 +62,10 @@ GA via `@next/third-parties/google`, id from `NEXT_PUBLIC_GA_ID` (`.env.local` i
 
 - **Tailwind CSS v4**, configured inline via `@theme` in `app/globals.css`. There is no `tailwind.config.ts` — theme edits go in that file.
 - **shadcn/ui**, new-york style, neutral base, CSS variables, lucide icons (`components.json`). Primitives in `components/ui/` are generated — prefer regenerating over hand-editing.
-- Monochrome OKLCH palette. Glows must be `rgba(255,255,255,*)` in dark and `rgba(0,0,0,*)` in light.
-- `--accent` is near-white in light mode (`oklch(0.97 0 0)`). Never use `bg-accent` / `border-accent` for anything that must stay visible in light mode — prefer `foreground/20` style tokens. (Known live instance: the footer scroll-to-top button.)
-- Dark mode uses `@custom-variant dark (&:is(.dark *))`, but `components/theme-provider.tsx` is **not mounted in `app/layout.tsx`** — nothing ever adds the `.dark` class. Dark styles are currently dead code; wiring the provider into the layout is what turns them on.
+- Monochrome OKLCH palette. Glows are `rgba(0,0,0,*)` — the site renders in light mode only (see below).
+- `--accent` is near-white (`oklch(0.97 0 0)`). Never use `bg-accent` / `border-accent` for anything that must stay visible — prefer `foreground/20` style tokens. (Known live instance: the footer scroll-to-top button.)
+- **The site is light-only (f-004).** There is no `ThemeProvider` and no `.dark` token block; nothing ever adds the `.dark` class. Only `:root` tokens exist, so style against those and don't add `dark:` variants to first-party components.
+- `@custom-variant dark (&:is(.dark *))` **stays in `app/globals.css` on purpose — do not delete it.** The generated shadcn primitives in `components/ui/` ship 43 `dark:` utilities. The custom variant compiles them to `:is(.dark *)` selectors that never match, keeping them inert. Remove it and Tailwind v4 falls back to its built-in `prefers-color-scheme` dark variant, which switches all of them on for OS-dark visitors against light-only tokens. Verified in the emitted CSS: with the variant, 0 `prefers-color-scheme` rules; without it, the media query appears.
 
 ## Animation
 

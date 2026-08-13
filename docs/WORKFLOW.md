@@ -46,7 +46,7 @@ npm run build       # obligatorio: es el export estático real
 Además, según lo que toque el ticket:
 
 - **Rutas o `data/projects.data.ts`** → comprobar `out/` de verdad: `ls out/portfolio/` y `grep` en `out/sitemap.xml`. El listado de rutas que imprime `next build` trunca a partir de 3 (`[+N more paths]`), así que no basta con leerlo.
-- **UI** → `npm run dev` + review con la skill `impeccable`. Comprobar light *y* dark aunque el theme provider no esté montado hoy.
+- **UI** → `npm run dev` + review con la skill `impeccable`. Solo light: desde f-004 el sitio es light-only y no hay dark mode que comprobar.
 - **Textos** → verificar en inglés y en alemán; el store arranca en alemán.
 - **Analytics** → los eventos no se pueden verificar en local sin GA; describir en el ticket qué evento debería dispararse y dónde.
 
